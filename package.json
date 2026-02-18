@@ -1,0 +1,20 @@
+{
+  "name": "pokemon-calc",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.4",
+    "vite": "^6.0.0"
+  },
+  "dependencies": {
+    "@smogon/calc": "^0.10.0",
+    "bootstrap": "^5.3.8",
+    "vue": "^3.5.28"
+  }
+}
