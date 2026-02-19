@@ -41,8 +41,53 @@ export const useBattleStore = defineStore('battle', () => {
 	const defenderBoosts = ref({ ...EMPTY_BOOSTS })
 	const isCrit = ref(false)
 
+	const myMoveMemory = ref({})
+	const theirMoveMemory = ref({})
+	let lastPartySnapshot = null
+
+	function restoreMyMove(index) {
+		const memorized = myMoveMemory.value[index]
+		if (memorized) {
+			selectedMove.value = memorized
+			moveFromOpponent.value = false
+			return
+		}
+		const slot = usePartyStore().getSlot(index)
+		const firstMove = slot?.moves?.filter(Boolean)[0] ?? null
+		selectedMove.value = firstMove
+		moveFromOpponent.value = false
+	}
+
+	function restoreTheirMove(index) {
+		const memorized = theirMoveMemory.value[index]
+		if (memorized) {
+			selectedMove.value = memorized
+			moveFromOpponent.value = true
+			return
+		}
+		const slot = useOpponentPartyStore().getSlot(index)
+		const firstMove = slot?.moves?.filter(Boolean)[0] ?? null
+		if (firstMove) {
+			selectedMove.value = firstMove
+			moveFromOpponent.value = true
+		} else {
+			selectedMove.value = null
+			moveFromOpponent.value = false
+		}
+	}
+
+	function resetBattleUI() {
+		selectedMove.value = null
+		moveFromOpponent.value = false
+		calcResult.value = null
+		myMoveMemory.value = {}
+		theirMoveMemory.value = {}
+		resetConditions()
+	}
+
 	function resetOpponentSelection() {
 		selectedTheirIndex.value = null
+		theirMoveMemory.value = {}
 		selectedMove.value = null
 		moveFromOpponent.value = false
 		calcResult.value = null
@@ -70,19 +115,27 @@ export const useBattleStore = defineStore('battle', () => {
 	})
 
 	function setMyPokemon(index) {
+		const oldIndex = selectedMyIndex.value
+		if (oldIndex != null && selectedMove.value != null && !moveFromOpponent.value) {
+			myMoveMemory.value = { ...myMoveMemory.value, [oldIndex]: selectedMove.value }
+		}
 		selectedMyIndex.value = index
-		selectedMove.value = null
-		moveFromOpponent.value = false
 		calcResult.value = null
-		resetConditions()
+		if (!moveFromOpponent.value || selectedMove.value == null) {
+			restoreMyMove(index)
+		}
 	}
 
 	function setTheirPokemon(index) {
+		const oldIndex = selectedTheirIndex.value
+		if (oldIndex != null && selectedMove.value != null && moveFromOpponent.value) {
+			theirMoveMemory.value = { ...theirMoveMemory.value, [oldIndex]: selectedMove.value }
+		}
 		selectedTheirIndex.value = index
-		selectedMove.value = null
-		moveFromOpponent.value = false
 		calcResult.value = null
-		resetConditions()
+		if (moveFromOpponent.value || selectedMove.value == null) {
+			restoreTheirMove(index)
+		}
 	}
 
 	function setMove(move, fromOpponent = false) {
@@ -90,6 +143,11 @@ export const useBattleStore = defineStore('battle', () => {
 		selectedMove.value = move
 		moveFromOpponent.value = fromOpponent
 		calcResult.value = null
+		if (fromOpponent && selectedTheirIndex.value != null) {
+			theirMoveMemory.value = { ...theirMoveMemory.value, [selectedTheirIndex.value]: move }
+		} else if (!fromOpponent && selectedMyIndex.value != null) {
+			myMoveMemory.value = { ...myMoveMemory.value, [selectedMyIndex.value]: move }
+		}
 	}
 
 	function setAttackerSide(side) {
@@ -170,6 +228,12 @@ export const useBattleStore = defineStore('battle', () => {
 	function ensureValidSelection() {
 		const partyStore = usePartyStore()
 		const opponentStore = useOpponentPartyStore()
+		const snapshot = JSON.stringify([partyStore.party, opponentStore.party])
+		if (lastPartySnapshot !== null && snapshot !== lastPartySnapshot) {
+			resetBattleUI()
+		}
+		lastPartySnapshot = snapshot
+
 		let firstMy = -1
 		let firstTheir = -1
 		for (let i = 0; i < 6; i++) {
@@ -178,9 +242,11 @@ export const useBattleStore = defineStore('battle', () => {
 		}
 		if (firstMy >= 0 && (selectedMyIndex.value == null || !partyStore.getSlot(selectedMyIndex.value)?.species)) {
 			selectedMyIndex.value = firstMy
+			restoreMyMove(firstMy)
 		}
 		if (firstTheir >= 0 && (selectedTheirIndex.value == null || !opponentStore.getSlot(selectedTheirIndex.value)?.species)) {
 			selectedTheirIndex.value = firstTheir
+			restoreTheirMove(firstTheir)
 		}
 		// Auto-select first hero move when none selected
 		if (selectedMove.value == null && firstMy >= 0 && firstTheir >= 0) {
@@ -199,6 +265,8 @@ export const useBattleStore = defineStore('battle', () => {
 		selectedMove.value = null
 		moveFromOpponent.value = false
 		calcResult.value = null
+		myMoveMemory.value = {}
+		theirMoveMemory.value = {}
 		resetConditions()
 	}
 
