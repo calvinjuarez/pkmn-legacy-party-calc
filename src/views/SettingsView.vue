@@ -8,6 +8,12 @@ const settings = useSettingsStore()
 	<div class="settings-view">
 		<h1>Settings</h1>
 		<div class="form-group">
+			<button type="button" class="btn btn-outline" @click="settings.clearStorageExceptParty()">
+				Clear storage (keep party)
+			</button>
+			<p class="form-help">Removes opponent party, battle selection, and settings. Your party is preserved. Page will reload.</p>
+		</div>
+		<div class="form-group">
 			<label>Default stat input for new slots</label>
 			<div class="radio-group">
 				<label class="radio-option">
@@ -48,5 +54,20 @@ const settings = useSettingsStore()
 }
 .radio-option input {
 	margin-top: 0.25rem;
+}
+.form-help {
+	font-size: 0.85rem;
+	color: #666;
+	margin-top: 0.5rem;
+	margin-bottom: 0;
+}
+.btn-outline {
+	background: transparent;
+	border: 2px solid #dc3545;
+	color: #dc3545;
+}
+.btn-outline:hover {
+	background: #dc3545;
+	color: #fff;
 }
 </style>
