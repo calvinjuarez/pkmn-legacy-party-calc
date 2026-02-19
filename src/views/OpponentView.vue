@@ -169,7 +169,7 @@ function partySummary(party) {
 					<button
 						v-for="t in gymLeaders"
 						:key="t.class + t.variantId"
-						class="trainer-card"
+						class="trainer-card card"
 						@click="selectTrainer(t)"
 					>
 						<div class="trainer-header">
@@ -187,7 +187,7 @@ function partySummary(party) {
 					<button
 						v-for="t in eliteFour"
 						:key="t.class + t.variantId"
-						class="trainer-card"
+						class="trainer-card card"
 						@click="selectTrainer(t)"
 					>
 						<div class="trainer-header">
@@ -206,7 +206,7 @@ function partySummary(party) {
 					<button
 						v-for="t in champion"
 						:key="t.class + t.variantId"
-						class="trainer-card"
+						class="trainer-card card"
 						@click="selectTrainer(t)"
 					>
 						<div class="trainer-header">
@@ -225,7 +225,7 @@ function partySummary(party) {
 				<button
 					v-for="t in rematches"
 					:key="t.class + t.variantId"
-					class="trainer-card"
+					class="trainer-card card"
 					@click="selectTrainer(t)"
 				>
 					<div class="trainer-header">
@@ -246,7 +246,7 @@ function partySummary(party) {
 					<button
 						v-for="t in rivalFights"
 						:key="t.class + t.variantId"
-						class="trainer-card"
+						class="trainer-card card"
 						@click="selectTrainer(t)"
 					>
 						<div class="trainer-header">
@@ -264,7 +264,7 @@ function partySummary(party) {
 					<button
 						v-for="t in rocketBosses"
 						:key="t.class + t.variantId"
-						class="trainer-card"
+						class="trainer-card card"
 						@click="selectTrainer(t)"
 					>
 						<div class="trainer-header">
@@ -282,7 +282,7 @@ function partySummary(party) {
 					<button
 						v-for="t in devBosses"
 						:key="t.class + t.variantId"
-						class="trainer-card"
+						class="trainer-card card"
 						@click="selectTrainer(t)"
 					>
 						<div class="trainer-header">
@@ -352,8 +352,6 @@ function partySummary(party) {
 	align-items: stretch;
 	padding: 1rem;
 	border: 2px solid #ddd;
-	border-radius: 8px;
-	background: #fff;
 	cursor: pointer;
 	text-align: left;
 }

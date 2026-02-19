@@ -104,7 +104,7 @@ function hpDv(slot) {
 			<button
 				v-for="(slot, i) in party"
 				:key="i"
-				class="slot-card"
+				class="slot-card card"
 				:class="{ selected: effectiveSelectedIndex === i }"
 				@click="selectSlot(i)"
 			>
@@ -116,7 +116,7 @@ function hpDv(slot) {
 			</button>
 		</div>
 
-		<div v-if="selectedSlot" class="editor-panel">
+		<div v-if="selectedSlot" class="editor-panel well">
 			<h2>{{ editorTitle }} {{ effectiveSelectedIndex + 1 }}</h2>
 
 			<div class="form-group">
@@ -255,8 +255,6 @@ function hpDv(slot) {
 .slot-card {
 	padding: 1rem;
 	border: 2px solid #ddd;
-	border-radius: 8px;
-	background: #fff;
 	cursor: pointer;
 	text-align: left;
 }
@@ -276,9 +274,7 @@ function hpDv(slot) {
 	margin-top: 0.25rem;
 }
 .editor-panel {
-	background: #f8f9fa;
 	padding: 1.5rem;
-	border-radius: 8px;
 }
 .form-group, .stats-section, .moves-section {
 	margin-bottom: 1rem;

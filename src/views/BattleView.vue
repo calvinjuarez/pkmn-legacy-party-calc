@@ -130,7 +130,7 @@ watch(
 		<h1>Battle Calculator</h1>
 
 		<div class="battle-main">
-			<aside class="sidebar sidebar-my-party">
+			<aside class="sidebar sidebar-my-party well">
 				<div class="sidebar-header">
 					<h2>Your Party</h2>
 					<router-link to="/party" class="edit-link">Edit</router-link>
@@ -150,7 +150,7 @@ watch(
 
 			<main class="matchup-view">
 				<div v-if="myPokemon && theirPokemon" class="matchup-content">
-					<div class="result-summary">
+					<div class="result-summary card">
 						<div class="result-main">
 							<div v-if="result" class="result-panel">
 								<div v-if="result.noDamage" class="ko-chance-hero ko-chance-none">Status move — no damage</div>
@@ -226,12 +226,12 @@ watch(
 						/>
 					</div>
 				</div>
-				<div v-else class="matchup-placeholder">
+				<div v-else class="matchup-placeholder well">
 					<p>Select a Pokemon from each side to run damage calculations.</p>
 				</div>
 			</main>
 
-			<aside class="sidebar sidebar-their-party">
+			<aside class="sidebar sidebar-their-party well">
 				<div class="sidebar-header">
 					<h2>Opponent</h2>
 					<router-link to="/opponent" class="edit-link">Edit</router-link>
@@ -263,9 +263,7 @@ watch(
 	align-items: start;
 }
 .sidebar {
-	background: #f8f9fa;
 	padding: 1rem 1.25rem;
-	border-radius: 8px;
 	position: sticky;
 	top: 1rem;
 }
@@ -292,10 +290,7 @@ watch(
 	gap: 1rem;
 }
 .result-summary {
-	background: #fff;
 	padding: 1.25rem 1.5rem;
-	border-radius: 8px;
-	border: 1px solid #e9ecef;
 	display: flex;
 	gap: 1.5rem;
 	align-items: stretch;
@@ -360,9 +355,7 @@ watch(
 	font-size: 0.9rem;
 }
 .matchup-placeholder {
-	background: #f8f9fa;
 	padding: 3rem 2rem;
-	border-radius: 8px;
 	text-align: center;
 	color: #666;
 }

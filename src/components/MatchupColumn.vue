@@ -1,5 +1,5 @@
 <script setup>
-import { getPokemon, calcGen1Stat } from '../services/gamedata'
+import { calcGen1Stat, getPokemon } from '../services/gamedata'
 import FieldEffectsSide from './FieldEffectsSide.vue'
 
 function displayStat(pokemon, stat) {
@@ -39,78 +39,80 @@ defineProps({
 	specialValue: { type: Number, default: 0 },
 	sideEffects: { type: Object, default: () => ({}) },
 	isMoveSelected: { type: Function, default: () => false },
-	onSetMove: { type: Function, default: () => {} },
-	onSetStatus: { type: Function, default: () => {} },
-	onSetBoost: { type: Function, default: () => {} },
-	onSetSpecial: { type: Function, default: () => {} },
-	onSetSide: { type: Function, default: () => {} },
+	onSetMove: { type: Function, default: () => { } },
+	onSetStatus: { type: Function, default: () => { } },
+	onSetBoost: { type: Function, default: () => { } },
+	onSetSpecial: { type: Function, default: () => { } },
+	onSetSide: { type: Function, default: () => { } },
 })
 </script>
 
 <template>
 	<div class="matchup-column">
-		<FieldEffectsSide
-			:label="sideLabel || label"
-			:side-effects="sideEffects"
-			:on-set-side="onSetSide"
-		/>
-		<div class="matchup-card">
-			<div class="pokemon-header">
-				<strong>{{ label }}</strong>
-				<template v-if="pokemon"> Lv.{{ pokemon.level }}</template>
+		<div class="matchup-card-back well">
+			<div class="matchup-card-back-content">
+				<FieldEffectsSide
+					:label="sideLabel || label"
+					:side-effects="sideEffects"
+					:on-set-side="onSetSide" />
 			</div>
-			<div v-if="pokemon?.species" class="pokemon-stats">
-				<span v-for="stat in ['hp','atk','def','spe','spc']" :key="stat" class="stat-chip">
-					{{ STAT_LABELS[stat] }} {{ displayStat(pokemon, stat) ?? '-' }}
-				</span>
-			</div>
-			<div class="move-section">
-				<label>Move</label>
-				<div class="move-buttons">
-					<template v-for="(m, i) in moves" :key="m?.id ?? i">
-						<button
-							v-if="m"
-							class="btn btn-nowrap"
-							:class="{ selected: isMoveSelected(m.id) }"
-							@click="onSetMove(m.id)"
-						>
-							{{ m.displayName }} ({{ m.power }})
-						</button>
-						<div v-else class="move-slot-empty" />
-					</template>
+			<div class="matchup-card card">
+				<div class="pokemon-header">
+					<strong>{{ label }}</strong>
+					<template v-if="pokemon"> Lv.{{ pokemon.level }}</template>
 				</div>
-			</div>
-			<div class="condition-group">
-				<label>Status</label>
-				<select :value="status" @change="onSetStatus($event.target.value)">
-					<option v-for="opt in STATUS_OPTIONS" :key="opt.value" :value="opt.value">{{ opt.label }}</option>
-				</select>
-			</div>
-			<div class="condition-group stat-boosts">
-				<label>Stat Boosts</label>
-				<div class="boost-row">
-					<span>Atk</span>
-					<select :value="boosts.atk" @change="onSetBoost('atk', Number($event.target.value))">
-						<option v-for="b in BOOST_OPTIONS" :key="b" :value="b">{{ b >= 0 ? '+' : '' }}{{ b }}</option>
+				<div v-if="pokemon?.species" class="pokemon-stats">
+					<span v-for="stat in ['hp','atk','def','spe','spc']" :key="stat" class="stat-chip">
+						{{ STAT_LABELS[stat] }} {{ displayStat(pokemon, stat) ?? '-' }}
+					</span>
+				</div>
+				<div class="move-section">
+					<label>Move</label>
+					<div class="move-buttons">
+						<template v-for="(m, i) in moves" :key="m?.id ?? i">
+							<button
+								v-if="m"
+								class="btn btn-nowrap"
+								:class="{ selected: isMoveSelected(m.id) }"
+								@click="onSetMove(m.id)">
+								{{ m.displayName }} ({{ m.power }})
+							</button>
+							<div v-else class="move-slot-empty" />
+						</template>
+					</div>
+				</div>
+				<div class="condition-group">
+					<label>Status</label>
+					<select :value="status" @change="onSetStatus($event.target.value)">
+						<option v-for="opt in STATUS_OPTIONS" :key="opt.value" :value="opt.value">{{ opt.label }}</option>
 					</select>
 				</div>
-				<div class="boost-row">
-					<span>Def</span>
-					<select :value="boosts.def" @change="onSetBoost('def', Number($event.target.value))">
-						<option v-for="b in BOOST_OPTIONS" :key="b" :value="b">{{ b >= 0 ? '+' : '' }}{{ b }}</option>
-					</select>
-				</div>
-				<div class="boost-row">
-					<span>Spc</span>
-					<select :value="specialValue" @change="onSetSpecial(Number($event.target.value))">
-						<option v-for="b in BOOST_OPTIONS" :key="b" :value="b">{{ b >= 0 ? '+' : '' }}{{ b }}</option>
-					</select>
-				</div>
-				<div class="boost-row">
-					<span>Spe</span>
-					<select :value="boosts.spe" @change="onSetBoost('spe', Number($event.target.value))">
-						<option v-for="b in BOOST_OPTIONS" :key="b" :value="b">{{ b >= 0 ? '+' : '' }}{{ b }}</option>
-					</select>
+				<div class="condition-group stat-boosts">
+					<label>Stat Boosts</label>
+					<div class="boost-row">
+						<span>Atk</span>
+						<select :value="boosts.atk" @change="onSetBoost('atk', Number($event.target.value))">
+							<option v-for="b in BOOST_OPTIONS" :key="b" :value="b">{{ b >= 0 ? '+' : '' }}{{ b }}</option>
+						</select>
+					</div>
+					<div class="boost-row">
+						<span>Def</span>
+						<select :value="boosts.def" @change="onSetBoost('def', Number($event.target.value))">
+							<option v-for="b in BOOST_OPTIONS" :key="b" :value="b">{{ b >= 0 ? '+' : '' }}{{ b }}</option>
+						</select>
+					</div>
+					<div class="boost-row">
+						<span>Spc</span>
+						<select :value="specialValue" @change="onSetSpecial(Number($event.target.value))">
+							<option v-for="b in BOOST_OPTIONS" :key="b" :value="b">{{ b >= 0 ? '+' : '' }}{{ b }}</option>
+						</select>
+					</div>
+					<div class="boost-row">
+						<span>Spe</span>
+						<select :value="boosts.spe" @change="onSetBoost('spe', Number($event.target.value))">
+							<option v-for="b in BOOST_OPTIONS" :key="b" :value="b">{{ b >= 0 ? '+' : '' }}{{ b }}</option>
+						</select>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -123,17 +125,11 @@ defineProps({
 	flex-direction: column;
 	gap: 0.75rem;
 }
-.matchup-column :deep(.field-effects-side) {
-	background: #f8f9fa;
+.matchup-card-back-content {
 	padding: 0.5rem 1rem;
-	border-radius: 6px;
-	border: 1px solid #e9ecef;
 }
 .matchup-card {
-	background: #fff;
 	padding: 1rem 1.25rem;
-	border-radius: 8px;
-	border: 1px solid #e9ecef;
 }
 .pokemon-header {
 	margin-bottom: 0.5rem;
