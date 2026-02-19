@@ -35,15 +35,17 @@ function getMovesAtLevel(speciesId, level) {
 	const moves = level1Moves.slice(0, 4).map(m => m || null)
 	while (moves.length < 4) moves.push(null)
 
-	// Add learnset moves to first empty slot (like WriteMonMoves)
+	// Add learnset moves (like WriteMonMoves): fill empty slots first,
+	// then shift moves left (drop oldest) and add at the end when full.
 	const atLevel = learnset.filter(l => l.level <= level).sort((a, b) => a.level - b.level)
-	const known = new Set(moves.filter(Boolean))
 	for (const { move } of atLevel) {
-		if (known.has(move)) continue
+		if (moves.includes(move)) continue
 		const emptyIdx = moves.findIndex(m => m == null)
 		if (emptyIdx >= 0) {
 			moves[emptyIdx] = move
-			known.add(move)
+		} else {
+			moves.shift()
+			moves.push(move)
 		}
 	}
 
