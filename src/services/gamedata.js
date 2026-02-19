@@ -3,13 +3,13 @@
  * and converts to @smogon/calc format with overrides.
  */
 
-import { calculate, Pokemon, Move, Field } from '@smogon/calc'
-import { DISPLAY_OVERRIDES, toDisplayName } from './gamedata.const.js'
-import pokemonData from '../data/pokemon.json'
-import movesData from '../data/moves.json'
+import { calculate, Field, Move, Pokemon } from '@smogon/calc'
 import learnsetsData from '../data/learnsets.json'
-import typesData from '../data/types.json'
+import movesData from '../data/moves.json'
+import pokemonData from '../data/pokemon.json'
 import trainersData from '../data/trainers.json'
+import typesData from '../data/types.json'
+import { DISPLAY_OVERRIDES, toDisplayName } from './gamedata.const.js'
 
 const GEN = 1
 
@@ -232,18 +232,32 @@ export function trainerMonToCalcPokemon(trainerMon) {
 }
 
 /**
+ * Check if defender is a party slot (has dvs, useAdvanced, or stats) vs raw trainer mon.
+ */
+function isPartySlot(defender) {
+	if (!defender?.species) return false
+	return defender.dvs != null || defender.useAdvanced === true || defender.stats != null
+}
+
+/**
  * Run damage calculation.
  * Attacker = your party Pokemon (with DVs, Stat Exp).
- * Defender = opponent's Pokemon (uses default NPC stats).
+ * Defender = opponent's Pokemon. If party slot (has dvs/useAdvanced/stats), use toCalcPokemon; else trainerMonToCalcPokemon.
  * @param {object} options - Optional: attackerSide, defenderSide, attackerStatus, defenderStatus, attackerBoosts, defenderBoosts, isCrit
  */
 export function runDamageCalc(attacker, defender, moveName, options = {}) {
 	const calcAttacker = toCalcPokemon(attacker, true)
-	const calcDefender = trainerMonToCalcPokemon(defender)
+	const calcDefender = isPartySlot(defender)
+		? toCalcPokemon(defender, false)
+		: trainerMonToCalcPokemon(defender)
 	if (!calcAttacker || !calcDefender) return null
 
 	const moveData = getMove(moveName)
 	if (!moveData) return null
+
+	if (!moveData.power) {
+		return { noDamage: true }
+	}
 
 	if (options.attackerStatus) calcAttacker.status = options.attackerStatus
 	if (options.defenderStatus) calcDefender.status = options.defenderStatus
@@ -261,6 +275,8 @@ export function runDamageCalc(attacker, defender, moveName, options = {}) {
 	const field = new Field({
 		attackerSide: options.attackerSide ?? {},
 		defenderSide: options.defenderSide ?? {},
+		// Yellow Legacy: Leech Seed does 1/8 instead of 1/16
+		leechSeedDivisor: 8,
 	})
 
 	const calcMove = new Move(GEN, moveData.displayName, {
@@ -276,6 +292,6 @@ export function runDamageCalc(attacker, defender, moveName, options = {}) {
 		return calculate(GEN, calcAttacker, calcDefender, calcMove, field)
 	} catch (e) {
 		console.error('Calc error:', e)
-		return null
+		return { noDamage: true }
 	}
 }
