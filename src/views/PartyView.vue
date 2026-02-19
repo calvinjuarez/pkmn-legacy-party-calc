@@ -14,6 +14,7 @@ const partyStore = usePartyStore()
 			:party="partyStore.party"
 			:get-slot="(i) => partyStore.getSlot(i)"
 			:set-slot="(i, data) => partyStore.setSlot(i, data)"
+			:clear-slot="(i) => partyStore.clearSlot(i)"
 			editor-title="Edit Slot"
 			:show-nickname="true"
 		/>

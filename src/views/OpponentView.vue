@@ -153,6 +153,7 @@ function partySummary(party) {
 				:party="opponentPartyStore.party"
 				:get-slot="(i) => opponentPartyStore.getSlot(i)"
 				:set-slot="(i, data) => opponentPartyStore.setSlot(i, data)"
+				:clear-slot="(i) => opponentPartyStore.clearSlot(i)"
 				editor-title="Edit Slot"
 			/>
 		</div>

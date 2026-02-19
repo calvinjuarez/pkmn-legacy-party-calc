@@ -6,6 +6,8 @@ const props = defineProps({
 	party: { type: Array, required: true },
 	getSlot: { type: Function, required: true },
 	setSlot: { type: Function, required: true },
+	/** Optional. When provided, shows Remove link to clear the slot. */
+	clearSlot: { type: Function, default: undefined },
 	editorTitle: { type: String, default: 'Edit Slot' },
 	/** When provided, parent controls selection (e.g. battle store). */
 	selectedIndex: { type: Number, default: undefined },
@@ -57,6 +59,11 @@ function computedStat(slot, stat) {
 function selectSlot(index) {
 	internalSelectedIndex.value = index
 	emit('select', index)
+}
+
+function handleRemove() {
+	if (effectiveSelectedIndex.value == null || !props.clearSlot) return
+	props.clearSlot(effectiveSelectedIndex.value)
 }
 
 function updateSlot(field, value) {
@@ -117,7 +124,15 @@ function hpDv(slot) {
 		</div>
 
 		<div v-if="selectedSlot" class="editor-panel well">
-			<h2>{{ editorTitle }} {{ effectiveSelectedIndex + 1 }}</h2>
+			<div class="editor-header">
+				<h2>{{ editorTitle }} {{ effectiveSelectedIndex + 1 }}</h2>
+				<a
+					v-if="selectedSlot.species && clearSlot"
+					href="#"
+					class="remove-link"
+					@click.prevent="handleRemove"
+				>Remove</a>
+			</div>
 
 			<div class="form-group">
 				<label>Species</label>
@@ -286,6 +301,25 @@ function hpDv(slot) {
 }
 .editor-panel {
 	padding: 1.5rem;
+}
+.editor-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	margin-bottom: 1rem;
+}
+.editor-header h2 {
+	margin: 0;
+}
+.remove-link {
+	font-size: 0.9rem;
+	color: #0d6efd;
+	text-decoration: none;
+	flex-shrink: 0;
+}
+.remove-link:hover {
+	text-decoration: underline;
 }
 .form-group,
 .stats-section,
