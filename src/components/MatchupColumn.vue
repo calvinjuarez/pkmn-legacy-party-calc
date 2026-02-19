@@ -1,4 +1,6 @@
 <script setup>
+import FieldEffectsSide from './FieldEffectsSide.vue'
+
 const STATUS_OPTIONS = [
 	{ value: '', label: 'None' },
 	{ value: 'brn', label: 'Burn' },
@@ -13,6 +15,7 @@ const BOOST_OPTIONS = [-6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6]
 
 defineProps({
 	label: { type: String, required: true },
+	sideLabel: { type: String, default: '' },
 	pokemon: { type: Object, default: null },
 	moves: { type: Array, default: () => [] },
 	status: { type: String, default: '' },
@@ -30,35 +33,15 @@ defineProps({
 
 <template>
 	<div class="matchup-column">
+		<FieldEffectsSide
+			:label="sideLabel || label"
+			:side-effects="sideEffects"
+			:on-set-side="onSetSide"
+		/>
+		<div class="matchup-card">
 		<div class="pokemon-header">
 			<strong>{{ label }}</strong>
 			<template v-if="pokemon"> Lv.{{ pokemon.level }}</template>
-		</div>
-		<div class="condition-group field-toggles">
-			<label class="checkbox-label">
-				<input
-					type="checkbox"
-					:checked="sideEffects.isReflect"
-					@change="onSetSide({ isReflect: $event.target.checked })"
-				/>
-				Reflect
-			</label>
-			<label class="checkbox-label">
-				<input
-					type="checkbox"
-					:checked="sideEffects.isLightScreen"
-					@change="onSetSide({ isLightScreen: $event.target.checked })"
-				/>
-				Light Screen
-			</label>
-			<label class="checkbox-label">
-				<input
-					type="checkbox"
-					:checked="sideEffects.isSeeded"
-					@change="onSetSide({ isSeeded: $event.target.checked })"
-				/>
-				Leech Seed
-			</label>
 		</div>
 		<div class="move-section">
 			<label>Move</label>
@@ -109,11 +92,23 @@ defineProps({
 				</select>
 			</div>
 		</div>
+		</div>
 	</div>
 </template>
 
 <style scoped>
 .matchup-column {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+}
+.matchup-column :deep(.field-effects-side) {
+	background: #f8f9fa;
+	padding: 0.5rem 1rem;
+	border-radius: 6px;
+	border: 1px solid #e9ecef;
+}
+.matchup-card {
 	background: #fff;
 	padding: 1rem 1.25rem;
 	border-radius: 8px;
@@ -176,16 +171,5 @@ defineProps({
 .stat-boosts .boost-row select {
 	width: 4rem;
 	padding: 0.25rem;
-}
-.field-toggles .checkbox-label {
-	display: flex;
-	align-items: center;
-	gap: 0.5rem;
-	margin-bottom: 0.35rem;
-	font-size: 0.9rem;
-	cursor: pointer;
-}
-.field-toggles .checkbox-label input {
-	cursor: pointer;
 }
 </style>

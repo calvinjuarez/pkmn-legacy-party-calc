@@ -194,6 +194,7 @@ watch(
 					<div class="matchup-panel">
 						<MatchupColumn
 							:label="slotDisplayName(myPokemon) || 'Your Pokémon'"
+							side-label="Your side"
 							:pokemon="myPokemon"
 							:moves="myMovesPadded"
 							:status="battleStore.attackerStatus"
@@ -209,6 +210,7 @@ watch(
 						/>
 						<MatchupColumn
 							:label="slotDisplayName(theirPokemon) || 'Opponent'"
+							side-label="Opponent"
 							:pokemon="theirPokemon"
 							:moves="theirMovesPadded"
 							:status="battleStore.defenderStatus"
