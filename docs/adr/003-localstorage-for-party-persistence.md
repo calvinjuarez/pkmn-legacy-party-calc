@@ -12,9 +12,9 @@ Users need to save their party (species, level, DVs, Stat Exp, moves) between se
 
 Use `localStorage` for party persistence. The Pinia party store watches its state and saves to `localStorage` on change. The store hydrates from `localStorage` on init. The implementation is designed so a backend can be swapped in later without changing the store's public API.
 
-The same pattern is used for battle state in the battle store:
-- **Opponent** (`pokemon-calc-opponent`): we persist `{ classId, variantId }` and resolve to the full trainer on load via `getTrainerById()`.
-- **Active Pokemon** (`pokemon-calc-selection`): we persist `{ myIndex, theirIndex }` for the selected party slot on each side. Indices are validated on load (myIndex 0–5, theirIndex within opponent's party length).
+The same pattern is used for battle state:
+- **Opponent party** (`pokemon-calc-opponent-party`): we persist the full opponent party (6 slots, same shape as your party). See ADR-008.
+- **Active Pokemon** (`pokemon-calc-selection`): we persist `{ myIndex, theirIndex }` for the selected party slot on each side. Indices are validated on load (0–5).
 
 ## Consequences
 
