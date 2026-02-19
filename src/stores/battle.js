@@ -5,19 +5,23 @@ import { usePartyStore } from './party'
 import { useOpponentPartyStore } from './opponentParty'
 
 const EMPTY_BOOSTS = { atk: 0, def: 0, spa: 0, spd: 0, spe: 0 }
-const SELECTION_KEY = 'pokemon-calc-selection'
+const SELECTION_MY_KEY = 'pokemon-calc-selection-my'
+const SELECTION_THEIR_KEY = 'pokemon-calc-selection-their'
 
 function loadSelectionFromStorage() {
-	try {
-		const raw = localStorage.getItem(SELECTION_KEY)
-		if (!raw) return { myIndex: null, theirIndex: null }
-		const { myIndex, theirIndex } = JSON.parse(raw)
-		const my = typeof myIndex === 'number' && myIndex >= 0 && myIndex <= 5 ? myIndex : null
-		const their = typeof theirIndex === 'number' && theirIndex >= 0 && theirIndex <= 5 ? theirIndex : null
-		return { myIndex: my, theirIndex: their }
-	} catch (e) {
-		console.warn('Failed to load selection from storage:', e)
-		return { myIndex: null, theirIndex: null }
+	function parseIndex(key, max) {
+		try {
+			const raw = localStorage.getItem(key)
+			if (raw == null) return null
+			const n = parseInt(raw, 10)
+			return typeof n === 'number' && !isNaN(n) && n >= 0 && n <= max ? n : null
+		} catch (e) {
+			return null
+		}
+	}
+	return {
+		myIndex: parseIndex(SELECTION_MY_KEY, 5),
+		theirIndex: parseIndex(SELECTION_THEIR_KEY, 5),
 	}
 }
 
@@ -36,6 +40,14 @@ export const useBattleStore = defineStore('battle', () => {
 	const attackerBoosts = ref({ ...EMPTY_BOOSTS })
 	const defenderBoosts = ref({ ...EMPTY_BOOSTS })
 	const isCrit = ref(false)
+
+	function resetOpponentSelection() {
+		selectedTheirIndex.value = null
+		selectedMove.value = null
+		moveFromOpponent.value = false
+		calcResult.value = null
+		resetConditions()
+	}
 
 	function resetConditions() {
 		attackerSide.value = { isReflect: false, isLightScreen: false, isSeeded: false }
@@ -194,11 +206,10 @@ export const useBattleStore = defineStore('battle', () => {
 		try {
 			const my = selectedMyIndex.value
 			const their = selectedTheirIndex.value
-			if (my == null && their == null) {
-				localStorage.removeItem(SELECTION_KEY)
-				return
-			}
-			localStorage.setItem(SELECTION_KEY, JSON.stringify({ myIndex: my, theirIndex: their }))
+			if (my == null) localStorage.removeItem(SELECTION_MY_KEY)
+			else localStorage.setItem(SELECTION_MY_KEY, String(my))
+			if (their == null) localStorage.removeItem(SELECTION_THEIR_KEY)
+			else localStorage.setItem(SELECTION_THEIR_KEY, String(their))
 		} catch (e) {
 			console.warn('Failed to save selection to storage:', e)
 		}
@@ -225,6 +236,7 @@ export const useBattleStore = defineStore('battle', () => {
 		isCrit,
 		setMyPokemon,
 		setTheirPokemon,
+		resetOpponentSelection,
 		setMove,
 		setAttackerSide,
 		setDefenderSide,
