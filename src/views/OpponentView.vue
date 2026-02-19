@@ -1,5 +1,7 @@
 <script setup>
 import { ref, computed } from 'vue'
+import { useRouter } from 'vue-router'
+import { useBattleStore } from '../stores/battle'
 import { useOpponentPartyStore } from '../stores/opponentParty'
 import PartyBuilder from '../components/PartyBuilder.vue'
 import { getTrainerCategories, getPokemon, getTrainerDisplayName } from '../services/gamedata'
@@ -12,6 +14,8 @@ import {
 	JESSIE_JAMES_VARIANT_IDS,
 } from '../services/gamedata.const.js'
 
+const router = useRouter()
+const battleStore = useBattleStore()
 const opponentPartyStore = useOpponentPartyStore()
 const showTrainerPicker = ref(false)
 const categories = getTrainerCategories()
@@ -116,7 +120,8 @@ function displayName(t) {
 
 function selectTrainer(trainer) {
 	opponentPartyStore.loadFromTrainer(trainer)
-	showTrainerPicker.value = false
+	battleStore.resetOpponentSelection()
+	router.push('/battle')
 }
 
 function partySummary(party) {
