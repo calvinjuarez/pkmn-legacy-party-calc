@@ -8,6 +8,7 @@ function defaultSlot() {
 	const settings = useSettingsStore()
 	return {
 		species: null,
+		nickname: '',
 		level: 50,
 		stats: { hp: null, atk: null, def: null, spe: null, spc: null },
 		dvs: { atk: 15, def: 15, spe: 15, spc: 15 },
