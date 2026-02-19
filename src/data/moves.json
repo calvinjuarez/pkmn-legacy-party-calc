@@ -1,0 +1,1478 @@
+[
+	{
+		"id": "POUND",
+		"romName": "POUND",
+		"displayName": "Pound",
+		"power": 40,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 35
+	},
+	{
+		"id": "KARATE_CHOP",
+		"romName": "KARATE CHOP",
+		"displayName": "Karate Chop",
+		"power": 50,
+		"type": "Fighting",
+		"accuracy": 95,
+		"pp": 25
+	},
+	{
+		"id": "DOUBLESLAP",
+		"romName": "DOUBLESLAP",
+		"displayName": "Doubleslap",
+		"power": 20,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 35
+	},
+	{
+		"id": "COMET_PUNCH",
+		"romName": "COMET PUNCH",
+		"displayName": "Comet Punch",
+		"power": 25,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 25
+	},
+	{
+		"id": "MEGA_PUNCH",
+		"romName": "MEGA PUNCH",
+		"displayName": "Mega Punch",
+		"power": 80,
+		"type": "Normal",
+		"accuracy": 85,
+		"pp": 20
+	},
+	{
+		"id": "PAY_DAY",
+		"romName": "PAY DAY",
+		"displayName": "Pay Day",
+		"power": 60,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 20
+	},
+	{
+		"id": "FIRE_PUNCH",
+		"romName": "FIRE PUNCH",
+		"displayName": "Fire Punch",
+		"power": 70,
+		"type": "Fire",
+		"accuracy": 100,
+		"pp": 15
+	},
+	{
+		"id": "ICE_PUNCH",
+		"romName": "ICE PUNCH",
+		"displayName": "Ice Punch",
+		"power": 70,
+		"type": "Ice",
+		"accuracy": 100,
+		"pp": 15
+	},
+	{
+		"id": "THUNDERPUNCH",
+		"romName": "THUNDERPUNCH",
+		"displayName": "Thunderpunch",
+		"power": 70,
+		"type": "Electric",
+		"accuracy": 100,
+		"pp": 15
+	},
+	{
+		"id": "SCRATCH",
+		"romName": "SCRATCH",
+		"displayName": "Scratch",
+		"power": 40,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 35
+	},
+	{
+		"id": "VICEGRIP",
+		"romName": "VICEGRIP",
+		"displayName": "Vicegrip",
+		"power": 55,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 30
+	},
+	{
+		"id": "GUILLOTINE",
+		"romName": "GUILLOTINE",
+		"displayName": "Guillotine",
+		"power": 1,
+		"type": "Normal",
+		"accuracy": 30,
+		"pp": 5
+	},
+	{
+		"id": "RAZOR_WIND",
+		"romName": "RAZOR WIND",
+		"displayName": "Razor Wind",
+		"power": 80,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 10
+	},
+	{
+		"id": "SWORDS_DANCE",
+		"romName": "SWORDS DANCE",
+		"displayName": "Swords Dance",
+		"power": 0,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 30
+	},
+	{
+		"id": "CUT",
+		"romName": "CUT",
+		"displayName": "Cut",
+		"power": 55,
+		"type": "Bug",
+		"accuracy": 100,
+		"pp": 30
+	},
+	{
+		"id": "GUST",
+		"romName": "GUST",
+		"displayName": "Gust",
+		"power": 40,
+		"type": "Flying",
+		"accuracy": 100,
+		"pp": 35
+	},
+	{
+		"id": "WING_ATTACK",
+		"romName": "WING ATTACK",
+		"displayName": "Wing Attack",
+		"power": 60,
+		"type": "Flying",
+		"accuracy": 100,
+		"pp": 35
+	},
+	{
+		"id": "WHIRLWIND",
+		"romName": "WHIRLWIND",
+		"displayName": "Whirlwind",
+		"power": 0,
+		"type": "Normal",
+		"accuracy": 85,
+		"pp": 20
+	},
+	{
+		"id": "FLY",
+		"romName": "FLY",
+		"displayName": "Fly",
+		"power": 70,
+		"type": "Flying",
+		"accuracy": 100,
+		"pp": 15
+	},
+	{
+		"id": "BIND",
+		"romName": "BIND",
+		"displayName": "Bind",
+		"power": 15,
+		"type": "Normal",
+		"accuracy": 85,
+		"pp": 20
+	},
+	{
+		"id": "SLAM",
+		"romName": "SLAM",
+		"displayName": "Slam",
+		"power": 80,
+		"type": "Dragon",
+		"accuracy": 100,
+		"pp": 20
+	},
+	{
+		"id": "VINE_WHIP",
+		"romName": "VINE WHIP",
+		"displayName": "Vine Whip",
+		"power": 40,
+		"type": "Grass",
+		"accuracy": 100,
+		"pp": 25
+	},
+	{
+		"id": "STOMP",
+		"romName": "STOMP",
+		"displayName": "Stomp",
+		"power": 65,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 20
+	},
+	{
+		"id": "DOUBLE_KICK",
+		"romName": "DOUBLE KICK",
+		"displayName": "Double Kick",
+		"power": 30,
+		"type": "Fighting",
+		"accuracy": 100,
+		"pp": 30
+	},
+	{
+		"id": "MEGA_KICK",
+		"romName": "MEGA KICK",
+		"displayName": "Mega Kick",
+		"power": 120,
+		"type": "Normal",
+		"accuracy": 85,
+		"pp": 10
+	},
+	{
+		"id": "JUMP_KICK",
+		"romName": "JUMP KICK",
+		"displayName": "Jump Kick",
+		"power": 90,
+		"type": "Fighting",
+		"accuracy": 95,
+		"pp": 25
+	},
+	{
+		"id": "ROLLING_KICK",
+		"romName": "ROLLING KICK",
+		"displayName": "Rolling Kick",
+		"power": 70,
+		"type": "Fighting",
+		"accuracy": 100,
+		"pp": 15
+	},
+	{
+		"id": "SAND_ATTACK",
+		"romName": "SAND-ATTACK",
+		"displayName": "Sand Attack",
+		"power": 0,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 15
+	},
+	{
+		"id": "HEADBUTT",
+		"romName": "HEADBUTT",
+		"displayName": "Headbutt",
+		"power": 70,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 15
+	},
+	{
+		"id": "HORN_ATTACK",
+		"romName": "HORN ATTACK",
+		"displayName": "Horn Attack",
+		"power": 65,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 25
+	},
+	{
+		"id": "FURY_ATTACK",
+		"romName": "FURY ATTACK",
+		"displayName": "Fury Attack",
+		"power": 15,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 35
+	},
+	{
+		"id": "HORN_DRILL",
+		"romName": "HORN DRILL",
+		"displayName": "Horn Drill",
+		"power": 1,
+		"type": "Normal",
+		"accuracy": 30,
+		"pp": 5
+	},
+	{
+		"id": "TACKLE",
+		"romName": "TACKLE",
+		"displayName": "Tackle",
+		"power": 35,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 35
+	},
+	{
+		"id": "BODY_SLAM",
+		"romName": "BODY SLAM",
+		"displayName": "Body Slam",
+		"power": 85,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 15
+	},
+	{
+		"id": "WRAP",
+		"romName": "WRAP",
+		"displayName": "Wrap",
+		"power": 15,
+		"type": "Normal",
+		"accuracy": 85,
+		"pp": 20
+	},
+	{
+		"id": "TAKE_DOWN",
+		"romName": "TAKE DOWN",
+		"displayName": "Take Down",
+		"power": 95,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 20
+	},
+	{
+		"id": "THRASH",
+		"romName": "THRASH",
+		"displayName": "Thrash",
+		"power": 90,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 20
+	},
+	{
+		"id": "DOUBLE_EDGE",
+		"romName": "DOUBLE-EDGE",
+		"displayName": "Double-Edge",
+		"power": 120,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 10
+	},
+	{
+		"id": "TAIL_WHIP",
+		"romName": "TAIL WHIP",
+		"displayName": "Tail Whip",
+		"power": 0,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 30
+	},
+	{
+		"id": "POISON_STING",
+		"romName": "POISON STING",
+		"displayName": "Poison Sting",
+		"power": 35,
+		"type": "Poison",
+		"accuracy": 100,
+		"pp": 35
+	},
+	{
+		"id": "TWINEEDLE",
+		"romName": "TWINEEDLE",
+		"displayName": "Twineedle",
+		"power": 40,
+		"type": "Bug",
+		"accuracy": 100,
+		"pp": 20
+	},
+	{
+		"id": "PIN_MISSILE",
+		"romName": "PIN MISSILE",
+		"displayName": "Pin Missile",
+		"power": 20,
+		"type": "Bug",
+		"accuracy": 100,
+		"pp": 30
+	},
+	{
+		"id": "LEER",
+		"romName": "LEER",
+		"displayName": "Leer",
+		"power": 0,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 30
+	},
+	{
+		"id": "BITE",
+		"romName": "BITE",
+		"displayName": "Bite",
+		"power": 60,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 25
+	},
+	{
+		"id": "GROWL",
+		"romName": "GROWL",
+		"displayName": "Growl",
+		"power": 0,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 40
+	},
+	{
+		"id": "ROAR",
+		"romName": "ROAR",
+		"displayName": "Roar",
+		"power": 0,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 20
+	},
+	{
+		"id": "SING",
+		"romName": "SING",
+		"displayName": "Sing",
+		"power": 0,
+		"type": "Normal",
+		"accuracy": 55,
+		"pp": 15
+	},
+	{
+		"id": "SUPERSONIC",
+		"romName": "SUPERSONIC",
+		"displayName": "Supersonic",
+		"power": 0,
+		"type": "Normal",
+		"accuracy": 70,
+		"pp": 20
+	},
+	{
+		"id": "SONICBOOM",
+		"romName": "SONICBOOM",
+		"displayName": "Sonicboom",
+		"power": 1,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 20
+	},
+	{
+		"id": "DISABLE",
+		"romName": "DISABLE",
+		"displayName": "Disable",
+		"power": 0,
+		"type": "Normal",
+		"accuracy": 75,
+		"pp": 20
+	},
+	{
+		"id": "ACID",
+		"romName": "ACID",
+		"displayName": "Acid",
+		"power": 65,
+		"type": "Poison",
+		"accuracy": 100,
+		"pp": 30
+	},
+	{
+		"id": "EMBER",
+		"romName": "EMBER",
+		"displayName": "Ember",
+		"power": 40,
+		"type": "Fire",
+		"accuracy": 100,
+		"pp": 25
+	},
+	{
+		"id": "FLAMETHROWER",
+		"romName": "FLAMETHROWER",
+		"displayName": "Flamethrower",
+		"power": 95,
+		"type": "Fire",
+		"accuracy": 100,
+		"pp": 15
+	},
+	{
+		"id": "MIST",
+		"romName": "MIST",
+		"displayName": "Mist",
+		"power": 0,
+		"type": "Ice",
+		"accuracy": 100,
+		"pp": 30
+	},
+	{
+		"id": "WATER_GUN",
+		"romName": "WATER GUN",
+		"displayName": "Water Gun",
+		"power": 40,
+		"type": "Water",
+		"accuracy": 100,
+		"pp": 25
+	},
+	{
+		"id": "HYDRO_PUMP",
+		"romName": "HYDRO PUMP",
+		"displayName": "Hydro Pump",
+		"power": 120,
+		"type": "Water",
+		"accuracy": 85,
+		"pp": 10
+	},
+	{
+		"id": "SURF",
+		"romName": "SURF",
+		"displayName": "Surf",
+		"power": 95,
+		"type": "Water",
+		"accuracy": 100,
+		"pp": 15
+	},
+	{
+		"id": "ICE_BEAM",
+		"romName": "ICE BEAM",
+		"displayName": "Ice Beam",
+		"power": 95,
+		"type": "Ice",
+		"accuracy": 100,
+		"pp": 10
+	},
+	{
+		"id": "BLIZZARD",
+		"romName": "BLIZZARD",
+		"displayName": "Blizzard",
+		"power": 120,
+		"type": "Ice",
+		"accuracy": 85,
+		"pp": 5
+	},
+	{
+		"id": "PSYBEAM",
+		"romName": "PSYBEAM",
+		"displayName": "Psybeam",
+		"power": 65,
+		"type": "Psychic",
+		"accuracy": 100,
+		"pp": 20
+	},
+	{
+		"id": "BUBBLEBEAM",
+		"romName": "BUBBLEBEAM",
+		"displayName": "Bubblebeam",
+		"power": 65,
+		"type": "Water",
+		"accuracy": 100,
+		"pp": 20
+	},
+	{
+		"id": "AURORA_BEAM",
+		"romName": "AURORA BEAM",
+		"displayName": "Aurora Beam",
+		"power": 65,
+		"type": "Ice",
+		"accuracy": 100,
+		"pp": 20
+	},
+	{
+		"id": "HYPER_BEAM",
+		"romName": "HYPER BEAM",
+		"displayName": "Hyper Beam",
+		"power": 150,
+		"type": "Normal",
+		"accuracy": 90,
+		"pp": 5
+	},
+	{
+		"id": "PECK",
+		"romName": "PECK",
+		"displayName": "Peck",
+		"power": 35,
+		"type": "Flying",
+		"accuracy": 100,
+		"pp": 35
+	},
+	{
+		"id": "DRILL_PECK",
+		"romName": "DRILL PECK",
+		"displayName": "Drill Peck",
+		"power": 80,
+		"type": "Flying",
+		"accuracy": 100,
+		"pp": 20
+	},
+	{
+		"id": "SUBMISSION",
+		"romName": "SUBMISSION",
+		"displayName": "Submission",
+		"power": 80,
+		"type": "Fighting",
+		"accuracy": 100,
+		"pp": 25
+	},
+	{
+		"id": "LOW_KICK",
+		"romName": "LOW KICK",
+		"displayName": "Low Kick",
+		"power": 50,
+		"type": "Fighting",
+		"accuracy": 100,
+		"pp": 20
+	},
+	{
+		"id": "COUNTER",
+		"romName": "COUNTER",
+		"displayName": "Counter",
+		"power": 1,
+		"type": "Fighting",
+		"accuracy": 100,
+		"pp": 20
+	},
+	{
+		"id": "SEISMIC_TOSS",
+		"romName": "SEISMIC TOSS",
+		"displayName": "Seismic Toss",
+		"power": 1,
+		"type": "Fighting",
+		"accuracy": 100,
+		"pp": 20
+	},
+	{
+		"id": "STRENGTH",
+		"romName": "STRENGTH",
+		"displayName": "Strength",
+		"power": 80,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 15
+	},
+	{
+		"id": "ABSORB",
+		"romName": "ABSORB",
+		"displayName": "Absorb",
+		"power": 30,
+		"type": "Grass",
+		"accuracy": 100,
+		"pp": 25
+	},
+	{
+		"id": "MEGA_DRAIN",
+		"romName": "MEGA DRAIN",
+		"displayName": "Mega Drain",
+		"power": 65,
+		"type": "Grass",
+		"accuracy": 100,
+		"pp": 20
+	},
+	{
+		"id": "LEECH_SEED",
+		"romName": "LEECH SEED",
+		"displayName": "Leech Seed",
+		"power": 0,
+		"type": "Grass",
+		"accuracy": 90,
+		"pp": 10
+	},
+	{
+		"id": "GROWTH",
+		"romName": "GROWTH",
+		"displayName": "Growth",
+		"power": 0,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 40
+	},
+	{
+		"id": "RAZOR_LEAF",
+		"romName": "RAZOR LEAF",
+		"displayName": "Razor Leaf",
+		"power": 55,
+		"type": "Grass",
+		"accuracy": 95,
+		"pp": 25
+	},
+	{
+		"id": "SOLARBEAM",
+		"romName": "SOLARBEAM",
+		"displayName": "Solarbeam",
+		"power": 180,
+		"type": "Grass",
+		"accuracy": 100,
+		"pp": 10
+	},
+	{
+		"id": "POISONPOWDER",
+		"romName": "POISONPOWDER",
+		"displayName": "Poisonpowder",
+		"power": 0,
+		"type": "Poison",
+		"accuracy": 90,
+		"pp": 35
+	},
+	{
+		"id": "STUN_SPORE",
+		"romName": "STUN SPORE",
+		"displayName": "Stun Spore",
+		"power": 0,
+		"type": "Grass",
+		"accuracy": 75,
+		"pp": 30
+	},
+	{
+		"id": "SLEEP_POWDER",
+		"romName": "SLEEP POWDER",
+		"displayName": "Sleep Powder",
+		"power": 0,
+		"type": "Grass",
+		"accuracy": 75,
+		"pp": 15
+	},
+	{
+		"id": "PETAL_DANCE",
+		"romName": "PETAL DANCE",
+		"displayName": "Petal Dance",
+		"power": 90,
+		"type": "Grass",
+		"accuracy": 100,
+		"pp": 20
+	},
+	{
+		"id": "STRING_SHOT",
+		"romName": "STRING SHOT",
+		"displayName": "String Shot",
+		"power": 0,
+		"type": "Bug",
+		"accuracy": 95,
+		"pp": 40
+	},
+	{
+		"id": "DRAGON_RAGE",
+		"romName": "DRAGON RAGE",
+		"displayName": "Dragon Rage",
+		"power": 1,
+		"type": "Dragon",
+		"accuracy": 100,
+		"pp": 20
+	},
+	{
+		"id": "FIRE_SPIN",
+		"romName": "FIRE SPIN",
+		"displayName": "Fire Spin",
+		"power": 15,
+		"type": "Fire",
+		"accuracy": 85,
+		"pp": 15
+	},
+	{
+		"id": "THUNDERSHOCK",
+		"romName": "THUNDERSHOCK",
+		"displayName": "Thundershock",
+		"power": 40,
+		"type": "Electric",
+		"accuracy": 100,
+		"pp": 30
+	},
+	{
+		"id": "THUNDERBOLT",
+		"romName": "THUNDERBOLT",
+		"displayName": "Thunderbolt",
+		"power": 95,
+		"type": "Electric",
+		"accuracy": 100,
+		"pp": 15
+	},
+	{
+		"id": "THUNDER_WAVE",
+		"romName": "THUNDER WAVE",
+		"displayName": "Thunder Wave",
+		"power": 0,
+		"type": "Electric",
+		"accuracy": 100,
+		"pp": 20
+	},
+	{
+		"id": "THUNDER",
+		"romName": "THUNDER",
+		"displayName": "Thunder",
+		"power": 120,
+		"type": "Electric",
+		"accuracy": 85,
+		"pp": 5
+	},
+	{
+		"id": "ROCK_THROW",
+		"romName": "ROCK THROW",
+		"displayName": "Rock Throw",
+		"power": 50,
+		"type": "Rock",
+		"accuracy": 95,
+		"pp": 25
+	},
+	{
+		"id": "EARTHQUAKE",
+		"romName": "EARTHQUAKE",
+		"displayName": "Earthquake",
+		"power": 100,
+		"type": "Ground",
+		"accuracy": 100,
+		"pp": 10
+	},
+	{
+		"id": "FISSURE",
+		"romName": "FISSURE",
+		"displayName": "Fissure",
+		"power": 1,
+		"type": "Ground",
+		"accuracy": 30,
+		"pp": 5
+	},
+	{
+		"id": "DIG",
+		"romName": "DIG",
+		"displayName": "Dig",
+		"power": 70,
+		"type": "Ground",
+		"accuracy": 100,
+		"pp": 15
+	},
+	{
+		"id": "TOXIC",
+		"romName": "TOXIC",
+		"displayName": "Toxic",
+		"power": 0,
+		"type": "Poison",
+		"accuracy": 85,
+		"pp": 10
+	},
+	{
+		"id": "CONFUSION",
+		"romName": "CONFUSION",
+		"displayName": "Confusion",
+		"power": 50,
+		"type": "Psychic",
+		"accuracy": 100,
+		"pp": 25
+	},
+	{
+		"id": "PSYCHIC_M",
+		"romName": "PSYCHIC",
+		"displayName": "Psychic",
+		"power": 90,
+		"type": "Psychic",
+		"accuracy": 100,
+		"pp": 10
+	},
+	{
+		"id": "HYPNOSIS",
+		"romName": "HYPNOSIS",
+		"displayName": "Hypnosis",
+		"power": 0,
+		"type": "Psychic",
+		"accuracy": 60,
+		"pp": 20
+	},
+	{
+		"id": "MEDITATE",
+		"romName": "MEDITATE",
+		"displayName": "Meditate",
+		"power": 0,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 40
+	},
+	{
+		"id": "AGILITY",
+		"romName": "AGILITY",
+		"displayName": "Agility",
+		"power": 0,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 30
+	},
+	{
+		"id": "QUICK_ATTACK",
+		"romName": "QUICK ATTACK",
+		"displayName": "Quick Attack",
+		"power": 40,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 30
+	},
+	{
+		"id": "RAGE",
+		"romName": "RAGE",
+		"displayName": "Rage",
+		"power": 60,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 20
+	},
+	{
+		"id": "TELEPORT",
+		"romName": "TELEPORT",
+		"displayName": "Teleport",
+		"power": 0,
+		"type": "Psychic",
+		"accuracy": 100,
+		"pp": 20
+	},
+	{
+		"id": "NIGHT_SHADE",
+		"romName": "NIGHT SHADE",
+		"displayName": "Night Shade",
+		"power": 60,
+		"type": "Ghost",
+		"accuracy": 100,
+		"pp": 15
+	},
+	{
+		"id": "MIMIC",
+		"romName": "MIMIC",
+		"displayName": "Mimic",
+		"power": 0,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 10
+	},
+	{
+		"id": "SCREECH",
+		"romName": "SCREECH",
+		"displayName": "Screech",
+		"power": 0,
+		"type": "Normal",
+		"accuracy": 85,
+		"pp": 40
+	},
+	{
+		"id": "DOUBLE_TEAM",
+		"romName": "DOUBLE TEAM",
+		"displayName": "Double Team",
+		"power": 0,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 15
+	},
+	{
+		"id": "RECOVER",
+		"romName": "RECOVER",
+		"displayName": "Recover",
+		"power": 0,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 20
+	},
+	{
+		"id": "HARDEN",
+		"romName": "HARDEN",
+		"displayName": "Harden",
+		"power": 0,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 30
+	},
+	{
+		"id": "MINIMIZE",
+		"romName": "MINIMIZE",
+		"displayName": "Minimize",
+		"power": 0,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 20
+	},
+	{
+		"id": "SMOKESCREEN",
+		"romName": "SMOKESCREEN",
+		"displayName": "Smokescreen",
+		"power": 0,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 20
+	},
+	{
+		"id": "CONFUSE_RAY",
+		"romName": "CONFUSE RAY",
+		"displayName": "Confuse Ray",
+		"power": 0,
+		"type": "Ghost",
+		"accuracy": 100,
+		"pp": 10
+	},
+	{
+		"id": "WITHDRAW",
+		"romName": "WITHDRAW",
+		"displayName": "Withdraw",
+		"power": 0,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 40
+	},
+	{
+		"id": "DEFENSE_CURL",
+		"romName": "DEFENSE CURL",
+		"displayName": "Defense Curl",
+		"power": 0,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 40
+	},
+	{
+		"id": "BARRIER",
+		"romName": "BARRIER",
+		"displayName": "Barrier",
+		"power": 0,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 30
+	},
+	{
+		"id": "LIGHT_SCREEN",
+		"romName": "LIGHT SCREEN",
+		"displayName": "Light Screen",
+		"power": 0,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 30
+	},
+	{
+		"id": "HAZE",
+		"romName": "HAZE",
+		"displayName": "Haze",
+		"power": 0,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 30
+	},
+	{
+		"id": "REFLECT",
+		"romName": "REFLECT",
+		"displayName": "Reflect",
+		"power": 0,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 20
+	},
+	{
+		"id": "FOCUS_ENERGY",
+		"romName": "FOCUS ENERGY",
+		"displayName": "Focus Energy",
+		"power": 0,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 30
+	},
+	{
+		"id": "BIDE",
+		"romName": "BIDE",
+		"displayName": "Bide",
+		"power": 0,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 10
+	},
+	{
+		"id": "METRONOME",
+		"romName": "METRONOME",
+		"displayName": "Metronome",
+		"power": 0,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 10
+	},
+	{
+		"id": "MIRROR_MOVE",
+		"romName": "MIRROR MOVE",
+		"displayName": "Mirror Move",
+		"power": 0,
+		"type": "Flying",
+		"accuracy": 100,
+		"pp": 20
+	},
+	{
+		"id": "SELFDESTRUCT",
+		"romName": "SELFDESTRUCT",
+		"displayName": "Selfdestruct",
+		"power": 130,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 5
+	},
+	{
+		"id": "EGG_BOMB",
+		"romName": "EGG BOMB",
+		"displayName": "Egg Bomb",
+		"power": 100,
+		"type": "Grass",
+		"accuracy": 100,
+		"pp": 10
+	},
+	{
+		"id": "LICK",
+		"romName": "LICK",
+		"displayName": "Lick",
+		"power": 40,
+		"type": "Ghost",
+		"accuracy": 100,
+		"pp": 30
+	},
+	{
+		"id": "SMOG",
+		"romName": "SMOG",
+		"displayName": "Smog",
+		"power": 40,
+		"type": "Poison",
+		"accuracy": 80,
+		"pp": 20
+	},
+	{
+		"id": "SLUDGE",
+		"romName": "SLUDGE",
+		"displayName": "Sludge",
+		"power": 90,
+		"type": "Poison",
+		"accuracy": 100,
+		"pp": 20
+	},
+	{
+		"id": "BONE_CLUB",
+		"romName": "BONE CLUB",
+		"displayName": "Bone Club",
+		"power": 65,
+		"type": "Ground",
+		"accuracy": 100,
+		"pp": 20
+	},
+	{
+		"id": "FIRE_BLAST",
+		"romName": "FIRE BLAST",
+		"displayName": "Fire Blast",
+		"power": 120,
+		"type": "Fire",
+		"accuracy": 85,
+		"pp": 5
+	},
+	{
+		"id": "WATERFALL",
+		"romName": "WATERFALL",
+		"displayName": "Waterfall",
+		"power": 70,
+		"type": "Water",
+		"accuracy": 100,
+		"pp": 15
+	},
+	{
+		"id": "CLAMP",
+		"romName": "CLAMP",
+		"displayName": "Clamp",
+		"power": 35,
+		"type": "Water",
+		"accuracy": 85,
+		"pp": 10
+	},
+	{
+		"id": "SWIFT",
+		"romName": "SWIFT",
+		"displayName": "Swift",
+		"power": 60,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 20
+	},
+	{
+		"id": "SKULL_BASH",
+		"romName": "SKULL BASH",
+		"displayName": "Skull Bash",
+		"power": 100,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 15
+	},
+	{
+		"id": "SPIKE_CANNON",
+		"romName": "SPIKE CANNON",
+		"displayName": "Spike Cannon",
+		"power": 20,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 15
+	},
+	{
+		"id": "CONSTRICT",
+		"romName": "CONSTRICT",
+		"displayName": "Constrict",
+		"power": 40,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 35
+	},
+	{
+		"id": "AMNESIA",
+		"romName": "AMNESIA",
+		"displayName": "Amnesia",
+		"power": 0,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 20
+	},
+	{
+		"id": "KINESIS",
+		"romName": "KINESIS",
+		"displayName": "Kinesis",
+		"power": 0,
+		"type": "Normal",
+		"accuracy": 80,
+		"pp": 15
+	},
+	{
+		"id": "SOFTBOILED",
+		"romName": "SOFTBOILED",
+		"displayName": "Softboiled",
+		"power": 0,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 5
+	},
+	{
+		"id": "HI_JUMP_KICK",
+		"romName": "HI JUMP KICK",
+		"displayName": "High Jump Kick",
+		"power": 120,
+		"type": "Fighting",
+		"accuracy": 90,
+		"pp": 20
+	},
+	{
+		"id": "GLARE",
+		"romName": "GLARE",
+		"displayName": "Glare",
+		"power": 0,
+		"type": "Normal",
+		"accuracy": 90,
+		"pp": 30
+	},
+	{
+		"id": "DREAM_EATER",
+		"romName": "DREAM EATER",
+		"displayName": "Dream Eater",
+		"power": 100,
+		"type": "Psychic",
+		"accuracy": 100,
+		"pp": 15
+	},
+	{
+		"id": "POISON_GAS",
+		"romName": "POISON GAS",
+		"displayName": "Poison Gas",
+		"power": 0,
+		"type": "Poison",
+		"accuracy": 85,
+		"pp": 40
+	},
+	{
+		"id": "BARRAGE",
+		"romName": "BARRAGE",
+		"displayName": "Barrage",
+		"power": 20,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 20
+	},
+	{
+		"id": "LEECH_LIFE",
+		"romName": "LEECH LIFE",
+		"displayName": "Leech Life",
+		"power": 50,
+		"type": "Bug",
+		"accuracy": 100,
+		"pp": 25
+	},
+	{
+		"id": "LOVELY_KISS",
+		"romName": "LOVELY KISS",
+		"displayName": "Lovely Kiss",
+		"power": 0,
+		"type": "Normal",
+		"accuracy": 75,
+		"pp": 10
+	},
+	{
+		"id": "SKY_ATTACK",
+		"romName": "SKY ATTACK",
+		"displayName": "Sky Attack",
+		"power": 120,
+		"type": "Flying",
+		"accuracy": 85,
+		"pp": 5
+	},
+	{
+		"id": "TRANSFORM",
+		"romName": "TRANSFORM",
+		"displayName": "Transform",
+		"power": 0,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 10
+	},
+	{
+		"id": "BUBBLE",
+		"romName": "BUBBLE",
+		"displayName": "Bubble",
+		"power": 10,
+		"type": "Water",
+		"accuracy": 100,
+		"pp": 30
+	},
+	{
+		"id": "DIZZY_PUNCH",
+		"romName": "DIZZY PUNCH",
+		"displayName": "Dizzy Punch",
+		"power": 70,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 20
+	},
+	{
+		"id": "SPORE",
+		"romName": "SPORE",
+		"displayName": "Spore",
+		"power": 0,
+		"type": "Grass",
+		"accuracy": 100,
+		"pp": 15
+	},
+	{
+		"id": "FLASH",
+		"romName": "FLASH",
+		"displayName": "Flash",
+		"power": 0,
+		"type": "Normal",
+		"accuracy": 70,
+		"pp": 20
+	},
+	{
+		"id": "PSYWAVE",
+		"romName": "PSYWAVE",
+		"displayName": "Psywave",
+		"power": 1,
+		"type": "Psychic",
+		"accuracy": 95,
+		"pp": 15
+	},
+	{
+		"id": "SPLASH",
+		"romName": "SPLASH",
+		"displayName": "Splash",
+		"power": 0,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 40
+	},
+	{
+		"id": "ACID_ARMOR",
+		"romName": "ACID ARMOR",
+		"displayName": "Acid Armor",
+		"power": 0,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 40
+	},
+	{
+		"id": "CRABHAMMER",
+		"romName": "CRABHAMMER",
+		"displayName": "Crabhammer",
+		"power": 110,
+		"type": "Water",
+		"accuracy": 100,
+		"pp": 10
+	},
+	{
+		"id": "EXPLOSION",
+		"romName": "EXPLOSION",
+		"displayName": "Explosion",
+		"power": 170,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 5
+	},
+	{
+		"id": "FURY_SWIPES",
+		"romName": "FURY SWIPES",
+		"displayName": "Fury Swipes",
+		"power": 20,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 15
+	},
+	{
+		"id": "BONEMERANG",
+		"romName": "BONEMERANG",
+		"displayName": "Bonemerang",
+		"power": 50,
+		"type": "Ground",
+		"accuracy": 90,
+		"pp": 20
+	},
+	{
+		"id": "REST",
+		"romName": "REST",
+		"displayName": "Rest",
+		"power": 0,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 10
+	},
+	{
+		"id": "ROCK_SLIDE",
+		"romName": "ROCK SLIDE",
+		"displayName": "Rock Slide",
+		"power": 75,
+		"type": "Rock",
+		"accuracy": 95,
+		"pp": 15
+	},
+	{
+		"id": "HYPER_FANG",
+		"romName": "HYPER FANG",
+		"displayName": "Hyper Fang",
+		"power": 80,
+		"type": "Normal",
+		"accuracy": 90,
+		"pp": 15
+	},
+	{
+		"id": "SHARPEN",
+		"romName": "SHARPEN",
+		"displayName": "Sharpen",
+		"power": 0,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 30
+	},
+	{
+		"id": "CONVERSION",
+		"romName": "CONVERSION",
+		"displayName": "Conversion",
+		"power": 0,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 30
+	},
+	{
+		"id": "TRI_ATTACK",
+		"romName": "TRI ATTACK",
+		"displayName": "Tri Attack",
+		"power": 85,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 15
+	},
+	{
+		"id": "SUPER_FANG",
+		"romName": "SUPER FANG",
+		"displayName": "Super Fang",
+		"power": 1,
+		"type": "Normal",
+		"accuracy": 90,
+		"pp": 10
+	},
+	{
+		"id": "SLASH",
+		"romName": "SLASH",
+		"displayName": "Slash",
+		"power": 70,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 20
+	},
+	{
+		"id": "SUBSTITUTE",
+		"romName": "SUBSTITUTE",
+		"displayName": "Substitute",
+		"power": 0,
+		"type": "Normal",
+		"accuracy": 100,
+		"pp": 10
+	}
+]

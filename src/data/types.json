@@ -1,0 +1,409 @@
+{
+	"matchups": [
+		{
+			"attacker": "Water",
+			"defender": "Fire",
+			"effect": 2
+		},
+		{
+			"attacker": "Fire",
+			"defender": "Grass",
+			"effect": 2
+		},
+		{
+			"attacker": "Fire",
+			"defender": "Ice",
+			"effect": 2
+		},
+		{
+			"attacker": "Grass",
+			"defender": "Water",
+			"effect": 2
+		},
+		{
+			"attacker": "Electric",
+			"defender": "Water",
+			"effect": 2
+		},
+		{
+			"attacker": "Water",
+			"defender": "Rock",
+			"effect": 2
+		},
+		{
+			"attacker": "Ground",
+			"defender": "Flying",
+			"effect": 0
+		},
+		{
+			"attacker": "Water",
+			"defender": "Water",
+			"effect": 0.5
+		},
+		{
+			"attacker": "Fire",
+			"defender": "Fire",
+			"effect": 0.5
+		},
+		{
+			"attacker": "Electric",
+			"defender": "Electric",
+			"effect": 0.5
+		},
+		{
+			"attacker": "Ice",
+			"defender": "Ice",
+			"effect": 0.5
+		},
+		{
+			"attacker": "Grass",
+			"defender": "Grass",
+			"effect": 0.5
+		},
+		{
+			"attacker": "Psychic",
+			"defender": "Psychic",
+			"effect": 0.5
+		},
+		{
+			"attacker": "Fire",
+			"defender": "Water",
+			"effect": 0.5
+		},
+		{
+			"attacker": "Grass",
+			"defender": "Fire",
+			"effect": 0.5
+		},
+		{
+			"attacker": "Water",
+			"defender": "Grass",
+			"effect": 0.5
+		},
+		{
+			"attacker": "Electric",
+			"defender": "Grass",
+			"effect": 0.5
+		},
+		{
+			"attacker": "Normal",
+			"defender": "Rock",
+			"effect": 0.5
+		},
+		{
+			"attacker": "Normal",
+			"defender": "Ghost",
+			"effect": 0
+		},
+		{
+			"attacker": "Ghost",
+			"defender": "Ghost",
+			"effect": 2
+		},
+		{
+			"attacker": "Fire",
+			"defender": "Bug",
+			"effect": 2
+		},
+		{
+			"attacker": "Fire",
+			"defender": "Rock",
+			"effect": 0.5
+		},
+		{
+			"attacker": "Water",
+			"defender": "Ground",
+			"effect": 2
+		},
+		{
+			"attacker": "Electric",
+			"defender": "Ground",
+			"effect": 0
+		},
+		{
+			"attacker": "Electric",
+			"defender": "Flying",
+			"effect": 2
+		},
+		{
+			"attacker": "Grass",
+			"defender": "Ground",
+			"effect": 2
+		},
+		{
+			"attacker": "Grass",
+			"defender": "Bug",
+			"effect": 0.5
+		},
+		{
+			"attacker": "Grass",
+			"defender": "Poison",
+			"effect": 0.5
+		},
+		{
+			"attacker": "Grass",
+			"defender": "Rock",
+			"effect": 2
+		},
+		{
+			"attacker": "Grass",
+			"defender": "Flying",
+			"effect": 0.5
+		},
+		{
+			"attacker": "Ice",
+			"defender": "Water",
+			"effect": 0.5
+		},
+		{
+			"attacker": "Ice",
+			"defender": "Grass",
+			"effect": 2
+		},
+		{
+			"attacker": "Ice",
+			"defender": "Ground",
+			"effect": 2
+		},
+		{
+			"attacker": "Ice",
+			"defender": "Flying",
+			"effect": 2
+		},
+		{
+			"attacker": "Fighting",
+			"defender": "Normal",
+			"effect": 2
+		},
+		{
+			"attacker": "Fighting",
+			"defender": "Poison",
+			"effect": 0.5
+		},
+		{
+			"attacker": "Fighting",
+			"defender": "Flying",
+			"effect": 0.5
+		},
+		{
+			"attacker": "Fighting",
+			"defender": "Psychic",
+			"effect": 0.5
+		},
+		{
+			"attacker": "Fighting",
+			"defender": "Bug",
+			"effect": 0.5
+		},
+		{
+			"attacker": "Fighting",
+			"defender": "Rock",
+			"effect": 2
+		},
+		{
+			"attacker": "Fighting",
+			"defender": "Ice",
+			"effect": 2
+		},
+		{
+			"attacker": "Fighting",
+			"defender": "Ghost",
+			"effect": 0
+		},
+		{
+			"attacker": "Poison",
+			"defender": "Grass",
+			"effect": 2
+		},
+		{
+			"attacker": "Poison",
+			"defender": "Poison",
+			"effect": 0.5
+		},
+		{
+			"attacker": "Poison",
+			"defender": "Ground",
+			"effect": 0.5
+		},
+		{
+			"attacker": "Poison",
+			"defender": "Bug",
+			"effect": 2
+		},
+		{
+			"attacker": "Poison",
+			"defender": "Rock",
+			"effect": 0.5
+		},
+		{
+			"attacker": "Poison",
+			"defender": "Ghost",
+			"effect": 0.5
+		},
+		{
+			"attacker": "Ground",
+			"defender": "Fire",
+			"effect": 2
+		},
+		{
+			"attacker": "Ground",
+			"defender": "Electric",
+			"effect": 2
+		},
+		{
+			"attacker": "Ground",
+			"defender": "Grass",
+			"effect": 0.5
+		},
+		{
+			"attacker": "Ground",
+			"defender": "Bug",
+			"effect": 0.5
+		},
+		{
+			"attacker": "Ground",
+			"defender": "Rock",
+			"effect": 2
+		},
+		{
+			"attacker": "Ground",
+			"defender": "Poison",
+			"effect": 2
+		},
+		{
+			"attacker": "Flying",
+			"defender": "Electric",
+			"effect": 0.5
+		},
+		{
+			"attacker": "Flying",
+			"defender": "Fighting",
+			"effect": 2
+		},
+		{
+			"attacker": "Flying",
+			"defender": "Bug",
+			"effect": 2
+		},
+		{
+			"attacker": "Flying",
+			"defender": "Grass",
+			"effect": 2
+		},
+		{
+			"attacker": "Flying",
+			"defender": "Rock",
+			"effect": 0.5
+		},
+		{
+			"attacker": "Psychic",
+			"defender": "Fighting",
+			"effect": 2
+		},
+		{
+			"attacker": "Psychic",
+			"defender": "Poison",
+			"effect": 2
+		},
+		{
+			"attacker": "Bug",
+			"defender": "Fire",
+			"effect": 0.5
+		},
+		{
+			"attacker": "Bug",
+			"defender": "Grass",
+			"effect": 2
+		},
+		{
+			"attacker": "Bug",
+			"defender": "Fighting",
+			"effect": 0.5
+		},
+		{
+			"attacker": "Bug",
+			"defender": "Flying",
+			"effect": 0.5
+		},
+		{
+			"attacker": "Bug",
+			"defender": "Psychic",
+			"effect": 2
+		},
+		{
+			"attacker": "Bug",
+			"defender": "Ghost",
+			"effect": 0.5
+		},
+		{
+			"attacker": "Rock",
+			"defender": "Fire",
+			"effect": 2
+		},
+		{
+			"attacker": "Rock",
+			"defender": "Fighting",
+			"effect": 0.5
+		},
+		{
+			"attacker": "Rock",
+			"defender": "Ground",
+			"effect": 0.5
+		},
+		{
+			"attacker": "Rock",
+			"defender": "Flying",
+			"effect": 2
+		},
+		{
+			"attacker": "Rock",
+			"defender": "Bug",
+			"effect": 2
+		},
+		{
+			"attacker": "Rock",
+			"defender": "Ice",
+			"effect": 2
+		},
+		{
+			"attacker": "Ghost",
+			"defender": "Normal",
+			"effect": 0
+		},
+		{
+			"attacker": "Ghost",
+			"defender": "Psychic",
+			"effect": 2
+		},
+		{
+			"attacker": "Fire",
+			"defender": "Dragon",
+			"effect": 0.5
+		},
+		{
+			"attacker": "Water",
+			"defender": "Dragon",
+			"effect": 0.5
+		},
+		{
+			"attacker": "Electric",
+			"defender": "Dragon",
+			"effect": 0.5
+		},
+		{
+			"attacker": "Grass",
+			"defender": "Dragon",
+			"effect": 0.5
+		},
+		{
+			"attacker": "Ice",
+			"defender": "Dragon",
+			"effect": 2
+		},
+		{
+			"attacker": "Dragon",
+			"defender": "Dragon",
+			"effect": 2
+		}
+	]
+}

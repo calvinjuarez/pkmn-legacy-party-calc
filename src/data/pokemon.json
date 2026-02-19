@@ -1,0 +1,4189 @@
+[
+	{
+		"id": "RHYDON",
+		"romName": "RHYDON",
+		"displayName": "Rhydon",
+		"dexId": 112,
+		"baseStats": {
+			"hp": 105,
+			"atk": 130,
+			"def": 120,
+			"spe": 40,
+			"spc": 45
+		},
+		"types": [
+			"Ground",
+			"Rock"
+		],
+		"level1Moves": [
+			"HORN_ATTACK"
+		],
+		"tmhm": [
+			"MEGA_PUNCH",
+			"FLAMETHROWER",
+			"MEGA_KICK",
+			"TOXIC",
+			"HORN_DRILL",
+			"BODY_SLAM"
+		]
+	},
+	{
+		"id": "KANGASKHAN",
+		"romName": "KANGASKHAN",
+		"displayName": "Kangaskhan",
+		"dexId": 115,
+		"baseStats": {
+			"hp": 105,
+			"atk": 95,
+			"def": 80,
+			"spe": 90,
+			"spc": 40
+		},
+		"types": [
+			"Normal",
+			"Normal"
+		],
+		"level1Moves": [
+			"COMET_PUNCH",
+			"RAGE"
+		],
+		"tmhm": [
+			"MEGA_PUNCH",
+			"MEGA_KICK",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN"
+		]
+	},
+	{
+		"id": "NIDORAN_M",
+		"romName": "NIDORAN♂",
+		"displayName": "Nidoran ♂",
+		"dexId": 32,
+		"baseStats": {
+			"hp": 46,
+			"atk": 57,
+			"def": 40,
+			"spe": 50,
+			"spc": 40
+		},
+		"types": [
+			"Poison",
+			"Poison"
+		],
+		"level1Moves": [
+			"LEER",
+			"TACKLE"
+		],
+		"tmhm": [
+			"TOXIC",
+			"HORN_DRILL",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE"
+		]
+	},
+	{
+		"id": "CLEFAIRY",
+		"romName": "CLEFAIRY",
+		"displayName": "Clefairy",
+		"dexId": 35,
+		"baseStats": {
+			"hp": 70,
+			"atk": 45,
+			"def": 48,
+			"spe": 35,
+			"spc": 60
+		},
+		"types": [
+			"Normal",
+			"Normal"
+		],
+		"level1Moves": [
+			"POUND",
+			"GROWL"
+		],
+		"tmhm": [
+			"MEGA_PUNCH",
+			"FLAMETHROWER",
+			"MEGA_KICK",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN"
+		]
+	},
+	{
+		"id": "SPEAROW",
+		"romName": "SPEAROW",
+		"displayName": "Spearow",
+		"dexId": 21,
+		"baseStats": {
+			"hp": 40,
+			"atk": 60,
+			"def": 30,
+			"spe": 70,
+			"spc": 31
+		},
+		"types": [
+			"Normal",
+			"Flying"
+		],
+		"level1Moves": [
+			"PECK",
+			"GROWL"
+		],
+		"tmhm": [
+			"RAZOR_WIND",
+			"TOXIC",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE"
+		]
+	},
+	{
+		"id": "VOLTORB",
+		"romName": "VOLTORB",
+		"displayName": "Voltorb",
+		"dexId": 100,
+		"baseStats": {
+			"hp": 40,
+			"atk": 30,
+			"def": 50,
+			"spe": 100,
+			"spc": 55
+		},
+		"types": [
+			"Electric",
+			"Electric"
+		],
+		"level1Moves": [
+			"TACKLE",
+			"SCREECH"
+		],
+		"tmhm": [
+			"TOXIC",
+			"TAKE_DOWN",
+			"RAGE",
+			"THUNDERBOLT",
+			"THUNDER"
+		]
+	},
+	{
+		"id": "NIDOKING",
+		"romName": "NIDOKING",
+		"displayName": "Nidoking",
+		"dexId": 34,
+		"baseStats": {
+			"hp": 81,
+			"atk": 92,
+			"def": 77,
+			"spe": 85,
+			"spc": 75
+		},
+		"types": [
+			"Poison",
+			"Ground"
+		],
+		"level1Moves": [
+			"TACKLE",
+			"THRASH",
+			"DIG"
+		],
+		"tmhm": [
+			"MEGA_PUNCH",
+			"FLAMETHROWER",
+			"MEGA_KICK",
+			"TOXIC",
+			"HORN_DRILL",
+			"BODY_SLAM"
+		]
+	},
+	{
+		"id": "SLOWBRO",
+		"romName": "SLOWBRO",
+		"displayName": "Slowbro",
+		"dexId": 80,
+		"baseStats": {
+			"hp": 95,
+			"atk": 75,
+			"def": 110,
+			"spe": 30,
+			"spc": 80
+		},
+		"types": [
+			"Water",
+			"Psychic"
+		],
+		"level1Moves": [
+			"TACKLE",
+			"DISABLE",
+			"HEADBUTT"
+		],
+		"tmhm": [
+			"MEGA_PUNCH",
+			"FLAMETHROWER",
+			"MEGA_KICK",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN"
+		]
+	},
+	{
+		"id": "IVYSAUR",
+		"romName": "IVYSAUR",
+		"displayName": "Ivysaur",
+		"dexId": 2,
+		"baseStats": {
+			"hp": 60,
+			"atk": 62,
+			"def": 63,
+			"spe": 60,
+			"spc": 80
+		},
+		"types": [
+			"Grass",
+			"Poison"
+		],
+		"level1Moves": [
+			"TACKLE",
+			"GROWL"
+		],
+		"tmhm": [
+			"SWORDS_DANCE",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE"
+		]
+	},
+	{
+		"id": "EXEGGUTOR",
+		"romName": "EXEGGUTOR",
+		"displayName": "Exeggutor",
+		"dexId": 103,
+		"baseStats": {
+			"hp": 95,
+			"atk": 95,
+			"def": 85,
+			"spe": 55,
+			"spc": 125
+		},
+		"types": [
+			"Grass",
+			"Psychic"
+		],
+		"level1Moves": [
+			"BARRAGE",
+			"HYPNOSIS"
+		],
+		"tmhm": [
+			"TOXIC",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE",
+			"HYPER_BEAM",
+			"RAGE"
+		]
+	},
+	{
+		"id": "LICKITUNG",
+		"romName": "LICKITUNG",
+		"displayName": "Lickitung",
+		"dexId": 108,
+		"baseStats": {
+			"hp": 95,
+			"atk": 70,
+			"def": 85,
+			"spe": 30,
+			"spc": 75
+		},
+		"types": [
+			"Normal",
+			"Normal"
+		],
+		"level1Moves": [
+			"LICK",
+			"SUPERSONIC"
+		],
+		"tmhm": [
+			"MEGA_PUNCH",
+			"SWORDS_DANCE",
+			"MEGA_KICK",
+			"TOXIC",
+			"BODY_SLAM"
+		]
+	},
+	{
+		"id": "EXEGGCUTE",
+		"romName": "EXEGGCUTE",
+		"displayName": "Exeggcute",
+		"dexId": 102,
+		"baseStats": {
+			"hp": 60,
+			"atk": 40,
+			"def": 80,
+			"spe": 40,
+			"spc": 60
+		},
+		"types": [
+			"Grass",
+			"Psychic"
+		],
+		"level1Moves": [
+			"BARRAGE",
+			"HYPNOSIS"
+		],
+		"tmhm": [
+			"TOXIC",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE",
+			"RAGE",
+			"PSYCHIC_M"
+		]
+	},
+	{
+		"id": "GRIMER",
+		"romName": "GRIMER",
+		"displayName": "Grimer",
+		"dexId": 88,
+		"baseStats": {
+			"hp": 80,
+			"atk": 80,
+			"def": 50,
+			"spe": 25,
+			"spc": 40
+		},
+		"types": [
+			"Poison",
+			"Poison"
+		],
+		"level1Moves": [
+			"POUND",
+			"DISABLE"
+		],
+		"tmhm": [
+			"FLAMETHROWER",
+			"TOXIC",
+			"BODY_SLAM",
+			"RAGE",
+			"MEGA_DRAIN",
+			"THUNDERBOLT"
+		]
+	},
+	{
+		"id": "GENGAR",
+		"romName": "GENGAR",
+		"displayName": "Gengar",
+		"dexId": 94,
+		"baseStats": {
+			"hp": 60,
+			"atk": 65,
+			"def": 60,
+			"spe": 110,
+			"spc": 130
+		},
+		"types": [
+			"Ghost",
+			"Poison"
+		],
+		"level1Moves": [
+			"LICK",
+			"CONFUSE_RAY"
+		],
+		"tmhm": [
+			"MEGA_PUNCH",
+			"MEGA_KICK",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN"
+		]
+	},
+	{
+		"id": "NIDORAN_F",
+		"romName": "NIDORAN♀",
+		"displayName": "Nidoran ♀",
+		"dexId": 29,
+		"baseStats": {
+			"hp": 55,
+			"atk": 47,
+			"def": 52,
+			"spe": 41,
+			"spc": 40
+		},
+		"types": [
+			"Poison",
+			"Poison"
+		],
+		"level1Moves": [
+			"GROWL",
+			"TACKLE"
+		],
+		"tmhm": [
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE",
+			"BLIZZARD"
+		]
+	},
+	{
+		"id": "NIDOQUEEN",
+		"romName": "NIDOQUEEN",
+		"displayName": "Nidoqueen",
+		"dexId": 31,
+		"baseStats": {
+			"hp": 90,
+			"atk": 82,
+			"def": 87,
+			"spe": 76,
+			"spc": 75
+		},
+		"types": [
+			"Poison",
+			"Ground"
+		],
+		"level1Moves": [
+			"TACKLE",
+			"SCRATCH",
+			"DIG",
+			"BODY_SLAM"
+		],
+		"tmhm": [
+			"MEGA_PUNCH",
+			"FLAMETHROWER",
+			"MEGA_KICK",
+			"TOXIC",
+			"HORN_DRILL",
+			"BODY_SLAM"
+		]
+	},
+	{
+		"id": "CUBONE",
+		"romName": "CUBONE",
+		"displayName": "Cubone",
+		"dexId": 104,
+		"baseStats": {
+			"hp": 50,
+			"atk": 50,
+			"def": 95,
+			"spe": 35,
+			"spc": 40
+		},
+		"types": [
+			"Ground",
+			"Ground"
+		],
+		"level1Moves": [
+			"GROWL"
+		],
+		"tmhm": [
+			"MEGA_PUNCH",
+			"FLAMETHROWER",
+			"MEGA_KICK",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN"
+		]
+	},
+	{
+		"id": "RHYHORN",
+		"romName": "RHYHORN",
+		"displayName": "Rhyhorn",
+		"dexId": 111,
+		"baseStats": {
+			"hp": 80,
+			"atk": 85,
+			"def": 95,
+			"spe": 25,
+			"spc": 30
+		},
+		"types": [
+			"Ground",
+			"Rock"
+		],
+		"level1Moves": [
+			"HORN_ATTACK"
+		],
+		"tmhm": [
+			"TOXIC",
+			"FLAMETHROWER",
+			"HORN_DRILL",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE"
+		]
+	},
+	{
+		"id": "LAPRAS",
+		"romName": "LAPRAS",
+		"displayName": "Lapras",
+		"dexId": 131,
+		"baseStats": {
+			"hp": 130,
+			"atk": 85,
+			"def": 80,
+			"spe": 60,
+			"spc": 95
+		},
+		"types": [
+			"Water",
+			"Ice"
+		],
+		"level1Moves": [
+			"WATER_GUN",
+			"GROWL"
+		],
+		"tmhm": [
+			"TOXIC",
+			"HORN_DRILL",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE"
+		]
+	},
+	{
+		"id": "ARCANINE",
+		"romName": "ARCANINE",
+		"displayName": "Arcanine",
+		"dexId": 59,
+		"baseStats": {
+			"hp": 90,
+			"atk": 110,
+			"def": 80,
+			"spe": 95,
+			"spc": 80
+		},
+		"types": [
+			"Fire",
+			"Fire"
+		],
+		"level1Moves": [
+			"BITE",
+			"ROAR"
+		],
+		"tmhm": [
+			"FLAMETHROWER",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE"
+		]
+	},
+	{
+		"id": "MEW",
+		"romName": "MEW",
+		"displayName": "Mew",
+		"dexId": 151,
+		"baseStats": {
+			"hp": 100,
+			"atk": 100,
+			"def": 100,
+			"spe": 100,
+			"spc": 100
+		},
+		"types": [
+			"Psychic",
+			"Psychic"
+		],
+		"level1Moves": [
+			"POUND"
+		],
+		"tmhm": [
+			"MEGA_PUNCH",
+			"RAZOR_WIND",
+			"SWORDS_DANCE",
+			"FLAMETHROWER",
+			"MEGA_KICK"
+		]
+	},
+	{
+		"id": "GYARADOS",
+		"romName": "GYARADOS",
+		"displayName": "Gyarados",
+		"dexId": 130,
+		"baseStats": {
+			"hp": 95,
+			"atk": 125,
+			"def": 79,
+			"spe": 81,
+			"spc": 100
+		},
+		"types": [
+			"Water",
+			"Flying"
+		],
+		"level1Moves": [
+			"TACKLE"
+		],
+		"tmhm": [
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE",
+			"BUBBLEBEAM"
+		]
+	},
+	{
+		"id": "SHELLDER",
+		"romName": "SHELLDER",
+		"displayName": "Shellder",
+		"dexId": 90,
+		"baseStats": {
+			"hp": 30,
+			"atk": 65,
+			"def": 100,
+			"spe": 40,
+			"spc": 45
+		},
+		"types": [
+			"Water",
+			"Water"
+		],
+		"level1Moves": [
+			"TACKLE",
+			"WITHDRAW"
+		],
+		"tmhm": [
+			"TOXIC",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE",
+			"BUBBLEBEAM",
+			"WATER_GUN"
+		]
+	},
+	{
+		"id": "TENTACOOL",
+		"romName": "TENTACOOL",
+		"displayName": "Tentacool",
+		"dexId": 72,
+		"baseStats": {
+			"hp": 40,
+			"atk": 40,
+			"def": 35,
+			"spe": 70,
+			"spc": 100
+		},
+		"types": [
+			"Water",
+			"Poison"
+		],
+		"level1Moves": [
+			"POISON_STING",
+			"BUBBLE"
+		],
+		"tmhm": [
+			"SWORDS_DANCE",
+			"TOXIC",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE",
+			"BUBBLEBEAM"
+		]
+	},
+	{
+		"id": "GASTLY",
+		"romName": "GASTLY",
+		"displayName": "Gastly",
+		"dexId": 92,
+		"baseStats": {
+			"hp": 30,
+			"atk": 35,
+			"def": 30,
+			"spe": 80,
+			"spc": 100
+		},
+		"types": [
+			"Ghost",
+			"Poison"
+		],
+		"level1Moves": [
+			"LICK",
+			"CONFUSE_RAY"
+		],
+		"tmhm": [
+			"TOXIC",
+			"RAGE",
+			"MEGA_DRAIN",
+			"THUNDERBOLT",
+			"THUNDER"
+		]
+	},
+	{
+		"id": "SCYTHER",
+		"romName": "SCYTHER",
+		"displayName": "Scyther",
+		"dexId": 123,
+		"baseStats": {
+			"hp": 70,
+			"atk": 110,
+			"def": 80,
+			"spe": 105,
+			"spc": 55
+		},
+		"types": [
+			"Bug",
+			"Flying"
+		],
+		"level1Moves": [
+			"QUICK_ATTACK",
+			"LEER"
+		],
+		"tmhm": [
+			"SWORDS_DANCE",
+			"TOXIC",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE",
+			"HYPER_BEAM"
+		]
+	},
+	{
+		"id": "STARYU",
+		"romName": "STARYU",
+		"displayName": "Staryu",
+		"dexId": 120,
+		"baseStats": {
+			"hp": 30,
+			"atk": 45,
+			"def": 55,
+			"spe": 85,
+			"spc": 70
+		},
+		"types": [
+			"Water",
+			"Water"
+		],
+		"level1Moves": [
+			"TACKLE"
+		],
+		"tmhm": [
+			"TOXIC",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE",
+			"BUBBLEBEAM",
+			"WATER_GUN"
+		]
+	},
+	{
+		"id": "BLASTOISE",
+		"romName": "BLASTOISE",
+		"displayName": "Blastoise",
+		"dexId": 9,
+		"baseStats": {
+			"hp": 79,
+			"atk": 83,
+			"def": 100,
+			"spe": 78,
+			"spc": 85
+		},
+		"types": [
+			"Water",
+			"Water"
+		],
+		"level1Moves": [
+			"TACKLE",
+			"TAIL_WHIP"
+		],
+		"tmhm": [
+			"MEGA_PUNCH",
+			"MEGA_KICK",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN"
+		]
+	},
+	{
+		"id": "PINSIR",
+		"romName": "PINSIR",
+		"displayName": "Pinsir",
+		"dexId": 127,
+		"baseStats": {
+			"hp": 65,
+			"atk": 125,
+			"def": 100,
+			"spe": 85,
+			"spc": 55
+		},
+		"types": [
+			"Bug",
+			"Bug"
+		],
+		"level1Moves": [
+			"VICEGRIP"
+		],
+		"tmhm": [
+			"SWORDS_DANCE",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE"
+		]
+	},
+	{
+		"id": "TANGELA",
+		"romName": "TANGELA",
+		"displayName": "Tangela",
+		"dexId": 114,
+		"baseStats": {
+			"hp": 65,
+			"atk": 55,
+			"def": 115,
+			"spe": 60,
+			"spc": 100
+		},
+		"types": [
+			"Grass",
+			"Grass"
+		],
+		"level1Moves": [
+			"CONSTRICT"
+		],
+		"tmhm": [
+			"SWORDS_DANCE",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE"
+		]
+	},
+	{
+		"id": "GROWLITHE",
+		"romName": "GROWLITHE",
+		"displayName": "Growlithe",
+		"dexId": 58,
+		"baseStats": {
+			"hp": 55,
+			"atk": 70,
+			"def": 45,
+			"spe": 60,
+			"spc": 50
+		},
+		"types": [
+			"Fire",
+			"Fire"
+		],
+		"level1Moves": [
+			"BITE",
+			"ROAR"
+		],
+		"tmhm": [
+			"FLAMETHROWER",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE",
+			"RAGE"
+		]
+	},
+	{
+		"id": "ONIX",
+		"romName": "ONIX",
+		"displayName": "Onix",
+		"dexId": 95,
+		"baseStats": {
+			"hp": 75,
+			"atk": 80,
+			"def": 160,
+			"spe": 85,
+			"spc": 65
+		},
+		"types": [
+			"Rock",
+			"Ground"
+		],
+		"level1Moves": [
+			"TACKLE",
+			"SCREECH"
+		],
+		"tmhm": [
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE",
+			"RAGE"
+		]
+	},
+	{
+		"id": "FEAROW",
+		"romName": "FEAROW",
+		"displayName": "Fearow",
+		"dexId": 22,
+		"baseStats": {
+			"hp": 65,
+			"atk": 90,
+			"def": 65,
+			"spe": 100,
+			"spc": 61
+		},
+		"types": [
+			"Normal",
+			"Flying"
+		],
+		"level1Moves": [
+			"PECK",
+			"GROWL"
+		],
+		"tmhm": [
+			"RAZOR_WIND",
+			"TOXIC",
+			"TAKE_DOWN"
+		]
+	},
+	{
+		"id": "PIDGEY",
+		"romName": "PIDGEY",
+		"displayName": "Pidgey",
+		"dexId": 16,
+		"baseStats": {
+			"hp": 40,
+			"atk": 45,
+			"def": 40,
+			"spe": 56,
+			"spc": 35
+		},
+		"types": [
+			"Normal",
+			"Flying"
+		],
+		"level1Moves": [
+			"GUST"
+		],
+		"tmhm": [
+			"RAZOR_WIND",
+			"TOXIC",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE"
+		]
+	},
+	{
+		"id": "SLOWPOKE",
+		"romName": "SLOWPOKE",
+		"displayName": "Slowpoke",
+		"dexId": 79,
+		"baseStats": {
+			"hp": 90,
+			"atk": 65,
+			"def": 65,
+			"spe": 15,
+			"spc": 40
+		},
+		"types": [
+			"Water",
+			"Psychic"
+		],
+		"level1Moves": [
+			"TACKLE"
+		],
+		"tmhm": [
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE",
+			"BUBBLEBEAM"
+		]
+	},
+	{
+		"id": "KADABRA",
+		"romName": "KADABRA",
+		"displayName": "Kadabra",
+		"dexId": 64,
+		"baseStats": {
+			"hp": 40,
+			"atk": 35,
+			"def": 30,
+			"spe": 105,
+			"spc": 120
+		},
+		"types": [
+			"Psychic",
+			"Psychic"
+		],
+		"level1Moves": [
+			"TELEPORT",
+			"KINESIS"
+		],
+		"tmhm": [
+			"MEGA_PUNCH",
+			"MEGA_KICK",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN"
+		]
+	},
+	{
+		"id": "GRAVELER",
+		"romName": "GRAVELER",
+		"displayName": "Graveler",
+		"dexId": 75,
+		"baseStats": {
+			"hp": 55,
+			"atk": 95,
+			"def": 115,
+			"spe": 35,
+			"spc": 45
+		},
+		"types": [
+			"Rock",
+			"Ground"
+		],
+		"level1Moves": [
+			"TACKLE"
+		],
+		"tmhm": [
+			"MEGA_PUNCH",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE"
+		]
+	},
+	{
+		"id": "CHANSEY",
+		"romName": "CHANSEY",
+		"displayName": "Chansey",
+		"dexId": 113,
+		"baseStats": {
+			"hp": 250,
+			"atk": 5,
+			"def": 5,
+			"spe": 50,
+			"spc": 105
+		},
+		"types": [
+			"Normal",
+			"Normal"
+		],
+		"level1Moves": [
+			"POUND",
+			"TAIL_WHIP"
+		],
+		"tmhm": [
+			"MEGA_PUNCH",
+			"FLAMETHROWER",
+			"MEGA_KICK",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN"
+		]
+	},
+	{
+		"id": "MACHOKE",
+		"romName": "MACHOKE",
+		"displayName": "Machoke",
+		"dexId": 67,
+		"baseStats": {
+			"hp": 80,
+			"atk": 100,
+			"def": 70,
+			"spe": 45,
+			"spc": 50
+		},
+		"types": [
+			"Fighting",
+			"Fighting"
+		],
+		"level1Moves": [
+			"KARATE_CHOP",
+			"LOW_KICK",
+			"LEER"
+		],
+		"tmhm": [
+			"MEGA_PUNCH",
+			"MEGA_KICK",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN"
+		]
+	},
+	{
+		"id": "MR_MIME",
+		"romName": "MR.MIME",
+		"displayName": "Mr. Mime",
+		"dexId": 122,
+		"baseStats": {
+			"hp": 40,
+			"atk": 45,
+			"def": 65,
+			"spe": 90,
+			"spc": 100
+		},
+		"types": [
+			"Psychic",
+			"Psychic"
+		],
+		"level1Moves": [
+			"BARRIER"
+		],
+		"tmhm": [
+			"MEGA_PUNCH",
+			"MEGA_KICK",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN"
+		]
+	},
+	{
+		"id": "HITMONLEE",
+		"romName": "HITMONLEE",
+		"displayName": "Hitmonlee",
+		"dexId": 106,
+		"baseStats": {
+			"hp": 65,
+			"atk": 120,
+			"def": 70,
+			"spe": 93,
+			"spc": 60
+		},
+		"types": [
+			"Fighting",
+			"Fighting"
+		],
+		"level1Moves": [
+			"DOUBLE_KICK",
+			"MEDITATE"
+		],
+		"tmhm": [
+			"MEGA_PUNCH",
+			"MEGA_KICK",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN"
+		]
+	},
+	{
+		"id": "HITMONCHAN",
+		"romName": "HITMONCHAN",
+		"displayName": "Hitmonchan",
+		"dexId": 107,
+		"baseStats": {
+			"hp": 60,
+			"atk": 50,
+			"def": 79,
+			"spe": 76,
+			"spc": 105
+		},
+		"types": [
+			"Fighting",
+			"Fighting"
+		],
+		"level1Moves": [
+			"COMET_PUNCH",
+			"AGILITY"
+		],
+		"tmhm": [
+			"MEGA_PUNCH",
+			"MEGA_KICK",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN"
+		]
+	},
+	{
+		"id": "ARBOK",
+		"romName": "ARBOK",
+		"displayName": "Arbok",
+		"dexId": 24,
+		"baseStats": {
+			"hp": 62,
+			"atk": 95,
+			"def": 69,
+			"spe": 90,
+			"spc": 65
+		},
+		"types": [
+			"Poison",
+			"Poison"
+		],
+		"level1Moves": [
+			"LEER"
+		],
+		"tmhm": [
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE",
+			"HYPER_BEAM"
+		]
+	},
+	{
+		"id": "PARASECT",
+		"romName": "PARASECT",
+		"displayName": "Parasect",
+		"dexId": 47,
+		"baseStats": {
+			"hp": 60,
+			"atk": 95,
+			"def": 80,
+			"spe": 30,
+			"spc": 80
+		},
+		"types": [
+			"Bug",
+			"Grass"
+		],
+		"level1Moves": [
+			"SCRATCH"
+		],
+		"tmhm": [
+			"SWORDS_DANCE",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE"
+		]
+	},
+	{
+		"id": "PSYDUCK",
+		"romName": "PSYDUCK",
+		"displayName": "Psyduck",
+		"dexId": 54,
+		"baseStats": {
+			"hp": 50,
+			"atk": 52,
+			"def": 48,
+			"spe": 55,
+			"spc": 50
+		},
+		"types": [
+			"Water",
+			"Water"
+		],
+		"level1Moves": [
+			"SCRATCH"
+		],
+		"tmhm": [
+			"MEGA_PUNCH",
+			"MEGA_KICK",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN"
+		]
+	},
+	{
+		"id": "DROWZEE",
+		"romName": "DROWZEE",
+		"displayName": "Drowzee",
+		"dexId": 96,
+		"baseStats": {
+			"hp": 60,
+			"atk": 48,
+			"def": 45,
+			"spe": 42,
+			"spc": 90
+		},
+		"types": [
+			"Psychic",
+			"Psychic"
+		],
+		"level1Moves": [
+			"POUND",
+			"HYPNOSIS"
+		],
+		"tmhm": [
+			"MEGA_PUNCH",
+			"MEGA_KICK",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN"
+		]
+	},
+	{
+		"id": "GOLEM",
+		"romName": "GOLEM",
+		"displayName": "Golem",
+		"dexId": 76,
+		"baseStats": {
+			"hp": 80,
+			"atk": 110,
+			"def": 130,
+			"spe": 45,
+			"spc": 55
+		},
+		"types": [
+			"Rock",
+			"Ground"
+		],
+		"level1Moves": [
+			"TACKLE"
+		],
+		"tmhm": [
+			"MEGA_PUNCH",
+			"MEGA_KICK",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN"
+		]
+	},
+	{
+		"id": "MAGMAR",
+		"romName": "MAGMAR",
+		"displayName": "Magmar",
+		"dexId": 126,
+		"baseStats": {
+			"hp": 65,
+			"atk": 95,
+			"def": 57,
+			"spe": 93,
+			"spc": 95
+		},
+		"types": [
+			"Fire",
+			"Fire"
+		],
+		"level1Moves": [
+			"EMBER"
+		],
+		"tmhm": [
+			"MEGA_PUNCH",
+			"FLAMETHROWER",
+			"MEGA_KICK",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN"
+		]
+	},
+	{
+		"id": "ELECTABUZZ",
+		"romName": "ELECTABUZZ",
+		"displayName": "Electabuzz",
+		"dexId": 125,
+		"baseStats": {
+			"hp": 65,
+			"atk": 83,
+			"def": 57,
+			"spe": 105,
+			"spc": 85
+		},
+		"types": [
+			"Electric",
+			"Electric"
+		],
+		"level1Moves": [
+			"QUICK_ATTACK",
+			"LEER"
+		],
+		"tmhm": [
+			"MEGA_PUNCH",
+			"MEGA_KICK",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN"
+		]
+	},
+	{
+		"id": "MAGNETON",
+		"romName": "MAGNETON",
+		"displayName": "Magneton",
+		"dexId": 82,
+		"baseStats": {
+			"hp": 50,
+			"atk": 60,
+			"def": 95,
+			"spe": 70,
+			"spc": 120
+		},
+		"types": [
+			"Electric",
+			"Electric"
+		],
+		"level1Moves": [
+			"TACKLE"
+		],
+		"tmhm": [
+			"TOXIC",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE",
+			"HYPER_BEAM",
+			"RAGE"
+		]
+	},
+	{
+		"id": "KOFFING",
+		"romName": "KOFFING",
+		"displayName": "Koffing",
+		"dexId": 109,
+		"baseStats": {
+			"hp": 40,
+			"atk": 65,
+			"def": 95,
+			"spe": 35,
+			"spc": 60
+		},
+		"types": [
+			"Poison",
+			"Poison"
+		],
+		"level1Moves": [
+			"TACKLE",
+			"SMOG"
+		],
+		"tmhm": [
+			"FLAMETHROWER",
+			"TOXIC",
+			"RAGE",
+			"THUNDERBOLT",
+			"THUNDER",
+			"MIMIC"
+		]
+	},
+	{
+		"id": "MANKEY",
+		"romName": "MANKEY",
+		"displayName": "Mankey",
+		"dexId": 56,
+		"baseStats": {
+			"hp": 40,
+			"atk": 80,
+			"def": 35,
+			"spe": 70,
+			"spc": 35
+		},
+		"types": [
+			"Fighting",
+			"Fighting"
+		],
+		"level1Moves": [
+			"SCRATCH",
+			"LEER"
+		],
+		"tmhm": [
+			"MEGA_PUNCH",
+			"MEGA_KICK",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN"
+		]
+	},
+	{
+		"id": "SEEL",
+		"romName": "SEEL",
+		"displayName": "Seel",
+		"dexId": 86,
+		"baseStats": {
+			"hp": 65,
+			"atk": 45,
+			"def": 55,
+			"spe": 45,
+			"spc": 70
+		},
+		"types": [
+			"Water",
+			"Water"
+		],
+		"level1Moves": [
+			"HEADBUTT"
+		],
+		"tmhm": [
+			"TOXIC",
+			"HORN_DRILL",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE"
+		]
+	},
+	{
+		"id": "DIGLETT",
+		"romName": "DIGLETT",
+		"displayName": "Diglett",
+		"dexId": 50,
+		"baseStats": {
+			"hp": 10,
+			"atk": 70,
+			"def": 25,
+			"spe": 95,
+			"spc": 45
+		},
+		"types": [
+			"Ground",
+			"Ground"
+		],
+		"level1Moves": [
+			"SCRATCH"
+		],
+		"tmhm": [
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE",
+			"RAGE"
+		]
+	},
+	{
+		"id": "TAUROS",
+		"romName": "TAUROS",
+		"displayName": "Tauros",
+		"dexId": 128,
+		"baseStats": {
+			"hp": 75,
+			"atk": 100,
+			"def": 95,
+			"spe": 110,
+			"spc": 70
+		},
+		"types": [
+			"Normal",
+			"Normal"
+		],
+		"level1Moves": [
+			"TACKLE"
+		],
+		"tmhm": [
+			"FLAMETHROWER",
+			"TOXIC",
+			"HORN_DRILL",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE"
+		]
+	},
+	{
+		"id": "FARFETCHD",
+		"romName": "FARFETCH'D",
+		"displayName": "Farfetch'd",
+		"dexId": 83,
+		"baseStats": {
+			"hp": 62,
+			"atk": 75,
+			"def": 65,
+			"spe": 70,
+			"spc": 68
+		},
+		"types": [
+			"Normal",
+			"Flying"
+		],
+		"level1Moves": [
+			"PECK",
+			"SAND_ATTACK"
+		],
+		"tmhm": [
+			"RAZOR_WIND",
+			"SWORDS_DANCE",
+			"TOXIC",
+			"BODY_SLAM"
+		]
+	},
+	{
+		"id": "VENONAT",
+		"romName": "VENONAT",
+		"displayName": "Venonat",
+		"dexId": 48,
+		"baseStats": {
+			"hp": 60,
+			"atk": 55,
+			"def": 50,
+			"spe": 45,
+			"spc": 40
+		},
+		"types": [
+			"Bug",
+			"Poison"
+		],
+		"level1Moves": [
+			"TACKLE",
+			"DISABLE"
+		],
+		"tmhm": [
+			"TOXIC",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE",
+			"RAGE",
+			"MEGA_DRAIN"
+		]
+	},
+	{
+		"id": "DRAGONITE",
+		"romName": "DRAGONITE",
+		"displayName": "Dragonite",
+		"dexId": 149,
+		"baseStats": {
+			"hp": 91,
+			"atk": 134,
+			"def": 95,
+			"spe": 80,
+			"spc": 100
+		},
+		"types": [
+			"Dragon",
+			"Flying"
+		],
+		"level1Moves": [
+			"WRAP",
+			"LEER"
+		],
+		"tmhm": [
+			"RAZOR_WIND",
+			"FLAMETHROWER",
+			"TOXIC",
+			"HORN_DRILL",
+			"BODY_SLAM",
+			"TAKE_DOWN"
+		]
+	},
+	{
+		"id": "DODUO",
+		"romName": "DODUO",
+		"displayName": "Doduo",
+		"dexId": 84,
+		"baseStats": {
+			"hp": 35,
+			"atk": 85,
+			"def": 45,
+			"spe": 75,
+			"spc": 35
+		},
+		"types": [
+			"Normal",
+			"Flying"
+		],
+		"level1Moves": [
+			"PECK"
+		],
+		"tmhm": [
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE"
+		]
+	},
+	{
+		"id": "POLIWAG",
+		"romName": "POLIWAG",
+		"displayName": "Poliwag",
+		"dexId": 60,
+		"baseStats": {
+			"hp": 40,
+			"atk": 50,
+			"def": 40,
+			"spe": 90,
+			"spc": 40
+		},
+		"types": [
+			"Water",
+			"Water"
+		],
+		"level1Moves": [
+			"DOUBLESLAP"
+		],
+		"tmhm": [
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE",
+			"BUBBLEBEAM"
+		]
+	},
+	{
+		"id": "JYNX",
+		"romName": "JYNX",
+		"displayName": "Jynx",
+		"dexId": 124,
+		"baseStats": {
+			"hp": 65,
+			"atk": 50,
+			"def": 35,
+			"spe": 95,
+			"spc": 95
+		},
+		"types": [
+			"Ice",
+			"Psychic"
+		],
+		"level1Moves": [
+			"POUND",
+			"LOVELY_KISS"
+		],
+		"tmhm": [
+			"MEGA_PUNCH",
+			"MEGA_KICK",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN"
+		]
+	},
+	{
+		"id": "MOLTRES",
+		"romName": "MOLTRES",
+		"displayName": "Moltres",
+		"dexId": 146,
+		"baseStats": {
+			"hp": 90,
+			"atk": 100,
+			"def": 90,
+			"spe": 90,
+			"spc": 125
+		},
+		"types": [
+			"Fire",
+			"Flying"
+		],
+		"level1Moves": [
+			"PECK",
+			"EMBER"
+		],
+		"tmhm": [
+			"RAZOR_WIND",
+			"FLAMETHROWER",
+			"TOXIC",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE"
+		]
+	},
+	{
+		"id": "ARTICUNO",
+		"romName": "ARTICUNO",
+		"displayName": "Articuno",
+		"dexId": 144,
+		"baseStats": {
+			"hp": 90,
+			"atk": 85,
+			"def": 100,
+			"spe": 85,
+			"spc": 125
+		},
+		"types": [
+			"Ice",
+			"Flying"
+		],
+		"level1Moves": [
+			"PECK"
+		],
+		"tmhm": [
+			"RAZOR_WIND",
+			"TOXIC",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE"
+		]
+	},
+	{
+		"id": "ZAPDOS",
+		"romName": "ZAPDOS",
+		"displayName": "Zapdos",
+		"dexId": 145,
+		"baseStats": {
+			"hp": 90,
+			"atk": 90,
+			"def": 85,
+			"spe": 100,
+			"spc": 125
+		},
+		"types": [
+			"Electric",
+			"Flying"
+		],
+		"level1Moves": [
+			"THUNDERSHOCK",
+			"WING_ATTACK"
+		],
+		"tmhm": [
+			"RAZOR_WIND",
+			"TOXIC",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE"
+		]
+	},
+	{
+		"id": "DITTO",
+		"romName": "DITTO",
+		"displayName": "Ditto",
+		"dexId": 132,
+		"baseStats": {
+			"hp": 48,
+			"atk": 48,
+			"def": 48,
+			"spe": 48,
+			"spc": 48
+		},
+		"types": [
+			"Normal",
+			"Normal"
+		],
+		"level1Moves": [
+			"TRANSFORM"
+		],
+		"tmhm": []
+	},
+	{
+		"id": "MEOWTH",
+		"romName": "MEOWTH",
+		"displayName": "Meowth",
+		"dexId": 52,
+		"baseStats": {
+			"hp": 40,
+			"atk": 45,
+			"def": 35,
+			"spe": 90,
+			"spc": 40
+		},
+		"types": [
+			"Normal",
+			"Normal"
+		],
+		"level1Moves": [
+			"SCRATCH",
+			"GROWL"
+		],
+		"tmhm": [
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE",
+			"BUBBLEBEAM"
+		]
+	},
+	{
+		"id": "KRABBY",
+		"romName": "KRABBY",
+		"displayName": "Krabby",
+		"dexId": 98,
+		"baseStats": {
+			"hp": 30,
+			"atk": 105,
+			"def": 90,
+			"spe": 50,
+			"spc": 25
+		},
+		"types": [
+			"Water",
+			"Water"
+		],
+		"level1Moves": [
+			"BUBBLE",
+			"LEER"
+		],
+		"tmhm": [
+			"SWORDS_DANCE",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE"
+		]
+	},
+	{
+		"id": "VULPIX",
+		"romName": "VULPIX",
+		"displayName": "Vulpix",
+		"dexId": 37,
+		"baseStats": {
+			"hp": 45,
+			"atk": 41,
+			"def": 45,
+			"spe": 75,
+			"spc": 70
+		},
+		"types": [
+			"Fire",
+			"Fire"
+		],
+		"level1Moves": [
+			"EMBER",
+			"TAIL_WHIP"
+		],
+		"tmhm": [
+			"TOXIC",
+			"FLAMETHROWER",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE",
+			"RAGE"
+		]
+	},
+	{
+		"id": "NINETALES",
+		"romName": "NINETALES",
+		"displayName": "Ninetales",
+		"dexId": 38,
+		"baseStats": {
+			"hp": 73,
+			"atk": 76,
+			"def": 75,
+			"spe": 100,
+			"spc": 100
+		},
+		"types": [
+			"Fire",
+			"Fire"
+		],
+		"level1Moves": [
+			"EMBER",
+			"TAIL_WHIP"
+		],
+		"tmhm": [
+			"FLAMETHROWER",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE",
+			"HYPER_BEAM"
+		]
+	},
+	{
+		"id": "PIKACHU",
+		"romName": "PIKACHU",
+		"displayName": "Pikachu",
+		"dexId": 25,
+		"baseStats": {
+			"hp": 60,
+			"atk": 55,
+			"def": 50,
+			"spe": 90,
+			"spc": 70
+		},
+		"types": [
+			"Electric",
+			"Electric"
+		],
+		"level1Moves": [
+			"THUNDERSHOCK",
+			"GROWL"
+		],
+		"tmhm": [
+			"MEGA_PUNCH",
+			"MEGA_KICK",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN"
+		]
+	},
+	{
+		"id": "RAICHU",
+		"romName": "RAICHU",
+		"displayName": "Raichu",
+		"dexId": 26,
+		"baseStats": {
+			"hp": 60,
+			"atk": 90,
+			"def": 55,
+			"spe": 100,
+			"spc": 90
+		},
+		"types": [
+			"Electric",
+			"Electric"
+		],
+		"level1Moves": [
+			"THUNDERSHOCK",
+			"GROWL"
+		],
+		"tmhm": [
+			"MEGA_PUNCH",
+			"MEGA_KICK",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN"
+		]
+	},
+	{
+		"id": "DRATINI",
+		"romName": "DRATINI",
+		"displayName": "Dratini",
+		"dexId": 147,
+		"baseStats": {
+			"hp": 41,
+			"atk": 64,
+			"def": 45,
+			"spe": 50,
+			"spc": 50
+		},
+		"types": [
+			"Dragon",
+			"Dragon"
+		],
+		"level1Moves": [
+			"WRAP",
+			"LEER"
+		],
+		"tmhm": [
+			"TOXIC",
+			"FLAMETHROWER",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE",
+			"BUBBLEBEAM"
+		]
+	},
+	{
+		"id": "DRAGONAIR",
+		"romName": "DRAGONAIR",
+		"displayName": "Dragonair",
+		"dexId": 148,
+		"baseStats": {
+			"hp": 61,
+			"atk": 84,
+			"def": 65,
+			"spe": 70,
+			"spc": 70
+		},
+		"types": [
+			"Dragon",
+			"Dragon"
+		],
+		"level1Moves": [
+			"WRAP",
+			"LEER"
+		],
+		"tmhm": [
+			"TOXIC",
+			"FLAMETHROWER",
+			"HORN_DRILL",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE"
+		]
+	},
+	{
+		"id": "KABUTO",
+		"romName": "KABUTO",
+		"displayName": "Kabuto",
+		"dexId": 140,
+		"baseStats": {
+			"hp": 30,
+			"atk": 80,
+			"def": 90,
+			"spe": 55,
+			"spc": 45
+		},
+		"types": [
+			"Rock",
+			"Water"
+		],
+		"level1Moves": [
+			"SCRATCH",
+			"HARDEN"
+		],
+		"tmhm": [
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE",
+			"BUBBLEBEAM"
+		]
+	},
+	{
+		"id": "KABUTOPS",
+		"romName": "KABUTOPS",
+		"displayName": "Kabutops",
+		"dexId": 141,
+		"baseStats": {
+			"hp": 60,
+			"atk": 115,
+			"def": 105,
+			"spe": 80,
+			"spc": 70
+		},
+		"types": [
+			"Rock",
+			"Water"
+		],
+		"level1Moves": [
+			"SCRATCH",
+			"HARDEN"
+		],
+		"tmhm": [
+			"RAZOR_WIND",
+			"SWORDS_DANCE",
+			"MEGA_KICK",
+			"TOXIC",
+			"BODY_SLAM"
+		]
+	},
+	{
+		"id": "HORSEA",
+		"romName": "HORSEA",
+		"displayName": "Horsea",
+		"dexId": 116,
+		"baseStats": {
+			"hp": 30,
+			"atk": 40,
+			"def": 70,
+			"spe": 60,
+			"spc": 70
+		},
+		"types": [
+			"Water",
+			"Water"
+		],
+		"level1Moves": [
+			"BUBBLE"
+		],
+		"tmhm": [
+			"TOXIC",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE",
+			"BUBBLEBEAM",
+			"WATER_GUN"
+		]
+	},
+	{
+		"id": "SEADRA",
+		"romName": "SEADRA",
+		"displayName": "Seadra",
+		"dexId": 117,
+		"baseStats": {
+			"hp": 55,
+			"atk": 65,
+			"def": 95,
+			"spe": 85,
+			"spc": 95
+		},
+		"types": [
+			"Water",
+			"Water"
+		],
+		"level1Moves": [
+			"BUBBLE"
+		],
+		"tmhm": [
+			"TOXIC",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE",
+			"BUBBLEBEAM",
+			"WATER_GUN"
+		]
+	},
+	{
+		"id": "SANDSHREW",
+		"romName": "SANDSHREW",
+		"displayName": "Sandshrew",
+		"dexId": 27,
+		"baseStats": {
+			"hp": 50,
+			"atk": 75,
+			"def": 85,
+			"spe": 40,
+			"spc": 30
+		},
+		"types": [
+			"Ground",
+			"Ground"
+		],
+		"level1Moves": [
+			"SCRATCH"
+		],
+		"tmhm": [
+			"SWORDS_DANCE",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE"
+		]
+	},
+	{
+		"id": "SANDSLASH",
+		"romName": "SANDSLASH",
+		"displayName": "Sandslash",
+		"dexId": 28,
+		"baseStats": {
+			"hp": 75,
+			"atk": 100,
+			"def": 110,
+			"spe": 65,
+			"spc": 55
+		},
+		"types": [
+			"Ground",
+			"Ground"
+		],
+		"level1Moves": [
+			"SCRATCH"
+		],
+		"tmhm": [
+			"SWORDS_DANCE",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE"
+		]
+	},
+	{
+		"id": "OMANYTE",
+		"romName": "OMANYTE",
+		"displayName": "Omanyte",
+		"dexId": 138,
+		"baseStats": {
+			"hp": 35,
+			"atk": 40,
+			"def": 100,
+			"spe": 35,
+			"spc": 90
+		},
+		"types": [
+			"Rock",
+			"Water"
+		],
+		"level1Moves": [
+			"WATER_GUN",
+			"WITHDRAW"
+		],
+		"tmhm": [
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE",
+			"BUBBLEBEAM"
+		]
+	},
+	{
+		"id": "OMASTAR",
+		"romName": "OMASTAR",
+		"displayName": "Omastar",
+		"dexId": 139,
+		"baseStats": {
+			"hp": 70,
+			"atk": 60,
+			"def": 125,
+			"spe": 55,
+			"spc": 115
+		},
+		"types": [
+			"Rock",
+			"Water"
+		],
+		"level1Moves": [
+			"WATER_GUN",
+			"WITHDRAW"
+		],
+		"tmhm": [
+			"TOXIC",
+			"HORN_DRILL",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE"
+		]
+	},
+	{
+		"id": "JIGGLYPUFF",
+		"romName": "JIGGLYPUFF",
+		"displayName": "Jigglypuff",
+		"dexId": 39,
+		"baseStats": {
+			"hp": 115,
+			"atk": 45,
+			"def": 20,
+			"spe": 20,
+			"spc": 25
+		},
+		"types": [
+			"Normal",
+			"Normal"
+		],
+		"level1Moves": [
+			"SING"
+		],
+		"tmhm": [
+			"MEGA_PUNCH",
+			"FLAMETHROWER",
+			"MEGA_KICK",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN"
+		]
+	},
+	{
+		"id": "WIGGLYTUFF",
+		"romName": "WIGGLYTUFF",
+		"displayName": "Wigglytuff",
+		"dexId": 40,
+		"baseStats": {
+			"hp": 140,
+			"atk": 70,
+			"def": 55,
+			"spe": 45,
+			"spc": 85
+		},
+		"types": [
+			"Normal",
+			"Normal"
+		],
+		"level1Moves": [
+			"SING",
+			"DOUBLESLAP"
+		],
+		"tmhm": [
+			"MEGA_PUNCH",
+			"FLAMETHROWER",
+			"MEGA_KICK",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN"
+		]
+	},
+	{
+		"id": "EEVEE",
+		"romName": "EEVEE",
+		"displayName": "Eevee",
+		"dexId": 133,
+		"baseStats": {
+			"hp": 70,
+			"atk": 65,
+			"def": 65,
+			"spe": 55,
+			"spc": 70
+		},
+		"types": [
+			"Normal",
+			"Normal"
+		],
+		"level1Moves": [
+			"TACKLE"
+		],
+		"tmhm": [
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE",
+			"RAGE"
+		]
+	},
+	{
+		"id": "FLAREON",
+		"romName": "FLAREON",
+		"displayName": "Flareon",
+		"dexId": 136,
+		"baseStats": {
+			"hp": 65,
+			"atk": 130,
+			"def": 60,
+			"spe": 65,
+			"spc": 110
+		},
+		"types": [
+			"Fire",
+			"Fire"
+		],
+		"level1Moves": [
+			"TACKLE",
+			"TAIL_WHIP",
+			"EMBER"
+		],
+		"tmhm": [
+			"FLAMETHROWER",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE",
+			"HYPER_BEAM"
+		]
+	},
+	{
+		"id": "JOLTEON",
+		"romName": "JOLTEON",
+		"displayName": "Jolteon",
+		"dexId": 135,
+		"baseStats": {
+			"hp": 65,
+			"atk": 65,
+			"def": 60,
+			"spe": 130,
+			"spc": 110
+		},
+		"types": [
+			"Electric",
+			"Electric"
+		],
+		"level1Moves": [
+			"TACKLE",
+			"TAIL_WHIP"
+		],
+		"tmhm": [
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE",
+			"HYPER_BEAM"
+		]
+	},
+	{
+		"id": "VAPOREON",
+		"romName": "VAPOREON",
+		"displayName": "Vaporeon",
+		"dexId": 134,
+		"baseStats": {
+			"hp": 130,
+			"atk": 65,
+			"def": 60,
+			"spe": 65,
+			"spc": 110
+		},
+		"types": [
+			"Water",
+			"Water"
+		],
+		"level1Moves": [
+			"TACKLE",
+			"TAIL_WHIP",
+			"BUBBLE"
+		],
+		"tmhm": [
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE",
+			"BUBBLEBEAM"
+		]
+	},
+	{
+		"id": "MACHOP",
+		"romName": "MACHOP",
+		"displayName": "Machop",
+		"dexId": 66,
+		"baseStats": {
+			"hp": 70,
+			"atk": 80,
+			"def": 50,
+			"spe": 35,
+			"spc": 35
+		},
+		"types": [
+			"Fighting",
+			"Fighting"
+		],
+		"level1Moves": [
+			"LOW_KICK"
+		],
+		"tmhm": [
+			"MEGA_PUNCH",
+			"MEGA_KICK",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN"
+		]
+	},
+	{
+		"id": "ZUBAT",
+		"romName": "ZUBAT",
+		"displayName": "Zubat",
+		"dexId": 41,
+		"baseStats": {
+			"hp": 40,
+			"atk": 45,
+			"def": 35,
+			"spe": 55,
+			"spc": 40
+		},
+		"types": [
+			"Poison",
+			"Flying"
+		],
+		"level1Moves": [
+			"LEECH_LIFE"
+		],
+		"tmhm": [
+			"RAZOR_WIND",
+			"TOXIC",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE"
+		]
+	},
+	{
+		"id": "EKANS",
+		"romName": "EKANS",
+		"displayName": "Ekans",
+		"dexId": 23,
+		"baseStats": {
+			"hp": 35,
+			"atk": 60,
+			"def": 44,
+			"spe": 55,
+			"spc": 40
+		},
+		"types": [
+			"Poison",
+			"Poison"
+		],
+		"level1Moves": [
+			"LEER"
+		],
+		"tmhm": [
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE",
+			"RAGE"
+		]
+	},
+	{
+		"id": "PARAS",
+		"romName": "PARAS",
+		"displayName": "Paras",
+		"dexId": 46,
+		"baseStats": {
+			"hp": 35,
+			"atk": 70,
+			"def": 55,
+			"spe": 25,
+			"spc": 55
+		},
+		"types": [
+			"Bug",
+			"Grass"
+		],
+		"level1Moves": [
+			"SCRATCH"
+		],
+		"tmhm": [
+			"SWORDS_DANCE",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE"
+		]
+	},
+	{
+		"id": "POLIWHIRL",
+		"romName": "POLIWHIRL",
+		"displayName": "Poliwhirl",
+		"dexId": 61,
+		"baseStats": {
+			"hp": 65,
+			"atk": 65,
+			"def": 65,
+			"spe": 90,
+			"spc": 50
+		},
+		"types": [
+			"Water",
+			"Water"
+		],
+		"level1Moves": [
+			"BUBBLE",
+			"HYPNOSIS"
+		],
+		"tmhm": [
+			"MEGA_PUNCH",
+			"MEGA_KICK",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN"
+		]
+	},
+	{
+		"id": "POLIWRATH",
+		"romName": "POLIWRATH",
+		"displayName": "Poliwrath",
+		"dexId": 62,
+		"baseStats": {
+			"hp": 90,
+			"atk": 85,
+			"def": 95,
+			"spe": 70,
+			"spc": 70
+		},
+		"types": [
+			"Water",
+			"Fighting"
+		],
+		"level1Moves": [
+			"HYPNOSIS",
+			"BODY_SLAM"
+		],
+		"tmhm": [
+			"MEGA_PUNCH",
+			"MEGA_KICK",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN"
+		]
+	},
+	{
+		"id": "WEEDLE",
+		"romName": "WEEDLE",
+		"displayName": "Weedle",
+		"dexId": 13,
+		"baseStats": {
+			"hp": 40,
+			"atk": 35,
+			"def": 30,
+			"spe": 50,
+			"spc": 20
+		},
+		"types": [
+			"Bug",
+			"Poison"
+		],
+		"level1Moves": [
+			"POISON_STING",
+			"STRING_SHOT"
+		],
+		"tmhm": []
+	},
+	{
+		"id": "KAKUNA",
+		"romName": "KAKUNA",
+		"displayName": "Kakuna",
+		"dexId": 14,
+		"baseStats": {
+			"hp": 45,
+			"atk": 25,
+			"def": 50,
+			"spe": 35,
+			"spc": 25
+		},
+		"types": [
+			"Bug",
+			"Poison"
+		],
+		"level1Moves": [
+			"POISON_STING",
+			"STRING_SHOT",
+			"HARDEN"
+		],
+		"tmhm": []
+	},
+	{
+		"id": "BEEDRILL",
+		"romName": "BEEDRILL",
+		"displayName": "Beedrill",
+		"dexId": 15,
+		"baseStats": {
+			"hp": 65,
+			"atk": 80,
+			"def": 40,
+			"spe": 75,
+			"spc": 45
+		},
+		"types": [
+			"Bug",
+			"Poison"
+		],
+		"level1Moves": [
+			"STRING_SHOT",
+			"HARDEN",
+			"POISON_STING"
+		],
+		"tmhm": [
+			"SWORDS_DANCE",
+			"TOXIC",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE",
+			"HYPER_BEAM"
+		]
+	},
+	{
+		"id": "DODRIO",
+		"romName": "DODRIO",
+		"displayName": "Dodrio",
+		"dexId": 85,
+		"baseStats": {
+			"hp": 60,
+			"atk": 110,
+			"def": 70,
+			"spe": 100,
+			"spc": 60
+		},
+		"types": [
+			"Normal",
+			"Flying"
+		],
+		"level1Moves": [
+			"PECK"
+		],
+		"tmhm": [
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE"
+		]
+	},
+	{
+		"id": "PRIMEAPE",
+		"romName": "PRIMEAPE",
+		"displayName": "Primeape",
+		"dexId": 57,
+		"baseStats": {
+			"hp": 65,
+			"atk": 105,
+			"def": 60,
+			"spe": 95,
+			"spc": 60
+		},
+		"types": [
+			"Fighting",
+			"Fighting"
+		],
+		"level1Moves": [
+			"SCRATCH",
+			"LEER"
+		],
+		"tmhm": [
+			"MEGA_PUNCH",
+			"MEGA_KICK",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN"
+		]
+	},
+	{
+		"id": "DUGTRIO",
+		"romName": "DUGTRIO",
+		"displayName": "Dugtrio",
+		"dexId": 51,
+		"baseStats": {
+			"hp": 35,
+			"atk": 90,
+			"def": 50,
+			"spe": 120,
+			"spc": 70
+		},
+		"types": [
+			"Ground",
+			"Ground"
+		],
+		"level1Moves": [
+			"SCRATCH"
+		],
+		"tmhm": [
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE",
+			"HYPER_BEAM"
+		]
+	},
+	{
+		"id": "VENOMOTH",
+		"romName": "VENOMOTH",
+		"displayName": "Venomoth",
+		"dexId": 49,
+		"baseStats": {
+			"hp": 70,
+			"atk": 75,
+			"def": 60,
+			"spe": 100,
+			"spc": 95
+		},
+		"types": [
+			"Bug",
+			"Poison"
+		],
+		"level1Moves": [
+			"TACKLE",
+			"DISABLE"
+		],
+		"tmhm": [
+			"RAZOR_WIND",
+			"TOXIC",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE"
+		]
+	},
+	{
+		"id": "DEWGONG",
+		"romName": "DEWGONG",
+		"displayName": "Dewgong",
+		"dexId": 87,
+		"baseStats": {
+			"hp": 90,
+			"atk": 70,
+			"def": 80,
+			"spe": 70,
+			"spc": 95
+		},
+		"types": [
+			"Water",
+			"Ice"
+		],
+		"level1Moves": [
+			"HEADBUTT"
+		],
+		"tmhm": [
+			"TOXIC",
+			"HORN_DRILL",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE"
+		]
+	},
+	{
+		"id": "CATERPIE",
+		"romName": "CATERPIE",
+		"displayName": "Caterpie",
+		"dexId": 10,
+		"baseStats": {
+			"hp": 45,
+			"atk": 30,
+			"def": 35,
+			"spe": 45,
+			"spc": 20
+		},
+		"types": [
+			"Bug",
+			"Bug"
+		],
+		"level1Moves": [
+			"TACKLE",
+			"STRING_SHOT"
+		],
+		"tmhm": [
+			"CUT"
+		]
+	},
+	{
+		"id": "METAPOD",
+		"romName": "METAPOD",
+		"displayName": "Metapod",
+		"dexId": 11,
+		"baseStats": {
+			"hp": 50,
+			"atk": 20,
+			"def": 55,
+			"spe": 30,
+			"spc": 25
+		},
+		"types": [
+			"Bug",
+			"Bug"
+		],
+		"level1Moves": [
+			"TACKLE",
+			"HARDEN",
+			"STRING_SHOT"
+		],
+		"tmhm": []
+	},
+	{
+		"id": "BUTTERFREE",
+		"romName": "BUTTERFREE",
+		"displayName": "Butterfree",
+		"dexId": 12,
+		"baseStats": {
+			"hp": 60,
+			"atk": 45,
+			"def": 50,
+			"spe": 70,
+			"spc": 80
+		},
+		"types": [
+			"Bug",
+			"Flying"
+		],
+		"level1Moves": [
+			"TACKLE",
+			"HARDEN",
+			"STRING_SHOT"
+		],
+		"tmhm": [
+			"RAZOR_WIND",
+			"TOXIC",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE"
+		]
+	},
+	{
+		"id": "MACHAMP",
+		"romName": "MACHAMP",
+		"displayName": "Machamp",
+		"dexId": 68,
+		"baseStats": {
+			"hp": 90,
+			"atk": 130,
+			"def": 80,
+			"spe": 55,
+			"spc": 65
+		},
+		"types": [
+			"Fighting",
+			"Fighting"
+		],
+		"level1Moves": [
+			"KARATE_CHOP",
+			"LOW_KICK"
+		],
+		"tmhm": [
+			"MEGA_PUNCH",
+			"MEGA_KICK",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN"
+		]
+	},
+	{
+		"id": "GOLDUCK",
+		"romName": "GOLDUCK",
+		"displayName": "Golduck",
+		"dexId": 55,
+		"baseStats": {
+			"hp": 80,
+			"atk": 82,
+			"def": 78,
+			"spe": 85,
+			"spc": 80
+		},
+		"types": [
+			"Water",
+			"Water"
+		],
+		"level1Moves": [
+			"SCRATCH"
+		],
+		"tmhm": [
+			"MEGA_PUNCH",
+			"MEGA_KICK",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN"
+		]
+	},
+	{
+		"id": "HYPNO",
+		"romName": "HYPNO",
+		"displayName": "Hypno",
+		"dexId": 97,
+		"baseStats": {
+			"hp": 85,
+			"atk": 73,
+			"def": 70,
+			"spe": 67,
+			"spc": 115
+		},
+		"types": [
+			"Psychic",
+			"Psychic"
+		],
+		"level1Moves": [
+			"POUND",
+			"HYPNOSIS"
+		],
+		"tmhm": [
+			"MEGA_PUNCH",
+			"MEGA_KICK",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN"
+		]
+	},
+	{
+		"id": "GOLBAT",
+		"romName": "GOLBAT",
+		"displayName": "Golbat",
+		"dexId": 42,
+		"baseStats": {
+			"hp": 75,
+			"atk": 80,
+			"def": 70,
+			"spe": 100,
+			"spc": 75
+		},
+		"types": [
+			"Poison",
+			"Flying"
+		],
+		"level1Moves": [
+			"LEECH_LIFE",
+			"SCREECH"
+		],
+		"tmhm": [
+			"RAZOR_WIND",
+			"TOXIC",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE"
+		]
+	},
+	{
+		"id": "MEWTWO",
+		"romName": "MEWTWO",
+		"displayName": "Mewtwo",
+		"dexId": 150,
+		"baseStats": {
+			"hp": 106,
+			"atk": 110,
+			"def": 90,
+			"spe": 130,
+			"spc": 154
+		},
+		"types": [
+			"Psychic",
+			"Psychic"
+		],
+		"level1Moves": [
+			"CONFUSION",
+			"DISABLE",
+			"SWIFT",
+			"PSYCHIC_M"
+		],
+		"tmhm": [
+			"MEGA_PUNCH",
+			"FLAMETHROWER",
+			"MEGA_KICK",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN"
+		]
+	},
+	{
+		"id": "SNORLAX",
+		"romName": "SNORLAX",
+		"displayName": "Snorlax",
+		"dexId": 143,
+		"baseStats": {
+			"hp": 160,
+			"atk": 110,
+			"def": 65,
+			"spe": 30,
+			"spc": 65
+		},
+		"types": [
+			"Normal",
+			"Normal"
+		],
+		"level1Moves": [
+			"AMNESIA"
+		],
+		"tmhm": [
+			"MEGA_PUNCH",
+			"FLAMETHROWER",
+			"MEGA_KICK",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN"
+		]
+	},
+	{
+		"id": "MAGIKARP",
+		"romName": "MAGIKARP",
+		"displayName": "Magikarp",
+		"dexId": 129,
+		"baseStats": {
+			"hp": 20,
+			"atk": 10,
+			"def": 55,
+			"spe": 80,
+			"spc": 20
+		},
+		"types": [
+			"Water",
+			"Water"
+		],
+		"level1Moves": [
+			"SPLASH"
+		],
+		"tmhm": []
+	},
+	{
+		"id": "MUK",
+		"romName": "MUK",
+		"displayName": "Muk",
+		"dexId": 89,
+		"baseStats": {
+			"hp": 105,
+			"atk": 105,
+			"def": 75,
+			"spe": 50,
+			"spc": 85
+		},
+		"types": [
+			"Poison",
+			"Poison"
+		],
+		"level1Moves": [
+			"POUND",
+			"DISABLE"
+		],
+		"tmhm": [
+			"FLAMETHROWER",
+			"TOXIC",
+			"BODY_SLAM",
+			"HYPER_BEAM",
+			"RAGE",
+			"MEGA_DRAIN"
+		]
+	},
+	{
+		"id": "KINGLER",
+		"romName": "KINGLER",
+		"displayName": "Kingler",
+		"dexId": 99,
+		"baseStats": {
+			"hp": 55,
+			"atk": 130,
+			"def": 115,
+			"spe": 75,
+			"spc": 50
+		},
+		"types": [
+			"Water",
+			"Water"
+		],
+		"level1Moves": [
+			"BUBBLE",
+			"LEER"
+		],
+		"tmhm": [
+			"SWORDS_DANCE",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE"
+		]
+	},
+	{
+		"id": "CLOYSTER",
+		"romName": "CLOYSTER",
+		"displayName": "Cloyster",
+		"dexId": 91,
+		"baseStats": {
+			"hp": 50,
+			"atk": 95,
+			"def": 180,
+			"spe": 70,
+			"spc": 85
+		},
+		"types": [
+			"Water",
+			"Ice"
+		],
+		"level1Moves": [
+			"TACKLE",
+			"WITHDRAW",
+			"CLAMP",
+			"AURORA_BEAM"
+		],
+		"tmhm": [
+			"TOXIC",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE",
+			"BUBBLEBEAM",
+			"WATER_GUN"
+		]
+	},
+	{
+		"id": "ELECTRODE",
+		"romName": "ELECTRODE",
+		"displayName": "Electrode",
+		"dexId": 101,
+		"baseStats": {
+			"hp": 60,
+			"atk": 50,
+			"def": 70,
+			"spe": 140,
+			"spc": 80
+		},
+		"types": [
+			"Electric",
+			"Electric"
+		],
+		"level1Moves": [
+			"TACKLE",
+			"SCREECH"
+		],
+		"tmhm": [
+			"TOXIC",
+			"TAKE_DOWN",
+			"HYPER_BEAM",
+			"RAGE",
+			"THUNDERBOLT"
+		]
+	},
+	{
+		"id": "CLEFABLE",
+		"romName": "CLEFABLE",
+		"displayName": "Clefable",
+		"dexId": 36,
+		"baseStats": {
+			"hp": 95,
+			"atk": 70,
+			"def": 73,
+			"spe": 60,
+			"spc": 95
+		},
+		"types": [
+			"Normal",
+			"Normal"
+		],
+		"level1Moves": [
+			"SING",
+			"METRONOME",
+			"GROWL"
+		],
+		"tmhm": [
+			"MEGA_PUNCH",
+			"FLAMETHROWER",
+			"MEGA_KICK",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN"
+		]
+	},
+	{
+		"id": "WEEZING",
+		"romName": "WEEZING",
+		"displayName": "Weezing",
+		"dexId": 110,
+		"baseStats": {
+			"hp": 65,
+			"atk": 90,
+			"def": 120,
+			"spe": 60,
+			"spc": 85
+		},
+		"types": [
+			"Poison",
+			"Poison"
+		],
+		"level1Moves": [
+			"TACKLE",
+			"SMOG"
+		],
+		"tmhm": [
+			"FLAMETHROWER",
+			"TOXIC",
+			"HYPER_BEAM",
+			"RAGE",
+			"THUNDERBOLT",
+			"THUNDER"
+		]
+	},
+	{
+		"id": "PERSIAN",
+		"romName": "PERSIAN",
+		"displayName": "Persian",
+		"dexId": 53,
+		"baseStats": {
+			"hp": 65,
+			"atk": 70,
+			"def": 60,
+			"spe": 115,
+			"spc": 65
+		},
+		"types": [
+			"Normal",
+			"Normal"
+		],
+		"level1Moves": [
+			"SCRATCH",
+			"GROWL"
+		],
+		"tmhm": [
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE",
+			"BUBBLEBEAM"
+		]
+	},
+	{
+		"id": "MAROWAK",
+		"romName": "MAROWAK",
+		"displayName": "Marowak",
+		"dexId": 105,
+		"baseStats": {
+			"hp": 60,
+			"atk": 80,
+			"def": 110,
+			"spe": 45,
+			"spc": 80
+		},
+		"types": [
+			"Ground",
+			"Ground"
+		],
+		"level1Moves": [
+			"GROWL"
+		],
+		"tmhm": [
+			"MEGA_PUNCH",
+			"FLAMETHROWER",
+			"MEGA_KICK",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN"
+		]
+	},
+	{
+		"id": "HAUNTER",
+		"romName": "HAUNTER",
+		"displayName": "Haunter",
+		"dexId": 93,
+		"baseStats": {
+			"hp": 45,
+			"atk": 50,
+			"def": 45,
+			"spe": 95,
+			"spc": 115
+		},
+		"types": [
+			"Ghost",
+			"Poison"
+		],
+		"level1Moves": [
+			"LICK",
+			"CONFUSE_RAY"
+		],
+		"tmhm": [
+			"TOXIC",
+			"RAGE",
+			"MEGA_DRAIN",
+			"THUNDERBOLT",
+			"THUNDER"
+		]
+	},
+	{
+		"id": "ABRA",
+		"romName": "ABRA",
+		"displayName": "Abra",
+		"dexId": 63,
+		"baseStats": {
+			"hp": 25,
+			"atk": 20,
+			"def": 15,
+			"spe": 90,
+			"spc": 105
+		},
+		"types": [
+			"Psychic",
+			"Psychic"
+		],
+		"level1Moves": [
+			"TELEPORT"
+		],
+		"tmhm": [
+			"MEGA_PUNCH",
+			"MEGA_KICK",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN"
+		]
+	},
+	{
+		"id": "ALAKAZAM",
+		"romName": "ALAKAZAM",
+		"displayName": "Alakazam",
+		"dexId": 65,
+		"baseStats": {
+			"hp": 55,
+			"atk": 50,
+			"def": 45,
+			"spe": 120,
+			"spc": 135
+		},
+		"types": [
+			"Psychic",
+			"Psychic"
+		],
+		"level1Moves": [
+			"TELEPORT",
+			"KINESIS"
+		],
+		"tmhm": [
+			"MEGA_PUNCH",
+			"MEGA_KICK",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN"
+		]
+	},
+	{
+		"id": "PIDGEOTTO",
+		"romName": "PIDGEOTTO",
+		"displayName": "Pidgeotto",
+		"dexId": 17,
+		"baseStats": {
+			"hp": 63,
+			"atk": 60,
+			"def": 55,
+			"spe": 71,
+			"spc": 50
+		},
+		"types": [
+			"Normal",
+			"Flying"
+		],
+		"level1Moves": [
+			"GUST"
+		],
+		"tmhm": [
+			"RAZOR_WIND",
+			"TOXIC",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE"
+		]
+	},
+	{
+		"id": "PIDGEOT",
+		"romName": "PIDGEOT",
+		"displayName": "Pidgeot",
+		"dexId": 18,
+		"baseStats": {
+			"hp": 83,
+			"atk": 80,
+			"def": 75,
+			"spe": 91,
+			"spc": 70
+		},
+		"types": [
+			"Normal",
+			"Flying"
+		],
+		"level1Moves": [
+			"GUST"
+		],
+		"tmhm": [
+			"RAZOR_WIND",
+			"TOXIC",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE"
+		]
+	},
+	{
+		"id": "STARMIE",
+		"romName": "STARMIE",
+		"displayName": "Starmie",
+		"dexId": 121,
+		"baseStats": {
+			"hp": 60,
+			"atk": 75,
+			"def": 85,
+			"spe": 115,
+			"spc": 100
+		},
+		"types": [
+			"Water",
+			"Psychic"
+		],
+		"level1Moves": [
+			"CONFUSION",
+			"SWIFT",
+			"BUBBLEBEAM"
+		],
+		"tmhm": [
+			"TOXIC",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE",
+			"BUBBLEBEAM",
+			"WATER_GUN"
+		]
+	},
+	{
+		"id": "BULBASAUR",
+		"romName": "BULBASAUR",
+		"displayName": "Bulbasaur",
+		"dexId": 1,
+		"baseStats": {
+			"hp": 45,
+			"atk": 49,
+			"def": 49,
+			"spe": 45,
+			"spc": 65
+		},
+		"types": [
+			"Grass",
+			"Poison"
+		],
+		"level1Moves": [
+			"TACKLE",
+			"GROWL"
+		],
+		"tmhm": [
+			"SWORDS_DANCE",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE"
+		]
+	},
+	{
+		"id": "VENUSAUR",
+		"romName": "VENUSAUR",
+		"displayName": "Venusaur",
+		"dexId": 3,
+		"baseStats": {
+			"hp": 80,
+			"atk": 82,
+			"def": 83,
+			"spe": 80,
+			"spc": 100
+		},
+		"types": [
+			"Grass",
+			"Poison"
+		],
+		"level1Moves": [
+			"TACKLE",
+			"GROWL"
+		],
+		"tmhm": [
+			"SWORDS_DANCE",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE"
+		]
+	},
+	{
+		"id": "TENTACRUEL",
+		"romName": "TENTACRUEL",
+		"displayName": "Tentacruel",
+		"dexId": 73,
+		"baseStats": {
+			"hp": 80,
+			"atk": 70,
+			"def": 65,
+			"spe": 100,
+			"spc": 120
+		},
+		"types": [
+			"Water",
+			"Poison"
+		],
+		"level1Moves": [
+			"WRAP"
+		],
+		"tmhm": [
+			"SWORDS_DANCE",
+			"TOXIC",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE",
+			"BUBBLEBEAM"
+		]
+	},
+	{
+		"id": "GOLDEEN",
+		"romName": "GOLDEEN",
+		"displayName": "Goldeen",
+		"dexId": 118,
+		"baseStats": {
+			"hp": 45,
+			"atk": 67,
+			"def": 60,
+			"spe": 63,
+			"spc": 50
+		},
+		"types": [
+			"Water",
+			"Water"
+		],
+		"level1Moves": [
+			"TAIL_WHIP",
+			"BUBBLE"
+		],
+		"tmhm": [
+			"TOXIC",
+			"HORN_DRILL",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE",
+			"BUBBLEBEAM"
+		]
+	},
+	{
+		"id": "SEAKING",
+		"romName": "SEAKING",
+		"displayName": "Seaking",
+		"dexId": 119,
+		"baseStats": {
+			"hp": 80,
+			"atk": 92,
+			"def": 65,
+			"spe": 68,
+			"spc": 80
+		},
+		"types": [
+			"Water",
+			"Water"
+		],
+		"level1Moves": [
+			"TAIL_WHIP",
+			"BUBBLE"
+		],
+		"tmhm": [
+			"TOXIC",
+			"HORN_DRILL",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE",
+			"BUBBLEBEAM"
+		]
+	},
+	{
+		"id": "PONYTA",
+		"romName": "PONYTA",
+		"displayName": "Ponyta",
+		"dexId": 77,
+		"baseStats": {
+			"hp": 50,
+			"atk": 85,
+			"def": 55,
+			"spe": 100,
+			"spc": 65
+		},
+		"types": [
+			"Fire",
+			"Fire"
+		],
+		"level1Moves": [
+			"EMBER"
+		],
+		"tmhm": [
+			"FLAMETHROWER",
+			"TOXIC",
+			"HORN_DRILL",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE"
+		]
+	},
+	{
+		"id": "RAPIDASH",
+		"romName": "RAPIDASH",
+		"displayName": "Rapidash",
+		"dexId": 78,
+		"baseStats": {
+			"hp": 65,
+			"atk": 100,
+			"def": 70,
+			"spe": 115,
+			"spc": 80
+		},
+		"types": [
+			"Fire",
+			"Fire"
+		],
+		"level1Moves": [
+			"EMBER",
+			"TAIL_WHIP"
+		],
+		"tmhm": [
+			"FLAMETHROWER",
+			"TOXIC",
+			"HORN_DRILL",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE"
+		]
+	},
+	{
+		"id": "RATTATA",
+		"romName": "RATTATA",
+		"displayName": "Rattata",
+		"dexId": 19,
+		"baseStats": {
+			"hp": 30,
+			"atk": 56,
+			"def": 35,
+			"spe": 72,
+			"spc": 25
+		},
+		"types": [
+			"Normal",
+			"Normal"
+		],
+		"level1Moves": [
+			"TACKLE",
+			"TAIL_WHIP"
+		],
+		"tmhm": [
+			"SWORDS_DANCE",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE",
+			"BUBBLEBEAM"
+		]
+	},
+	{
+		"id": "RATICATE",
+		"romName": "RATICATE",
+		"displayName": "Raticate",
+		"dexId": 20,
+		"baseStats": {
+			"hp": 55,
+			"atk": 81,
+			"def": 60,
+			"spe": 97,
+			"spc": 50
+		},
+		"types": [
+			"Normal",
+			"Normal"
+		],
+		"level1Moves": [
+			"TACKLE",
+			"TAIL_WHIP"
+		],
+		"tmhm": [
+			"SWORDS_DANCE",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE",
+			"BUBBLEBEAM"
+		]
+	},
+	{
+		"id": "NIDORINO",
+		"romName": "NIDORINO",
+		"displayName": "Nidorino",
+		"dexId": 33,
+		"baseStats": {
+			"hp": 61,
+			"atk": 72,
+			"def": 57,
+			"spe": 65,
+			"spc": 55
+		},
+		"types": [
+			"Poison",
+			"Poison"
+		],
+		"level1Moves": [
+			"LEER",
+			"TACKLE"
+		],
+		"tmhm": [
+			"TOXIC",
+			"HORN_DRILL",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE"
+		]
+	},
+	{
+		"id": "NIDORINA",
+		"romName": "NIDORINA",
+		"displayName": "Nidorina",
+		"dexId": 30,
+		"baseStats": {
+			"hp": 70,
+			"atk": 62,
+			"def": 67,
+			"spe": 56,
+			"spc": 55
+		},
+		"types": [
+			"Poison",
+			"Poison"
+		],
+		"level1Moves": [
+			"GROWL",
+			"TACKLE",
+			"SCRATCH"
+		],
+		"tmhm": [
+			"TOXIC",
+			"HORN_DRILL",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE"
+		]
+	},
+	{
+		"id": "GEODUDE",
+		"romName": "GEODUDE",
+		"displayName": "Geodude",
+		"dexId": 74,
+		"baseStats": {
+			"hp": 40,
+			"atk": 80,
+			"def": 100,
+			"spe": 20,
+			"spc": 30
+		},
+		"types": [
+			"Rock",
+			"Ground"
+		],
+		"level1Moves": [
+			"TACKLE"
+		],
+		"tmhm": [
+			"MEGA_PUNCH",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE"
+		]
+	},
+	{
+		"id": "PORYGON",
+		"romName": "PORYGON",
+		"displayName": "Porygon",
+		"dexId": 137,
+		"baseStats": {
+			"hp": 75,
+			"atk": 70,
+			"def": 70,
+			"spe": 40,
+			"spc": 95
+		},
+		"types": [
+			"Normal",
+			"Normal"
+		],
+		"level1Moves": [
+			"TACKLE",
+			"CONVERSION"
+		],
+		"tmhm": [
+			"TOXIC",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE",
+			"ICE_BEAM",
+			"BLIZZARD"
+		]
+	},
+	{
+		"id": "AERODACTYL",
+		"romName": "AERODACTYL",
+		"displayName": "Aerodactyl",
+		"dexId": 142,
+		"baseStats": {
+			"hp": 80,
+			"atk": 105,
+			"def": 65,
+			"spe": 130,
+			"spc": 60
+		},
+		"types": [
+			"Rock",
+			"Flying"
+		],
+		"level1Moves": [
+			"WING_ATTACK",
+			"AGILITY"
+		],
+		"tmhm": [
+			"RAZOR_WIND",
+			"FLAMETHROWER",
+			"TOXIC",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE"
+		]
+	},
+	{
+		"id": "MAGNEMITE",
+		"romName": "MAGNEMITE",
+		"displayName": "Magnemite",
+		"dexId": 81,
+		"baseStats": {
+			"hp": 25,
+			"atk": 35,
+			"def": 70,
+			"spe": 45,
+			"spc": 95
+		},
+		"types": [
+			"Electric",
+			"Electric"
+		],
+		"level1Moves": [
+			"TACKLE"
+		],
+		"tmhm": [
+			"TOXIC",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE",
+			"RAGE",
+			"THUNDERBOLT"
+		]
+	},
+	{
+		"id": "CHARMANDER",
+		"romName": "CHARMANDER",
+		"displayName": "Charmander",
+		"dexId": 4,
+		"baseStats": {
+			"hp": 39,
+			"atk": 52,
+			"def": 43,
+			"spe": 65,
+			"spc": 55
+		},
+		"types": [
+			"Fire",
+			"Fire"
+		],
+		"level1Moves": [
+			"SCRATCH",
+			"GROWL"
+		],
+		"tmhm": [
+			"MEGA_PUNCH",
+			"SWORDS_DANCE",
+			"FLAMETHROWER",
+			"MEGA_KICK",
+			"TOXIC",
+			"BODY_SLAM"
+		]
+	},
+	{
+		"id": "SQUIRTLE",
+		"romName": "SQUIRTLE",
+		"displayName": "Squirtle",
+		"dexId": 7,
+		"baseStats": {
+			"hp": 44,
+			"atk": 48,
+			"def": 65,
+			"spe": 43,
+			"spc": 50
+		},
+		"types": [
+			"Water",
+			"Water"
+		],
+		"level1Moves": [
+			"TACKLE",
+			"TAIL_WHIP"
+		],
+		"tmhm": [
+			"MEGA_PUNCH",
+			"MEGA_KICK",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN"
+		]
+	},
+	{
+		"id": "CHARMELEON",
+		"romName": "CHARMELEON",
+		"displayName": "Charmeleon",
+		"dexId": 5,
+		"baseStats": {
+			"hp": 58,
+			"atk": 64,
+			"def": 58,
+			"spe": 80,
+			"spc": 70
+		},
+		"types": [
+			"Fire",
+			"Fire"
+		],
+		"level1Moves": [
+			"SCRATCH",
+			"GROWL"
+		],
+		"tmhm": [
+			"MEGA_PUNCH",
+			"SWORDS_DANCE",
+			"FLAMETHROWER",
+			"MEGA_KICK",
+			"TOXIC",
+			"BODY_SLAM"
+		]
+	},
+	{
+		"id": "WARTORTLE",
+		"romName": "WARTORTLE",
+		"displayName": "Wartortle",
+		"dexId": 8,
+		"baseStats": {
+			"hp": 59,
+			"atk": 63,
+			"def": 80,
+			"spe": 58,
+			"spc": 65
+		},
+		"types": [
+			"Water",
+			"Water"
+		],
+		"level1Moves": [
+			"TACKLE",
+			"TAIL_WHIP",
+			"BUBBLE"
+		],
+		"tmhm": [
+			"MEGA_PUNCH",
+			"MEGA_KICK",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN"
+		]
+	},
+	{
+		"id": "CHARIZARD",
+		"romName": "CHARIZARD",
+		"displayName": "Charizard",
+		"dexId": 6,
+		"baseStats": {
+			"hp": 78,
+			"atk": 84,
+			"def": 78,
+			"spe": 100,
+			"spc": 95
+		},
+		"types": [
+			"Fire",
+			"Flying"
+		],
+		"level1Moves": [
+			"SCRATCH",
+			"GROWL"
+		],
+		"tmhm": [
+			"MEGA_PUNCH",
+			"SWORDS_DANCE",
+			"FLAMETHROWER",
+			"MEGA_KICK",
+			"TOXIC",
+			"BODY_SLAM"
+		]
+	},
+	{
+		"id": "ODDISH",
+		"romName": "ODDISH",
+		"displayName": "Oddish",
+		"dexId": 43,
+		"baseStats": {
+			"hp": 50,
+			"atk": 50,
+			"def": 55,
+			"spe": 30,
+			"spc": 75
+		},
+		"types": [
+			"Grass",
+			"Poison"
+		],
+		"level1Moves": [
+			"TACKLE"
+		],
+		"tmhm": [
+			"SWORDS_DANCE",
+			"TOXIC",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE",
+			"RAGE"
+		]
+	},
+	{
+		"id": "GLOOM",
+		"romName": "GLOOM",
+		"displayName": "Gloom",
+		"dexId": 44,
+		"baseStats": {
+			"hp": 70,
+			"atk": 65,
+			"def": 70,
+			"spe": 40,
+			"spc": 85
+		},
+		"types": [
+			"Grass",
+			"Poison"
+		],
+		"level1Moves": [
+			"TACKLE",
+			"STUN_SPORE"
+		],
+		"tmhm": [
+			"SWORDS_DANCE",
+			"TOXIC",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE",
+			"RAGE"
+		]
+	},
+	{
+		"id": "VILEPLUME",
+		"romName": "VILEPLUME",
+		"displayName": "Vileplume",
+		"dexId": 45,
+		"baseStats": {
+			"hp": 90,
+			"atk": 80,
+			"def": 85,
+			"spe": 50,
+			"spc": 100
+		},
+		"types": [
+			"Grass",
+			"Poison"
+		],
+		"level1Moves": [
+			"TACKLE",
+			"STUN_SPORE",
+			"SLEEP_POWDER",
+			"ACID"
+		],
+		"tmhm": [
+			"SWORDS_DANCE",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE"
+		]
+	},
+	{
+		"id": "BELLSPROUT",
+		"romName": "BELLSPROUT",
+		"displayName": "Bellsprout",
+		"dexId": 69,
+		"baseStats": {
+			"hp": 50,
+			"atk": 75,
+			"def": 35,
+			"spe": 40,
+			"spc": 70
+		},
+		"types": [
+			"Grass",
+			"Poison"
+		],
+		"level1Moves": [
+			"GROWTH",
+			"VINE_WHIP"
+		],
+		"tmhm": [
+			"SWORDS_DANCE",
+			"TOXIC",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE",
+			"RAGE"
+		]
+	},
+	{
+		"id": "WEEPINBELL",
+		"romName": "WEEPINBELL",
+		"displayName": "Weepinbell",
+		"dexId": 70,
+		"baseStats": {
+			"hp": 65,
+			"atk": 90,
+			"def": 50,
+			"spe": 55,
+			"spc": 85
+		},
+		"types": [
+			"Grass",
+			"Poison"
+		],
+		"level1Moves": [
+			"GROWTH",
+			"POISONPOWDER",
+			"VINE_WHIP"
+		],
+		"tmhm": [
+			"SWORDS_DANCE",
+			"TOXIC",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE",
+			"RAGE"
+		]
+	},
+	{
+		"id": "VICTREEBEL",
+		"romName": "VICTREEBEL",
+		"displayName": "Victreebel",
+		"dexId": 71,
+		"baseStats": {
+			"hp": 80,
+			"atk": 105,
+			"def": 65,
+			"spe": 70,
+			"spc": 100
+		},
+		"types": [
+			"Grass",
+			"Poison"
+		],
+		"level1Moves": [
+			"STUN_SPORE",
+			"SLEEP_POWDER",
+			"ACID",
+			"RAZOR_LEAF"
+		],
+		"tmhm": [
+			"SWORDS_DANCE",
+			"TOXIC",
+			"BODY_SLAM",
+			"TAKE_DOWN",
+			"DOUBLE_EDGE"
+		]
+	}
+]
