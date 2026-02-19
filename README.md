@@ -5,6 +5,7 @@ A damage calculator for the [Yellow Legacy](https://github.com/pret/yellow-legac
 ## Setup
 
 ```bash
+nvm use
 npm install
 ```
 
