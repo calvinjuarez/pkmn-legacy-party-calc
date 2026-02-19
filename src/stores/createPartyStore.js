@@ -73,7 +73,8 @@ export function createPartyStore(id, storageKey, { getDefaultUseAdvanced }) {
 			return party.value[index] ?? null
 		}
 
-		/** Populate party from trainer data. Trainer slots: { species, level, moves }. */
+		/** Populate party from trainer data. Trainer slots: { species, level, moves }.
+		 *  Gen 1 trainer Pokemon use DVs 9/8/8/8 and 0 Stat EXP. */
 		function loadFromTrainer(trainer) {
 			const src = trainer?.party ?? []
 			for (let i = 0; i < 6; i++) {
@@ -84,9 +85,9 @@ export function createPartyStore(id, storageKey, { getDefaultUseAdvanced }) {
 						level: mon.level ?? 50,
 						moves: [...(mon.moves ?? []), null, null, null, null].slice(0, 4),
 						stats: { hp: null, atk: null, def: null, spe: null, spc: null },
-						dvs: { atk: 15, def: 15, spe: 15, spc: 15 },
-						statExp: { hp: 65535, atk: 65535, def: 65535, spe: 65535, spc: 65535 },
-						useAdvanced: false,
+						dvs: { atk: 9, def: 8, spe: 8, spc: 8 },
+						statExp: { hp: 0, atk: 0, def: 0, spe: 0, spc: 0 },
+						useAdvanced: true,
 					})
 				} else {
 					clearSlot(i)
