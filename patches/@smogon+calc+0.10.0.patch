@@ -1,0 +1,44 @@
+diff --git a/node_modules/@smogon/calc/dist/desc.js b/node_modules/@smogon/calc/dist/desc.js
+index 1130437..f588e99 100644
+--- a/node_modules/@smogon/calc/dist/desc.js
++++ b/node_modules/@smogon/calc/dist/desc.js
+@@ -377,14 +377,15 @@ function getEndOfTurn(gen, attacker, defender, move, field) {
+         damage -= Math.floor(defender.maxHP() / 8);
+         texts.push('Sticky Barb damage');
+     }
++    var leechDivisor = field.leechSeedDivisor ?? (gen.num >= 2 ? 8 : 16);
+     if (field.defenderSide.isSeeded) {
+         if (!defender.hasAbility('Magic Guard')) {
+-            damage -= Math.floor(defender.maxHP() / (gen.num >= 2 ? 8 : 16));
++            damage -= Math.floor(defender.maxHP() / leechDivisor);
+             texts.push('Leech Seed damage');
+         }
+     }
+     if (field.attackerSide.isSeeded && !attacker.hasAbility('Magic Guard')) {
+-        var recovery = Math.floor(attacker.maxHP() / (gen.num >= 2 ? 8 : 16));
++        var recovery = Math.floor(attacker.maxHP() / leechDivisor);
+         if (defender.hasItem('Big Root'))
+             recovery = Math.trunc(recovery * 5324 / 4096);
+         if (attacker.hasAbility('Liquid Ooze')) {
+diff --git a/node_modules/@smogon/calc/dist/field.js b/node_modules/@smogon/calc/dist/field.js
+index 7c01728..dc0176b 100644
+--- a/node_modules/@smogon/calc/dist/field.js
++++ b/node_modules/@smogon/calc/dist/field.js
+@@ -35,6 +35,7 @@ var Field = (function () {
+         this.isVesselOfRuin = field.isVesselOfRuin || false;
+         this.attackerSide = new Side(field.attackerSide || {});
+         this.defenderSide = new Side(field.defenderSide || {});
++        this.leechSeedDivisor = field.leechSeedDivisor;
+     }
+     Field.prototype.hasWeather = function () {
+         var weathers = [];
+@@ -71,7 +72,8 @@ var Field = (function () {
+             isBeadsOfRuin: this.isBeadsOfRuin,
+             isSwordOfRuin: this.isSwordOfRuin,
+             isTabletsOfRuin: this.isTabletsOfRuin,
+-            isVesselOfRuin: this.isVesselOfRuin
++            isVesselOfRuin: this.isVesselOfRuin,
++            leechSeedDivisor: this.leechSeedDivisor
+         });
+     };
+     return Field;
