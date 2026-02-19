@@ -1,5 +1,21 @@
 <script setup>
+import { getPokemon, calcGen1Stat } from '../services/gamedata'
 import FieldEffectsSide from './FieldEffectsSide.vue'
+
+function displayStat(pokemon, stat) {
+	if (!pokemon?.species) return null
+	const s = pokemon.stats?.[stat]
+	if (s != null && s !== '') return Number(s)
+	const species = getPokemon(pokemon.species)
+	if (!species) return null
+	const bs = species.baseStats
+	const level = pokemon.level ?? 50
+	const dvs = pokemon.dvs ?? { atk: 15, def: 15, spe: 15, spc: 15 }
+	const statExp = pokemon.statExp ?? { hp: 65535, atk: 65535, def: 65535, spe: 65535, spc: 65535 }
+	return calcGen1Stat(stat, bs[stat], level, dvs, statExp[stat] ?? 65535)
+}
+
+const STAT_LABELS = { hp: 'HP', atk: 'Atk', def: 'Def', spe: 'Spd', spc: 'Spc' }
 
 const STATUS_OPTIONS = [
 	{ value: '', label: 'None' },
@@ -39,59 +55,64 @@ defineProps({
 			:on-set-side="onSetSide"
 		/>
 		<div class="matchup-card">
-		<div class="pokemon-header">
-			<strong>{{ label }}</strong>
-			<template v-if="pokemon"> Lv.{{ pokemon.level }}</template>
-		</div>
-		<div class="move-section">
-			<label>Move</label>
-			<div class="move-buttons">
-				<template v-for="(m, i) in moves" :key="m?.id ?? i">
-					<button
-						v-if="m"
-						class="btn btn-nowrap"
-						:class="{ selected: isMoveSelected(m.id) }"
-						@click="onSetMove(m.id)"
-					>
-						{{ m.displayName }} ({{ m.power }})
-					</button>
-					<div v-else class="move-slot-empty" />
-				</template>
+			<div class="pokemon-header">
+				<strong>{{ label }}</strong>
+				<template v-if="pokemon"> Lv.{{ pokemon.level }}</template>
 			</div>
-		</div>
-		<div class="condition-group">
-			<label>Status</label>
-			<select :value="status" @change="onSetStatus($event.target.value)">
-				<option v-for="opt in STATUS_OPTIONS" :key="opt.value" :value="opt.value">{{ opt.label }}</option>
-			</select>
-		</div>
-		<div class="condition-group stat-boosts">
-			<label>Stat Boosts</label>
-			<div class="boost-row">
-				<span>Atk</span>
-				<select :value="boosts.atk" @change="onSetBoost('atk', Number($event.target.value))">
-					<option v-for="b in BOOST_OPTIONS" :key="b" :value="b">{{ b >= 0 ? '+' : '' }}{{ b }}</option>
+			<div v-if="pokemon?.species" class="pokemon-stats">
+				<span v-for="stat in ['hp','atk','def','spe','spc']" :key="stat" class="stat-chip">
+					{{ STAT_LABELS[stat] }} {{ displayStat(pokemon, stat) ?? '-' }}
+				</span>
+			</div>
+			<div class="move-section">
+				<label>Move</label>
+				<div class="move-buttons">
+					<template v-for="(m, i) in moves" :key="m?.id ?? i">
+						<button
+							v-if="m"
+							class="btn btn-nowrap"
+							:class="{ selected: isMoveSelected(m.id) }"
+							@click="onSetMove(m.id)"
+						>
+							{{ m.displayName }} ({{ m.power }})
+						</button>
+						<div v-else class="move-slot-empty" />
+					</template>
+				</div>
+			</div>
+			<div class="condition-group">
+				<label>Status</label>
+				<select :value="status" @change="onSetStatus($event.target.value)">
+					<option v-for="opt in STATUS_OPTIONS" :key="opt.value" :value="opt.value">{{ opt.label }}</option>
 				</select>
 			</div>
-			<div class="boost-row">
-				<span>Def</span>
-				<select :value="boosts.def" @change="onSetBoost('def', Number($event.target.value))">
-					<option v-for="b in BOOST_OPTIONS" :key="b" :value="b">{{ b >= 0 ? '+' : '' }}{{ b }}</option>
-				</select>
+			<div class="condition-group stat-boosts">
+				<label>Stat Boosts</label>
+				<div class="boost-row">
+					<span>Atk</span>
+					<select :value="boosts.atk" @change="onSetBoost('atk', Number($event.target.value))">
+						<option v-for="b in BOOST_OPTIONS" :key="b" :value="b">{{ b >= 0 ? '+' : '' }}{{ b }}</option>
+					</select>
+				</div>
+				<div class="boost-row">
+					<span>Def</span>
+					<select :value="boosts.def" @change="onSetBoost('def', Number($event.target.value))">
+						<option v-for="b in BOOST_OPTIONS" :key="b" :value="b">{{ b >= 0 ? '+' : '' }}{{ b }}</option>
+					</select>
+				</div>
+				<div class="boost-row">
+					<span>Spc</span>
+					<select :value="specialValue" @change="onSetSpecial(Number($event.target.value))">
+						<option v-for="b in BOOST_OPTIONS" :key="b" :value="b">{{ b >= 0 ? '+' : '' }}{{ b }}</option>
+					</select>
+				</div>
+				<div class="boost-row">
+					<span>Spe</span>
+					<select :value="boosts.spe" @change="onSetBoost('spe', Number($event.target.value))">
+						<option v-for="b in BOOST_OPTIONS" :key="b" :value="b">{{ b >= 0 ? '+' : '' }}{{ b }}</option>
+					</select>
+				</div>
 			</div>
-			<div class="boost-row">
-				<span>Spc</span>
-				<select :value="specialValue" @change="onSetSpecial(Number($event.target.value))">
-					<option v-for="b in BOOST_OPTIONS" :key="b" :value="b">{{ b >= 0 ? '+' : '' }}{{ b }}</option>
-				</select>
-			</div>
-			<div class="boost-row">
-				<span>Spe</span>
-				<select :value="boosts.spe" @change="onSetBoost('spe', Number($event.target.value))">
-					<option v-for="b in BOOST_OPTIONS" :key="b" :value="b">{{ b >= 0 ? '+' : '' }}{{ b }}</option>
-				</select>
-			</div>
-		</div>
 		</div>
 	</div>
 </template>
@@ -115,8 +136,19 @@ defineProps({
 	border: 1px solid #e9ecef;
 }
 .pokemon-header {
-	margin-bottom: 1rem;
+	margin-bottom: 0.5rem;
 	font-size: 1.1rem;
+}
+.pokemon-stats {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem 1rem;
+	margin-bottom: 1rem;
+	font-size: 0.85rem;
+	color: #555;
+}
+.stat-chip {
+	white-space: nowrap;
 }
 .move-section {
 	margin-bottom: 1rem;
