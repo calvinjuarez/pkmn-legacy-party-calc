@@ -1,19 +1,40 @@
 <script setup>
-import { calculate, Pokemon, Move } from '@smogon/calc'
-
-const result = calculate(
-  9,
-  new Pokemon(9, 'Pikachu', { level: 50 }),
-  new Pokemon(9, 'Charizard', { level: 50 }),
-  new Move(9, 'Thunderbolt')
-)
-
-const damageStr = Array.isArray(result.damage) ? result.damage.join('-') : String(result.damage)
+import { RouterView, RouterLink } from 'vue-router'
 </script>
 
 <template>
-  <article>
-    <h1>Pokemon Calculator</h1>
-    <p>@smogon/calc loaded. Sample: Pikachu Thunderbolt vs Charizard = {{ damageStr }}%</p>
-  </article>
+	<div class="app">
+		<nav class="nav">
+			<RouterLink to="/party">Party</RouterLink>
+			<RouterLink to="/opponents">Opponents</RouterLink>
+			<RouterLink to="/battle">Battle</RouterLink>
+			<RouterLink to="/settings">Settings</RouterLink>
+		</nav>
+		<main class="main">
+			<RouterView />
+		</main>
+	</div>
 </template>
+
+<style scoped>
+.app {
+	min-height: 100vh;
+}
+.nav {
+	display: flex;
+	gap: 1rem;
+	padding: 1rem 2rem;
+	border-bottom: 1px solid #ddd;
+}
+.nav a {
+	color: #333;
+	text-decoration: none;
+	font-weight: 500;
+}
+.nav a.router-link-active {
+	color: #0d6efd;
+}
+.main {
+	padding: 2rem;
+}
+</style>
