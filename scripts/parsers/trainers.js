@@ -4,7 +4,51 @@
  * Use prepare-data.js to enrich this output for a specific game version.
  */
 
+import fs from 'fs'
+import path from 'path'
 import { parseLiList, readAsm, readAsmLines } from '../lib/parse-asm.js'
+
+const DATA_DIR = path.join(process.cwd(), 'src/data')
+
+function loadJson(name) {
+	try {
+		return JSON.parse(fs.readFileSync(path.join(DATA_DIR, name), 'utf-8'))
+	} catch {
+		return {}
+	}
+}
+
+/**
+ * Get default moves for a Pokemon at level, emulating Gen 1 game logic:
+ * 1. Start with level1Moves from base stats (wMonHMoves)
+ * 2. Add learnset moves to empty slots (WriteMonMoves)
+ * 3. Special overrides are applied by the caller
+ */
+function getMovesAtLevel(speciesId, level) {
+	const learnsets = loadJson('learnsets.json')
+	const pokemonData = loadJson('pokemon.json')
+	const learnset = learnsets[speciesId] ?? []
+	const species = Array.isArray(pokemonData) ? pokemonData.find(p => p.id === speciesId) : null
+	const level1Moves = species?.level1Moves ?? []
+
+	// Start with level1 moves; empty slots are null (like NO_MOVE)
+	const moves = level1Moves.slice(0, 4).map(m => m || null)
+	while (moves.length < 4) moves.push(null)
+
+	// Add learnset moves to first empty slot (like WriteMonMoves)
+	const atLevel = learnset.filter(l => l.level <= level).sort((a, b) => a.level - b.level)
+	const known = new Set(moves.filter(Boolean))
+	for (const { move } of atLevel) {
+		if (known.has(move)) continue
+		const emptyIdx = moves.findIndex(m => m == null)
+		if (emptyIdx >= 0) {
+			moves[emptyIdx] = move
+			known.add(move)
+		}
+	}
+
+	return moves.slice(0, 4)
+}
 
 // Block names that don't follow standard CamelCase -> UPPER_SNAKE conversion
 const BLOCK_NAME_TO_CONSTANT = {
@@ -52,7 +96,8 @@ export function extractRawTrainers() {
 	let currentMoves = {}
 
 	for (const line of specialLines) {
-		const trainerMatch = line.match(/db\s+(\w+)\s*,\s*(\d+)\s*;?/)
+		// Must start with letter/underscore (constant name), not a digit (move lines use db slot, moveSlot, moveId)
+		const trainerMatch = line.match(/db\s+([A-Za-z_]\w*)\s*,\s*(\d+)\s*;?/)
 		if (trainerMatch) {
 			if (currentTrainer) {
 				specialMoves[currentTrainer] = { ...currentMoves }
@@ -130,19 +175,29 @@ export function extractRawTrainers() {
 
 		for (let entryId = 0; entryId < entries.length; entryId++) {
 			const entry = entries[entryId]
-			const variantKey = `${trainerClassId ?? className}_${entryId}`
-			const customMoves = specialMoves[variantKey] ?? specialMoves[`${className}_${entryId}`]
+			// special_moves.asm uses 1-based trainer ID (BROCK 1 = first Brock)
+			const trainerId = entryId + 1
+			const variantKey = `${trainerClassId ?? className}_${trainerId}`
+			const customMoves =
+				specialMoves[variantKey] ??
+				specialMoves[`${constName}_${trainerId}`] ??
+				specialMoves[`${className}_${trainerId}`]
 
 			const partyWithMoves = entry.party.map((p, slotIdx) => {
 				const slot = slotIdx + 1
 				const overrides = customMoves?.[String(slot)]
-				let moves = []
+				// Start with default moves at level, then apply overrides to specific slots
+				const defaultMoves = getMovesAtLevel(p.species, p.level ?? 50)
+				const moves = [...defaultMoves]
 				if (overrides) {
-					moves = Object.entries(overrides)
-						.sort(([a], [b]) => parseInt(a, 10) - parseInt(b, 10))
-						.map(([, move]) => move)
+					for (const [moveSlot, moveId] of Object.entries(overrides).sort(
+						([a], [b]) => parseInt(a, 10) - parseInt(b, 10)
+					)) {
+						const idx = parseInt(moveSlot, 10) - 1
+						if (idx >= 0 && idx < 4) moves[idx] = moveId
+					}
 				}
-				return { ...p, moves }
+				return { ...p, moves: moves.filter(Boolean) }
 			})
 
 			trainers.push({
