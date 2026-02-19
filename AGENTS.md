@@ -2,6 +2,8 @@
 
 Use tab indentation.
 
+Native CSS nesting is allowed. Target modern browsers only.
+
 Write docs for the things we build. For key architecture decisions, write ADR docs to docs/adr.
 
 ## Commit Guidelines

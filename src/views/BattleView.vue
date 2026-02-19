@@ -1,10 +1,10 @@
 <script setup>
-import { ref, computed, watch, onMounted, onBeforeUnmount } from 'vue'
-import { useBattleStore } from '../stores/battle'
-import { usePartyStore } from '../stores/party'
-import { useOpponentPartyStore } from '../stores/opponentParty'
-import { getPokemon, getMove, getTrainerMonMoves } from '../services/gamedata'
+import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import MatchupColumn from '../components/MatchupColumn.vue'
+import { getMove, getPokemon, getTrainerMonMoves } from '../services/gamedata'
+import { useBattleStore } from '../stores/battle'
+import { useOpponentPartyStore } from '../stores/opponentParty'
+import { usePartyStore } from '../stores/party'
 
 const battleStore = useBattleStore()
 const partyStore = usePartyStore()
@@ -141,8 +141,7 @@ watch(
 						:key="index"
 						class="btn"
 						:class="{ selected: battleStore.selectedMyIndex === index }"
-						@click="battleStore.setMyPokemon(index)"
-					>
+						@click="battleStore.setMyPokemon(index)">
 						{{ slotDisplayName(slot) }} Lv.{{ slot.level || '-' }}
 					</button>
 				</div>
@@ -166,25 +165,18 @@ watch(
 								Select a move
 							</div>
 							<label v-if="battleStore.selectedMove && !result?.noDamage" class="crit-checkbox">
-								<input type="checkbox" :checked="battleStore.isCrit" @change="battleStore.setIsCrit($event.target.checked)" />
+								<input type="checkbox" :checked="battleStore.isCrit"
+									@change="battleStore.setIsCrit($event.target.checked)" />
 								Critical Hit
 							</label>
 						</div>
 						<div v-if="damageDistribution.length > 0" class="damage-chart">
 							<div class="chart-title">Rolls</div>
 							<div class="chart-bars">
-								<div
-									v-for="{ damage, count } in damageDistribution"
-									:key="damage"
-									class="chart-bar-wrap"
-									:class="{ hover: hoveredDamage === damage }"
-									@mouseenter="hoveredDamage = damage"
-									@mouseleave="hoveredDamage = null"
-								>
-									<div
-										class="chart-bar"
-										:style="{ height: (count / maxDistCount) * 36 + 'px' }"
-									/>
+								<div v-for="{ damage, count } in damageDistribution" :key="damage" class="chart-bar-wrap"
+									:class="{ hover: hoveredDamage === damage }" @mouseenter="hoveredDamage = damage"
+									@mouseleave="hoveredDamage = null">
+									<div class="chart-bar" :style="{ height: (count / maxDistCount) * 36 + 'px' }" />
 								</div>
 							</div>
 							<div class="chart-caption">{{ chartCaption }}</div>
@@ -192,38 +184,23 @@ watch(
 					</div>
 
 					<div class="matchup-panel">
-						<MatchupColumn
-							:label="slotDisplayName(myPokemon) || 'Your Pokémon'"
-							side-label="Your side"
+						<MatchupColumn :label="slotDisplayName(myPokemon) || 'Your Pokémon'" side-label="Your side"
 							:pokemon="myPokemon"
-							:moves="myMovesPadded"
-							:status="battleStore.attackerStatus"
-							:boosts="battleStore.attackerBoosts"
-							:special-value="attackerSpecial"
-							:side-effects="battleStore.attackerSide"
+							:moves="myMovesPadded" :status="battleStore.attackerStatus" :boosts="battleStore.attackerBoosts"
+							:special-value="attackerSpecial" :side-effects="battleStore.attackerSide"
 							:is-move-selected="(id) => battleStore.selectedMove === id && !battleStore.moveFromOpponent"
 							:on-set-move="(id) => battleStore.setMove(id, false)"
 							:on-set-status="battleStore.setAttackerStatus"
-							:on-set-boost="battleStore.setAttackerBoost"
-							:on-set-special="battleStore.setAttackerSpecial"
-							:on-set-side="battleStore.setAttackerSide"
-						/>
-						<MatchupColumn
-							:label="slotDisplayName(theirPokemon) || 'Opponent'"
-							side-label="Opponent"
+							:on-set-boost="battleStore.setAttackerBoost" :on-set-special="battleStore.setAttackerSpecial"
+							:on-set-side="battleStore.setAttackerSide" />
+						<MatchupColumn :label="slotDisplayName(theirPokemon) || 'Opponent'" side-label="Opponent"
 							:pokemon="theirPokemon"
-							:moves="theirMovesPadded"
-							:status="battleStore.defenderStatus"
-							:boosts="battleStore.defenderBoosts"
-							:special-value="defenderSpecial"
-							:side-effects="battleStore.defenderSide"
+							:moves="theirMovesPadded" :status="battleStore.defenderStatus" :boosts="battleStore.defenderBoosts"
+							:special-value="defenderSpecial" :side-effects="battleStore.defenderSide"
 							:is-move-selected="(id) => battleStore.selectedMove === id && battleStore.moveFromOpponent"
-							:on-set-move="(id) => battleStore.setMove(id, true)"
-							:on-set-status="battleStore.setDefenderStatus"
-							:on-set-boost="battleStore.setDefenderBoost"
-							:on-set-special="battleStore.setDefenderSpecial"
-							:on-set-side="battleStore.setDefenderSide"
-						/>
+							:on-set-move="(id) => battleStore.setMove(id, true)" :on-set-status="battleStore.setDefenderStatus"
+							:on-set-boost="battleStore.setDefenderBoost" :on-set-special="battleStore.setDefenderSpecial"
+							:on-set-side="battleStore.setDefenderSide" />
 					</div>
 				</div>
 				<div v-else class="matchup-placeholder well">
@@ -237,13 +214,9 @@ watch(
 					<router-link to="/opponent" class="edit-link">Edit</router-link>
 				</div>
 				<div class="party-buttons">
-					<button
-						v-for="{ index, slot } in theirPartySlots"
-						:key="index"
-						class="btn"
+					<button v-for="{ index, slot } in theirPartySlots" :key="index" class="btn"
 						:class="{ selected: battleStore.selectedTheirIndex === index }"
-						@click="battleStore.setTheirPokemon(index)"
-					>
+						@click="battleStore.setTheirPokemon(index)">
 						{{ slotDisplayName(slot) }} Lv.{{ slot.level || '-' }}
 					</button>
 				</div>

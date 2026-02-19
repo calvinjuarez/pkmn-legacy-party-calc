@@ -1,6 +1,6 @@
 <script setup>
-import { ref, computed } from 'vue'
-import { getAllPokemon, getAllMoves, getPokemon, calcGen1Stat } from '../services/gamedata'
+import { computed, ref } from 'vue'
+import { calcGen1Stat, getAllMoves, getAllPokemon, getPokemon } from '../services/gamedata'
 
 const props = defineProps({
 	party: { type: Array, required: true },
@@ -105,13 +105,13 @@ function hpDv(slot) {
 				v-for="(slot, i) in party"
 				:key="i"
 				class="slot-card card"
-				:class="{ selected: effectiveSelectedIndex === i }"
-				@click="selectSlot(i)"
-			>
+				:class="{ selected: effectiveSelectedIndex === i, empty: !slot?.species }"
+				@click="selectSlot(i)">
 				<div class="slot-name">{{ slotDisplayName(slot) }}</div>
 				<div class="slot-level" v-if="slot.species">Lv.{{ slot.level }}</div>
 				<div class="slot-moves" v-if="slot.species && slot.moves?.filter(Boolean).length">
-					{{ slot.moves?.filter(Boolean).map(mid => moveDisplayName(mid)).join(', ') || '-' }}
+					<div v-for="mid in slot.moves.filter(Boolean)" :key="mid" class="slot-move">{{ moveDisplayName(mid) }}
+					</div>
 				</div>
 			</button>
 		</div>
@@ -123,8 +123,7 @@ function hpDv(slot) {
 				<label>Species</label>
 				<select
 					:value="selectedSlot.species"
-					@change="updateSlot('species', $event.target.value)"
-				>
+					@change="updateSlot('species', $event.target.value)">
 					<option value="">-- Select --</option>
 					<option v-for="p in pokemonOptions" :key="p.value" :value="p.value">
 						{{ p.label }}
@@ -138,8 +137,7 @@ function hpDv(slot) {
 					type="text"
 					:value="selectedSlot.nickname ?? ''"
 					placeholder="Optional"
-					@input="updateSlot('nickname', $event.target.value)"
-				/>
+					@input="updateSlot('nickname', $event.target.value)" />
 			</div>
 			<div class="form-group" v-if="selectedSlot.species">
 				<label>Level</label>
@@ -148,8 +146,7 @@ function hpDv(slot) {
 					min="1"
 					max="100"
 					:value="selectedSlot.level"
-					@input="updateSlot('level', $event.target.value)"
-				/>
+					@input="updateSlot('level', $event.target.value)" />
 			</div>
 
 			<div v-if="selectedSlot.species" class="stats-section">
@@ -162,8 +159,7 @@ function hpDv(slot) {
 						min="0"
 						:value="selectedSlot.stats?.[stat] ?? ''"
 						:placeholder="String(computedStat(selectedSlot, stat) ?? '')"
-						@input="updateSlot('stat.' + stat, $event.target.value)"
-					/>
+						@input="updateSlot('stat.' + stat, $event.target.value)" />
 					<span v-else class="stat-readonly">{{ computedStat(selectedSlot, stat) ?? '-' }}</span>
 				</div>
 				<div class="toggle-row">
@@ -171,16 +167,14 @@ function hpDv(slot) {
 						type="button"
 						class="mode-btn"
 						:class="{ active: !selectedSlot.useAdvanced }"
-						@click="updateSlot('useAdvanced', false)"
-					>
+						@click="updateSlot('useAdvanced', false)">
 						Stats
 					</button>
 					<button
 						type="button"
 						class="mode-btn"
 						:class="{ active: selectedSlot.useAdvanced }"
-						@click="updateSlot('useAdvanced', true)"
-					>
+						@click="updateSlot('useAdvanced', true)">
 						Advanced
 					</button>
 				</div>
@@ -229,8 +223,7 @@ function hpDv(slot) {
 					<label>Move {{ i + 1 }}</label>
 					<select
 						:value="selectedSlot.moves?.[i] ?? ''"
-						@change="updateSlot('move.' + i, $event.target.value)"
-					>
+						@change="updateSlot('move.' + i, $event.target.value)">
 						<option value="">-- None --</option>
 						<option v-for="m in availableMoves" :key="m.id" :value="m.id">
 							{{ m.displayName }} ({{ m.power }}/{{ m.type }})
@@ -253,40 +246,64 @@ function hpDv(slot) {
 	margin-bottom: 2rem;
 }
 .slot-card {
+	display: flex;
+	flex-direction: column;
 	padding: 1rem;
 	border: 2px solid #ddd;
 	cursor: pointer;
 	text-align: left;
-}
-.slot-card:hover {
-	border-color: #999;
-}
-.slot-card.selected {
-	border-color: #0d6efd;
-	background: #f0f7ff;
+
+	&.empty {
+		justify-content: center;
+
+		.slot-name {
+			color: #999;
+		}
+	}
+	&:hover {
+		border-color: #999;
+	}
+	&.selected {
+		border-color: #0d6efd;
+		background: #f0f7ff;
+	}
 }
 .slot-name {
 	font-weight: 600;
 }
-.slot-level, .slot-moves {
+.slot-level,
+.slot-moves {
 	font-size: 0.85rem;
 	color: #666;
 	margin-top: 0.25rem;
 }
+.slot-moves {
+	margin-top: 0.25rem;
+}
+.slot-move {
+	display: block;
+	line-height: 1.2;
+}
 .editor-panel {
 	padding: 1.5rem;
 }
-.form-group, .stats-section, .moves-section {
+.form-group,
+.stats-section,
+.moves-section {
 	margin-bottom: 1rem;
 }
-.form-group label, .stat-row label, .move-row label {
+.form-group label,
+.stat-row label,
+.move-row label {
 	display: inline-block;
 	width: 80px;
 }
-.stat-row, .move-row {
+.stat-row,
+.move-row {
 	margin-bottom: 0.5rem;
 }
-input[type="number"], select {
+input[type="number"],
+select {
 	padding: 0.25rem 0.5rem;
 }
 .toggle-row {
