@@ -12,10 +12,10 @@ const routes = [
 		meta: { title: 'Party Builder' },
 	},
 	{
-		path: '/opponents',
-		name: 'opponents',
+		path: '/opponent',
+		name: 'opponent',
 		component: () => import('./views/OpponentView.vue'),
-		meta: { title: 'Opponents' },
+		meta: { title: 'Opponent' },
 	},
 	{
 		path: '/battle',

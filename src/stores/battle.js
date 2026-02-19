@@ -1,37 +1,19 @@
 import { defineStore } from 'pinia'
 import { ref, computed, watch } from 'vue'
-import { runDamageCalc, getTrainerById } from '../services/gamedata'
+import { runDamageCalc } from '../services/gamedata'
 import { usePartyStore } from './party'
+import { useOpponentPartyStore } from './opponentParty'
 
 const EMPTY_BOOSTS = { atk: 0, def: 0, spa: 0, spd: 0, spe: 0 }
-const OPPONENT_KEY = 'pokemon-calc-opponent'
-const LEGACY_OPPONENT_KEY = 'pokemon-calc-competitor'
 const SELECTION_KEY = 'pokemon-calc-selection'
 
-function loadOpponentFromStorage() {
-	try {
-		let raw = localStorage.getItem(OPPONENT_KEY)
-		if (!raw) raw = localStorage.getItem(LEGACY_OPPONENT_KEY)
-		if (raw) {
-			const { classId, variantId } = JSON.parse(raw)
-			if (classId != null && variantId != null) {
-				return getTrainerById(classId, variantId)
-			}
-		}
-	} catch (e) {
-		console.warn('Failed to load opponent from storage:', e)
-	}
-	return null
-}
-
-function loadSelectionFromStorage(opponent) {
+function loadSelectionFromStorage() {
 	try {
 		const raw = localStorage.getItem(SELECTION_KEY)
 		if (!raw) return { myIndex: null, theirIndex: null }
 		const { myIndex, theirIndex } = JSON.parse(raw)
 		const my = typeof myIndex === 'number' && myIndex >= 0 && myIndex <= 5 ? myIndex : null
-		const partyLen = opponent?.party?.length ?? 0
-		const their = typeof theirIndex === 'number' && theirIndex >= 0 && theirIndex < partyLen ? theirIndex : null
+		const their = typeof theirIndex === 'number' && theirIndex >= 0 && theirIndex <= 5 ? theirIndex : null
 		return { myIndex: my, theirIndex: their }
 	} catch (e) {
 		console.warn('Failed to load selection from storage:', e)
@@ -40,16 +22,15 @@ function loadSelectionFromStorage(opponent) {
 }
 
 export const useBattleStore = defineStore('battle', () => {
-	const opponent = loadOpponentFromStorage()
-	const selection = loadSelectionFromStorage(opponent)
-	const selectedOpponent = ref(opponent)
+	const selection = loadSelectionFromStorage()
 	const selectedMyIndex = ref(selection.myIndex)
 	const selectedTheirIndex = ref(selection.theirIndex)
 	const selectedMove = ref(null)
+	const moveFromOpponent = ref(false)
 	const calcResult = ref(null)
 
-	const attackerSide = ref({ isReflect: false, isLightScreen: false })
-	const defenderSide = ref({ isReflect: false, isLightScreen: false })
+	const attackerSide = ref({ isReflect: false, isLightScreen: false, isSeeded: false })
+	const defenderSide = ref({ isReflect: false, isLightScreen: false, isSeeded: false })
 	const attackerStatus = ref('')
 	const defenderStatus = ref('')
 	const attackerBoosts = ref({ ...EMPTY_BOOSTS })
@@ -57,8 +38,8 @@ export const useBattleStore = defineStore('battle', () => {
 	const isCrit = ref(false)
 
 	function resetConditions() {
-		attackerSide.value = { isReflect: false, isLightScreen: false }
-		defenderSide.value = { isReflect: false, isLightScreen: false }
+		attackerSide.value = { isReflect: false, isLightScreen: false, isSeeded: false }
+		defenderSide.value = { isReflect: false, isLightScreen: false, isSeeded: false }
 		attackerStatus.value = ''
 		defenderStatus.value = ''
 		attackerBoosts.value = { ...EMPTY_BOOSTS }
@@ -72,22 +53,14 @@ export const useBattleStore = defineStore('battle', () => {
 	})
 
 	const theirPokemon = computed(() => {
-		if (!selectedOpponent.value || selectedTheirIndex.value == null) return null
-		const party = selectedOpponent.value.party ?? []
-		return party[selectedTheirIndex.value] ?? null
+		if (selectedTheirIndex.value == null) return null
+		return useOpponentPartyStore().getSlot(selectedTheirIndex.value)
 	})
-
-	function setOpponent(trainer) {
-		selectedOpponent.value = trainer
-		selectedTheirIndex.value = null
-		selectedMove.value = null
-		calcResult.value = null
-		resetConditions()
-	}
 
 	function setMyPokemon(index) {
 		selectedMyIndex.value = index
 		selectedMove.value = null
+		moveFromOpponent.value = false
 		calcResult.value = null
 		resetConditions()
 	}
@@ -95,12 +68,15 @@ export const useBattleStore = defineStore('battle', () => {
 	function setTheirPokemon(index) {
 		selectedTheirIndex.value = index
 		selectedMove.value = null
+		moveFromOpponent.value = false
 		calcResult.value = null
 		resetConditions()
 	}
 
-	function setMove(move) {
+	function setMove(move, fromOpponent = false) {
+		if (move === selectedMove.value && fromOpponent === moveFromOpponent.value) return
 		selectedMove.value = move
+		moveFromOpponent.value = fromOpponent
 		calcResult.value = null
 	}
 
@@ -158,40 +134,60 @@ export const useBattleStore = defineStore('battle', () => {
 			return
 		}
 
-		calcResult.value = runDamageCalc(myMon, theirMon, selectedMove.value, {
-			attackerSide: attackerSide.value,
-			defenderSide: defenderSide.value,
-			attackerStatus: attackerStatus.value || undefined,
-			defenderStatus: defenderStatus.value || undefined,
-			attackerBoosts: Object.values(attackerBoosts.value).some(v => v !== 0) ? attackerBoosts.value : undefined,
-			defenderBoosts: Object.values(defenderBoosts.value).some(v => v !== 0) ? defenderBoosts.value : undefined,
+		const fromOpp = moveFromOpponent.value
+		const attacker = fromOpp ? theirMon : myMon
+		const defender = fromOpp ? myMon : theirMon
+
+		calcResult.value = runDamageCalc(attacker, defender, selectedMove.value, {
+			attackerSide: fromOpp ? defenderSide.value : attackerSide.value,
+			defenderSide: fromOpp ? attackerSide.value : defenderSide.value,
+			attackerStatus: (fromOpp ? defenderStatus.value : attackerStatus.value) || undefined,
+			defenderStatus: (fromOpp ? attackerStatus.value : defenderStatus.value) || undefined,
+			attackerBoosts: (fromOpp ? defenderBoosts.value : attackerBoosts.value) &&
+				Object.values(fromOpp ? defenderBoosts.value : attackerBoosts.value).some(v => v !== 0)
+				? (fromOpp ? defenderBoosts.value : attackerBoosts.value)
+				: undefined,
+			defenderBoosts: (fromOpp ? attackerBoosts.value : defenderBoosts.value) &&
+				Object.values(fromOpp ? attackerBoosts.value : defenderBoosts.value).some(v => v !== 0)
+				? (fromOpp ? attackerBoosts.value : defenderBoosts.value)
+				: undefined,
 			isCrit: isCrit.value,
 		})
 	}
 
+	function ensureValidSelection() {
+		const partyStore = usePartyStore()
+		const opponentStore = useOpponentPartyStore()
+		let firstMy = -1
+		let firstTheir = -1
+		for (let i = 0; i < 6; i++) {
+			if (firstMy < 0 && partyStore.getSlot(i)?.species) firstMy = i
+			if (firstTheir < 0 && opponentStore.getSlot(i)?.species) firstTheir = i
+		}
+		if (firstMy >= 0 && (selectedMyIndex.value == null || !partyStore.getSlot(selectedMyIndex.value)?.species)) {
+			selectedMyIndex.value = firstMy
+		}
+		if (firstTheir >= 0 && (selectedTheirIndex.value == null || !opponentStore.getSlot(selectedTheirIndex.value)?.species)) {
+			selectedTheirIndex.value = firstTheir
+		}
+		// Auto-select first hero move when none selected
+		if (selectedMove.value == null && firstMy >= 0 && firstTheir >= 0) {
+			const slot = partyStore.getSlot(firstMy)
+			const moves = slot?.moves?.filter(Boolean) ?? []
+			if (moves.length > 0) {
+				selectedMove.value = moves[0]
+				moveFromOpponent.value = false
+			}
+		}
+	}
+
 	function clear() {
-		selectedOpponent.value = null
 		selectedMyIndex.value = null
 		selectedTheirIndex.value = null
 		selectedMove.value = null
+		moveFromOpponent.value = false
 		calcResult.value = null
 		resetConditions()
-	}
-
-	function saveOpponentToStorage(trainer) {
-		try {
-			if (!trainer) {
-				localStorage.removeItem(OPPONENT_KEY)
-				localStorage.removeItem(LEGACY_OPPONENT_KEY)
-				return
-			}
-			const classId = trainer.classId ?? trainer.class
-			const variantId = trainer.variantId ?? 0
-			localStorage.setItem(OPPONENT_KEY, JSON.stringify({ classId, variantId }))
-			localStorage.removeItem(LEGACY_OPPONENT_KEY)
-		} catch (e) {
-			console.warn('Failed to save opponent to storage:', e)
-		}
 	}
 
 	function saveSelectionToStorage() {
@@ -208,19 +204,15 @@ export const useBattleStore = defineStore('battle', () => {
 		}
 	}
 
-	watch(selectedOpponent, (trainer) => {
-		saveOpponentToStorage(trainer)
-	}, { immediate: true })
-
 	watch([selectedMyIndex, selectedTheirIndex], () => {
 		saveSelectionToStorage()
 	}, { immediate: true })
 
 	return {
-		selectedOpponent,
 		selectedMyIndex,
 		selectedTheirIndex,
 		selectedMove,
+		moveFromOpponent,
 		calcResult,
 		myPokemon,
 		theirPokemon,
@@ -231,7 +223,6 @@ export const useBattleStore = defineStore('battle', () => {
 		attackerBoosts,
 		defenderBoosts,
 		isCrit,
-		setOpponent,
 		setMyPokemon,
 		setTheirPokemon,
 		setMove,
@@ -246,5 +237,6 @@ export const useBattleStore = defineStore('battle', () => {
 		setIsCrit,
 		calculate,
 		clear,
+		ensureValidSelection,
 	}
 })

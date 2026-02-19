@@ -1,7 +1,7 @@
 <script setup>
-import { computed } from 'vue'
-import { useRouter } from 'vue-router'
-import { useBattleStore } from '../stores/battle'
+import { ref, computed } from 'vue'
+import { useOpponentPartyStore } from '../stores/opponentParty'
+import PartyBuilder from '../components/PartyBuilder.vue'
 import { getTrainerCategories, getPokemon, getTrainerDisplayName } from '../services/gamedata'
 import {
 	BADGE_VARIANTS,
@@ -12,8 +12,8 @@ import {
 	JESSIE_JAMES_VARIANT_IDS,
 } from '../services/gamedata.const.js'
 
-const router = useRouter()
-const battleStore = useBattleStore()
+const opponentPartyStore = useOpponentPartyStore()
+const showTrainerPicker = ref(false)
 const categories = getTrainerCategories()
 
 function sortByOrder(trainers, order) {
@@ -115,8 +115,8 @@ function displayName(t) {
 }
 
 function selectTrainer(trainer) {
-	battleStore.setOpponent(trainer)
-	router.push('/battle')
+	opponentPartyStore.loadFromTrainer(trainer)
+	showTrainerPicker.value = false
 }
 
 function partySummary(party) {
@@ -126,8 +126,34 @@ function partySummary(party) {
 
 <template>
 	<div class="opponent-view">
-		<h1>Select Opponent</h1>
-		<p class="lead">Choose an opponent to run damage calculations against.</p>
+		<div class="page-header">
+			<h1>Opponent</h1>
+			<a
+				v-if="!showTrainerPicker"
+				href="#"
+				class="mode-link"
+				@click.prevent="showTrainerPicker = true"
+			>Load from trainer</a>
+			<a
+				v-else
+				href="#"
+				class="mode-link"
+				@click.prevent="showTrainerPicker = false"
+			>Set manually</a>
+		</div>
+
+		<div v-if="!showTrainerPicker" class="edit-mode">
+			<p class="lead">Edit the opponent's party. Use "Load from trainer" to populate from boss data.</p>
+			<PartyBuilder
+				:party="opponentPartyStore.party"
+				:get-slot="(i) => opponentPartyStore.getSlot(i)"
+				:set-slot="(i, data) => opponentPartyStore.setSlot(i, data)"
+				editor-title="Edit Slot"
+			/>
+		</div>
+
+		<div v-else class="trainer-mode">
+			<p class="lead">Choose a trainer to load their party into the opponent slots.</p>
 
 		<section class="super-section">
 			<h2>League Battles</h2>
@@ -262,10 +288,29 @@ function partySummary(party) {
 				</div>
 			</div>
 		</section>
+		</div>
 	</div>
 </template>
 
 <style scoped>
+.page-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	margin-bottom: 1rem;
+}
+.page-header h1 {
+	margin: 0;
+}
+.mode-link {
+	font-size: 0.9rem;
+	color: #0d6efd;
+	text-decoration: none;
+}
+.mode-link:hover {
+	text-decoration: underline;
+}
 .opponent-view {
 	max-width: 1000px;
 }

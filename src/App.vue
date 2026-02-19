@@ -6,7 +6,7 @@ import { RouterView, RouterLink } from 'vue-router'
 	<div class="app">
 		<nav class="nav">
 			<RouterLink to="/party">Party</RouterLink>
-			<RouterLink to="/opponents">Opponents</RouterLink>
+			<RouterLink to="/opponent">Opponent</RouterLink>
 			<RouterLink to="/battle">Battle</RouterLink>
 			<RouterLink to="/settings">Settings</RouterLink>
 		</nav>
