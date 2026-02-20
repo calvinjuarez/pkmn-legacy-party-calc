@@ -17,8 +17,7 @@ Write docs for the things we build. For key architecture decisions, write ADR do
 
 When editing patched dependencies (e.g. `node_modules/@smogon/calc`):
 
-1. **Reverse the patch first** – Run `npx patch-package --reverse` so edits are made against the clean, unpatched state.
-2. **Edit the clean files** – Make your changes in `node_modules`.
-3. **Regenerate the patch** – Run `npx patch-package @smogon/calc` (or the relevant package name) to create the updated patch file.
+1. **Edit the files** – Make your changes in `node_modules`.
+2. **Regenerate the patch** – Run `npx patch-package @smogon/calc` (or the relevant package name) to update the patch file.
 
-This ensures patches are always written against the pristine package, not against an already-patched state.
+`patch-package` diffs the current `node_modules` state against the original package and produces the patch. You can edit on top of an already-patched package; the regenerated patch will include all changes.
