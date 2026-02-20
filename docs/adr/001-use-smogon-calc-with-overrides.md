@@ -7,6 +7,7 @@ Accepted
 ## See also
 
 - [ADR-014](014-yellow-legacy-override-mechanics.md) – Extends overrides with Ghost category and Night Shade workaround
+- [ADR-015](015-patch-vs-fork-vs-pr.md) – Why we patch for type effectiveness and residual damage
 
 ## Context
 
