@@ -48,6 +48,23 @@ export function getTypeMatchups() {
 	return typesData.matchups ?? []
 }
 
+/** Build type lookup for calc: { [attackerId]: { [defenderType]: effect } }. Keys match calc's toID (lowercase) and defender.types. */
+function buildTypeLookup(matchups) {
+	const lookup = {}
+	for (const { attacker, defender, effect } of matchups ?? []) {
+		const key = attacker.toLowerCase().replace(/[^a-z0-9]+/g, '')
+		if (!lookup[key]) lookup[key] = {}
+		lookup[key][defender] = effect
+	}
+	return lookup
+}
+
+let typeLookupCache = null
+export function getTypeLookup() {
+	if (!typeLookupCache) typeLookupCache = buildTypeLookup(typesData.matchups)
+	return typeLookupCache
+}
+
 export function getAllTrainers() {
 	return trainersData.trainers ?? []
 }
@@ -279,6 +296,8 @@ export function runDamageCalc(attacker, defender, moveName, options = {}) {
 		leechSeedDivisor: 8,
 		poisonDivisor: 8,
 		burnDivisor: 8,
+		// Yellow Legacy: custom type effectiveness (Ghost vs Psychic 2x, Bug vs Poison 1x)
+		typeMatchups: getTypeLookup(),
 	})
 
 	// Build overrides; calc expects basePower

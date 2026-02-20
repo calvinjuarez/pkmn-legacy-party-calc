@@ -41,20 +41,21 @@ index 1130437..37bafc6 100644
          }
      }
 diff --git a/node_modules/@smogon/calc/dist/field.js b/node_modules/@smogon/calc/dist/field.js
-index 7c01728..5097337 100644
+index 7c01728..153ac33 100644
 --- a/node_modules/@smogon/calc/dist/field.js
 +++ b/node_modules/@smogon/calc/dist/field.js
-@@ -35,6 +35,9 @@ var Field = (function () {
+@@ -35,6 +35,10 @@ var Field = (function () {
          this.isVesselOfRuin = field.isVesselOfRuin || false;
          this.attackerSide = new Side(field.attackerSide || {});
          this.defenderSide = new Side(field.defenderSide || {});
 +        this.leechSeedDivisor = field.leechSeedDivisor;
 +        this.poisonDivisor = field.poisonDivisor;
 +        this.burnDivisor = field.burnDivisor;
++        this.typeMatchups = field.typeMatchups;
      }
      Field.prototype.hasWeather = function () {
          var weathers = [];
-@@ -71,7 +74,10 @@ var Field = (function () {
+@@ -71,7 +75,11 @@ var Field = (function () {
              isBeadsOfRuin: this.isBeadsOfRuin,
              isSwordOfRuin: this.isSwordOfRuin,
              isTabletsOfRuin: this.isTabletsOfRuin,
@@ -62,7 +63,53 @@ index 7c01728..5097337 100644
 +            isVesselOfRuin: this.isVesselOfRuin,
 +            leechSeedDivisor: this.leechSeedDivisor,
 +            poisonDivisor: this.poisonDivisor,
-+            burnDivisor: this.burnDivisor
++            burnDivisor: this.burnDivisor,
++            typeMatchups: this.typeMatchups
          });
      };
      return Field;
+diff --git a/node_modules/@smogon/calc/dist/mechanics/gen12.js b/node_modules/@smogon/calc/dist/mechanics/gen12.js
+index aed096b..8c737b3 100644
+--- a/node_modules/@smogon/calc/dist/mechanics/gen12.js
++++ b/node_modules/@smogon/calc/dist/mechanics/gen12.js
+@@ -80,9 +80,9 @@ function calculateRBYGSC(gen, attacker, defender, move, field) {
+             _a = __read([secondDefenderType, firstDefenderType], 2), firstDefenderType = _a[0], secondDefenderType = _a[1];
+         }
+     }
+-    var type1Effectiveness = (0, util_1.getMoveEffectiveness)(gen, move, firstDefenderType, field.defenderSide.isForesight);
++    var type1Effectiveness = (0, util_1.getMoveEffectiveness)(gen, move, firstDefenderType, field.defenderSide.isForesight, undefined, undefined, field);
+     var type2Effectiveness = secondDefenderType
+-        ? (0, util_1.getMoveEffectiveness)(gen, move, secondDefenderType, field.defenderSide.isForesight)
++        ? (0, util_1.getMoveEffectiveness)(gen, move, secondDefenderType, field.defenderSide.isForesight, undefined, undefined, field)
+         : 1;
+     var typeEffectiveness = type1Effectiveness * type2Effectiveness;
+     if (typeEffectiveness === 0) {
+diff --git a/node_modules/@smogon/calc/dist/mechanics/util.js b/node_modules/@smogon/calc/dist/mechanics/util.js
+index ed612bc..ddf53f0 100644
+--- a/node_modules/@smogon/calc/dist/mechanics/util.js
++++ b/node_modules/@smogon/calc/dist/mechanics/util.js
+@@ -169,7 +169,7 @@ function getFinalSpeed(gen, pokemon, field, side) {
+     return Math.max(0, speed);
+ }
+ exports.getFinalSpeed = getFinalSpeed;
+-function getMoveEffectiveness(gen, move, type, isGhostRevealed, isGravity, isRingTarget) {
++function getMoveEffectiveness(gen, move, type, isGhostRevealed, isGravity, isRingTarget, field) {
+     if ((isRingTarget || isGhostRevealed) && type === 'Ghost' && move.hasType('Normal', 'Fighting')) {
+         return 1;
+     }
+@@ -183,9 +183,13 @@ function getMoveEffectiveness(gen, move, type, isGhostRevealed, isGravity, isRin
+         return (gen.types.get('fighting').effectiveness[type] *
+             gen.types.get('flying').effectiveness[type]);
+     }
+-    else {
+-        return gen.types.get((0, util_1.toID)(move.type)).effectiveness[type];
++    else if (field && field.typeMatchups && gen.num === 1) {
++        var attackerLookup = field.typeMatchups[(0, util_1.toID)(move.type)];
++        if (attackerLookup && type in attackerLookup) {
++            return attackerLookup[type];
++        }
+     }
++    return gen.types.get((0, util_1.toID)(move.type)).effectiveness[type];
+ }
+ exports.getMoveEffectiveness = getMoveEffectiveness;
+ function checkAirLock(pokemon, field) {
