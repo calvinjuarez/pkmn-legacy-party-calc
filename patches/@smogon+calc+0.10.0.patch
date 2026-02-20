@@ -1,5 +1,5 @@
 diff --git a/node_modules/@smogon/calc/dist/desc.js b/node_modules/@smogon/calc/dist/desc.js
-index 1130437..f588e99 100644
+index 1130437..37bafc6 100644
 --- a/node_modules/@smogon/calc/dist/desc.js
 +++ b/node_modules/@smogon/calc/dist/desc.js
 @@ -377,14 +377,15 @@ function getEndOfTurn(gen, attacker, defender, move, field) {
@@ -20,25 +20,49 @@ index 1130437..f588e99 100644
          if (defender.hasItem('Big Root'))
              recovery = Math.trunc(recovery * 5324 / 4096);
          if (attacker.hasAbility('Liquid Ooze')) {
+@@ -408,7 +409,8 @@ function getEndOfTurn(gen, attacker, defender, move, field) {
+             texts.push('Poison Heal');
+         }
+         else if (!defender.hasAbility('Magic Guard')) {
+-            damage -= Math.floor(defender.maxHP() / (gen.num === 1 ? 16 : 8));
++            var poisonDivisor = field.poisonDivisor ?? (gen.num === 1 ? 16 : 8);
++            damage -= Math.floor(defender.maxHP() / poisonDivisor);
+             texts.push('poison damage');
+         }
+     }
+@@ -427,7 +429,8 @@ function getEndOfTurn(gen, attacker, defender, move, field) {
+             texts.push('reduced burn damage');
+         }
+         else if (!defender.hasAbility('Magic Guard')) {
+-            damage -= Math.floor(defender.maxHP() / (gen.num === 1 || gen.num > 6 ? 16 : 8));
++            var burnDivisor = field.burnDivisor ?? (gen.num === 1 || gen.num > 6 ? 16 : 8);
++            damage -= Math.floor(defender.maxHP() / burnDivisor);
+             texts.push('burn damage');
+         }
+     }
 diff --git a/node_modules/@smogon/calc/dist/field.js b/node_modules/@smogon/calc/dist/field.js
-index 7c01728..dc0176b 100644
+index 7c01728..5097337 100644
 --- a/node_modules/@smogon/calc/dist/field.js
 +++ b/node_modules/@smogon/calc/dist/field.js
-@@ -35,6 +35,7 @@ var Field = (function () {
+@@ -35,6 +35,9 @@ var Field = (function () {
          this.isVesselOfRuin = field.isVesselOfRuin || false;
          this.attackerSide = new Side(field.attackerSide || {});
          this.defenderSide = new Side(field.defenderSide || {});
 +        this.leechSeedDivisor = field.leechSeedDivisor;
++        this.poisonDivisor = field.poisonDivisor;
++        this.burnDivisor = field.burnDivisor;
      }
      Field.prototype.hasWeather = function () {
          var weathers = [];
-@@ -71,7 +72,8 @@ var Field = (function () {
+@@ -71,7 +74,10 @@ var Field = (function () {
              isBeadsOfRuin: this.isBeadsOfRuin,
              isSwordOfRuin: this.isSwordOfRuin,
              isTabletsOfRuin: this.isTabletsOfRuin,
 -            isVesselOfRuin: this.isVesselOfRuin
 +            isVesselOfRuin: this.isVesselOfRuin,
-+            leechSeedDivisor: this.leechSeedDivisor
++            leechSeedDivisor: this.leechSeedDivisor,
++            poisonDivisor: this.poisonDivisor,
++            burnDivisor: this.burnDivisor
          });
      };
      return Field;

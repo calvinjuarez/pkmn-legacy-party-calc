@@ -275,8 +275,10 @@ export function runDamageCalc(attacker, defender, moveName, options = {}) {
 	const field = new Field({
 		attackerSide: options.attackerSide ?? {},
 		defenderSide: options.defenderSide ?? {},
-		// Yellow Legacy: Leech Seed does 1/8 instead of 1/16
+		// Yellow Legacy: Leech Seed, poison, and burn all do 1/8 instead of 1/16
 		leechSeedDivisor: 8,
+		poisonDivisor: 8,
+		burnDivisor: 8,
 	})
 
 	const calcMove = new Move(GEN, moveData.displayName, {
