@@ -4,7 +4,7 @@ Use tab indentation.
 
 Native CSS nesting is allowed. Target modern browsers only.
 
-Write docs for the things we build. For key architecture decisions, write ADR docs to docs/adr.
+Write docs for the things we build. For key architecture decisions, write ADR docs to docs/adr.  When writing an ADR doc, read [docs/adr/README.md](docs/adr/README.md).
 
 ## Commit Guidelines
 
