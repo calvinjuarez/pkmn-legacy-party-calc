@@ -267,6 +267,7 @@ watch(
 	display: flex;
 	gap: 1.5rem;
 	align-items: stretch;
+	min-height: 120px;
 }
 .result-main {
 	flex: 1;

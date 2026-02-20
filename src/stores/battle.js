@@ -115,6 +115,7 @@ export const useBattleStore = defineStore('battle', () => {
 	})
 
 	function setMyPokemon(index) {
+		if (index === selectedMyIndex.value) return
 		const oldIndex = selectedMyIndex.value
 		if (oldIndex != null && selectedMove.value != null && !moveFromOpponent.value) {
 			myMoveMemory.value = { ...myMoveMemory.value, [oldIndex]: selectedMove.value }
@@ -127,6 +128,7 @@ export const useBattleStore = defineStore('battle', () => {
 	}
 
 	function setTheirPokemon(index) {
+		if (index === selectedTheirIndex.value) return
 		const oldIndex = selectedTheirIndex.value
 		if (oldIndex != null && selectedMove.value != null && moveFromOpponent.value) {
 			theirMoveMemory.value = { ...theirMoveMemory.value, [oldIndex]: selectedMove.value }
