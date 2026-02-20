@@ -46,4 +46,3 @@ See [enhancements/002-leech-seed-divisor-pr.md](../enhancements/002-leech-seed-d
 ## See also
 
 - [ADR-007: Battle Calculator Field Conditions](../adr/007-battle-calculator-field-conditions.md)
-- [Implementation Status](implementation-status.md)

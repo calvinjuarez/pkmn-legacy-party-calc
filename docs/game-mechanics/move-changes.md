@@ -40,4 +40,3 @@ The ROM hack may include additional power/accuracy/type changes. Run `npm run ex
 ## See also
 
 - [Physical/Special Split](physical-special-split.md) – Ghost moves use Special in Yellow Legacy
-- [Implementation Status](implementation-status.md)

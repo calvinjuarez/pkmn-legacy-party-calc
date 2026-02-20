@@ -27,14 +27,9 @@ The calculator extracts type matchups to `src/data/types.json` via `scripts/pars
 
 ## Implementation Status
 
-**Not implemented.** The `@smogon/calc` library uses its own built-in Gen 1 type chart. Move overrides (`bp`, `accuracy`, `type`) are passed to the calc, but type effectiveness is computed internally and cannot be overridden via the public API.
-
-To support Yellow Legacy type effectiveness, we would need to either:
-
-1. **Patch @smogon/calc** – Add support for custom type matchups (e.g. a `typeMatchups` override on the Field or Move).
-2. **Fork the calc** – Maintain a fork with Yellow Legacy’s type chart.
+**Implemented.** We patch `@smogon/calc` to add a `typeMatchups` Field option. When set (Gen 1 only), `getMoveEffectiveness` uses it instead of the built-in type chart. The calculator passes the Yellow Legacy chart from `src/data/types.json` via `runDamageCalc` → `new Field({ typeMatchups: getTypeLookup() })`. The patch is in `patches/@smogon+calc+0.10.0.patch`.
 
 ## See also
 
 - [ADR-001: Use @smogon/calc Gen 1 Engine with Overrides](../adr/001-use-smogon-calc-with-overrides.md)
-- [Implementation Status](implementation-status.md)
+- [ADR-015: Patch vs Fork vs PR](../adr/015-patch-vs-fork-vs-pr.md)

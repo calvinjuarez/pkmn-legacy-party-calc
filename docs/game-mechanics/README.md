@@ -10,7 +10,6 @@ Reference documentation for game mechanics in the Yellow Legacy ROM hack and how
 | [physical-special-split.md](physical-special-split.md) | Ghost moves use Special instead of Physical |
 | [move-changes.md](move-changes.md) | Power, accuracy, and type changes (Cut, Slam, Night Shade, etc.) |
 | [residual-damage.md](residual-damage.md) | Leech Seed, poison, burn at 1/8 HP per turn |
-| [implementation-status.md](implementation-status.md) | What’s implemented vs not in the calc |
 | [trainer-movesets.md](trainer-movesets.md) | How trainer movesets are computed from the ROM hack |
 
 ## Source

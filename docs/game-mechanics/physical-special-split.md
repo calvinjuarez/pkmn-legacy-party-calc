@@ -22,4 +22,3 @@ This matches Crystal and makes Ghost moves scale off Special, which fits Gengarâ
 ## See also
 
 - [Move Changes](move-changes.md) â€“ Lick and Night Shade are Ghost moves affected by this
-- [Implementation Status](implementation-status.md)
