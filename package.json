@@ -7,13 +7,16 @@
 		"dev": "vite",
 		"build": "vite build",
 		"preview": "vite preview",
+		"test": "vitest",
+		"test:run": "vitest run",
 		"extract-data": "node scripts/extract-data.js",
 		"postinstall": "patch-package"
 	},
 	"devDependencies": {
-		"patch-package": "^8.0.1",
 		"@vitejs/plugin-vue": "^6.0.4",
-		"vite": "^6.0.0"
+		"patch-package": "^8.0.1",
+		"vite": "^6.0.0",
+		"vitest": "^4.0.18"
 	},
 	"dependencies": {
 		"@smogon/calc": "^0.10.0",
