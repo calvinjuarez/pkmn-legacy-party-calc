@@ -19,5 +19,6 @@ When editing patched dependencies (e.g. `node_modules/@smogon/calc`):
 
 1. **Edit the files** – Make your changes in `node_modules`.
 2. **Regenerate the patch** – Run `npx patch-package @smogon/calc` (or the relevant package name) to update the patch file.
+3. **Restart the dev server** – Vite caches pre-bundled dependencies; restart `npm run dev` (and clear `node_modules/.vite` if needed) so the patched package is used.
 
 `patch-package` diffs the current `node_modules` state against the original package and produces the patch. You can edit on top of an already-patched package; the regenerated patch will include all changes.
