@@ -4,6 +4,10 @@
 
 Accepted
 
+## See also
+
+- [ADR-014](014-yellow-legacy-override-mechanics.md) – Extends overrides with Ghost category and Night Shade workaround
+
 ## Context
 
 We need a damage calculator for Pokemon Yellow Legacy, a Gen 1 ROM hack. Yellow Legacy modifies base stats, moves, and possibly type effectiveness from vanilla Pokemon Yellow. We need accurate damage calculations using the ROM hack's data.
@@ -28,4 +32,4 @@ Use the `@smogon/calc` library with Gen 1 mode and pass `overrides` on the Pokem
 ## Implementation Notes
 
 - Base stats use `spe` (Speed) and `spc` (Special) to align with calc; calc expands `spc` to both `spa` and `spd` for Gen 1
-- Move overrides use `bp`, `accuracy`, `type` to override power/accuracy/type
+- Move overrides use `basePower`, `accuracy`, `type` to override power/accuracy/type (see ADR-014)

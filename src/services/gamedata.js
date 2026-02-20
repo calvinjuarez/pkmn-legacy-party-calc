@@ -281,13 +281,28 @@ export function runDamageCalc(attacker, defender, moveName, options = {}) {
 		burnDivisor: 8,
 	})
 
-	const calcMove = new Move(GEN, moveData.displayName, {
+	// Build overrides; calc expects basePower
+	const overrides = {
+		basePower: moveData.power,
+		accuracy: moveData.accuracy,
+		type: moveData.type,
+	}
+	if (moveData.type === 'Ghost') {
+		overrides.category = 'Special'
+	}
+
+	// Night Shade: Yellow Legacy changed from fixed damage to 60 BP. The calc checks
+	// move.named('Night Shade') and returns level. Use 'Lick' as base so it uses the
+	// normal formula; overrides supply 60 BP Ghost.
+	const isNightShade = moveData.id === 'NIGHT_SHADE' || moveData.displayName === 'Night Shade'
+	const calcMoveName = isNightShade ? 'Lick' : moveData.displayName
+	const calcOverrides = isNightShade
+		? { ...overrides, basePower: 60, type: 'Ghost', accuracy: 100 }
+		: overrides
+
+	const calcMove = new Move(GEN, calcMoveName, {
 		isCrit: options.isCrit ?? false,
-		overrides: {
-			bp: moveData.power,
-			accuracy: moveData.accuracy,
-			type: moveData.type,
-		},
+		overrides: calcOverrides,
 	})
 
 	try {
