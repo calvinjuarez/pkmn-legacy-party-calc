@@ -341,9 +341,10 @@ watch(
 .edit-link:hover {
 	text-decoration: underline;
 }
-.sidebar .party-buttons {
+.party-buttons {
 	display: flex;
 	flex-direction: column;
+	flex-wrap: wrap;
 	gap: 0.5rem;
 }
 .party-button {
@@ -353,11 +354,6 @@ watch(
 	display: block;
 	font-size: 0.8em;
 	color: var(--house--color_muted);
-}
-.party-buttons {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 0.5rem;
 }
 .move-buttons {
 	display: grid;
