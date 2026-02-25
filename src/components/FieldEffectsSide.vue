@@ -47,7 +47,7 @@ defineProps({
 .field-effects-label {
 	font-size: 0.85rem;
 	font-weight: 600;
-	color: #555;
+	color: var(--house--color_muted);
 }
 .field-effects-checkboxes {
 	display: flex;

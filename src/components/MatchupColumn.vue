@@ -141,7 +141,7 @@ defineProps({
 	gap: 0.5rem 1rem;
 	margin-bottom: 1rem;
 	font-size: 0.85rem;
-	color: #555;
+	color: var(--house--color_muted);
 }
 .stat-chip {
 	white-space: nowrap;
@@ -152,7 +152,7 @@ defineProps({
 .move-section label {
 	display: block;
 	font-size: 0.85rem;
-	color: #555;
+	color: var(--house--color_muted);
 	margin-bottom: 0.25rem;
 }
 .move-buttons {
@@ -177,7 +177,7 @@ defineProps({
 .condition-group label {
 	display: block;
 	font-size: 0.85rem;
-	color: #555;
+	color: var(--house--color_muted);
 	margin-bottom: 0.25rem;
 }
 .condition-group select {

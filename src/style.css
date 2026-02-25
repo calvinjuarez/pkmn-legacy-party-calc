@@ -1,5 +1,9 @@
 @import 'bootstrap/dist/css/bootstrap-reboot.css';
 
+/* House design tokens – see docs/style-guide--css.md */
+:root {
+	--house--color_muted: #555;
+}
 
 html {}
 body {

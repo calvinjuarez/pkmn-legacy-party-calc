@@ -384,7 +384,7 @@ watch(
 .move-section label {
 	display: block;
 	font-size: 0.85rem;
-	color: #555;
+	color: var(--house--color_muted);
 	margin-bottom: 0.25rem;
 }
 .crit-toggle {
@@ -404,7 +404,7 @@ watch(
 	gap: 0.5rem;
 	margin-top: 0.75rem;
 	font-size: 0.9rem;
-	color: #555;
+	color: var(--house--color_muted);
 	cursor: pointer;
 }
 .crit-checkbox input {

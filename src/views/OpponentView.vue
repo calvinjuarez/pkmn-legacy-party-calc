@@ -335,7 +335,7 @@ function partySummary(party) {
 }
 .category h3 {
 	margin-bottom: 0.5rem;
-	color: #555;
+	color: var(--house--color_muted);
 }
 .category-desc {
 	color: #666;
