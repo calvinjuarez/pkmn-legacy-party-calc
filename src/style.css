@@ -3,6 +3,9 @@
 /* House design tokens – see docs/style-guide--css.md */
 :root {
 	--house--color_muted: #555;
+
+	/* set `rem` explicitly */
+	font-size: 16px;
 }
 
 html {}
