@@ -29,6 +29,7 @@ Use tab indentation.
 - **Small, atomic commits** – Each commit does one logical thing and leaves the app in a working state.
 - **Conventional commits** – Use `feat:`, `fix:`, `refactor:`, `docs:`, `chore:` etc. in the subject.
 - **Imperative mood** – Subject line: "Add X" not "Added X".
+- **Focus on aim, not details** – Message should explain the "why" (purpose), not the "what" (technical changes).
 - **Functional** – Every commit should build and run; avoid broken intermediate states.
 
 ## Testing
