@@ -139,10 +139,10 @@ watch(
 					<button
 						v-for="{ index, slot } in myPartySlots"
 						:key="index"
-						class="btn"
+						class="party-button  btn"
 						:class="{ selected: battleStore.selectedMyIndex === index }"
 						@click="battleStore.setMyPokemon(index)">
-						{{ slotDisplayName(slot) }} <small class="party-btn-level">Lv.{{ slot.level || '-' }}</small>
+						{{ slotDisplayName(slot) }} <small class="party-button-level">Lv.{{ slot.level || '-' }}</small>
 					</button>
 				</div>
 			</aside>
@@ -214,10 +214,10 @@ watch(
 					<router-link to="/opponent" class="edit-link">Edit</router-link>
 				</div>
 				<div class="party-buttons">
-					<button v-for="{ index, slot } in theirPartySlots" :key="index" class="btn"
+					<button v-for="{ index, slot } in theirPartySlots" :key="index" class="party-button  btn"
 						:class="{ selected: battleStore.selectedTheirIndex === index }"
 						@click="battleStore.setTheirPokemon(index)">
-						{{ slotDisplayName(slot) }} <small class="party-btn-level">Lv.{{ slot.level || '-' }}</small>
+						{{ slotDisplayName(slot) }} <small class="party-button-level">Lv.{{ slot.level || '-' }}</small>
 					</button>
 				</div>
 			</aside>
@@ -231,7 +231,7 @@ watch(
 }
 .battle-main {
 	display: grid;
-	grid-template-columns: minmax(100px, 1fr) minmax(400px, 4fr) minmax(100px, 1fr);
+	grid-template-columns: minmax(min-content, 1fr) minmax(400px, 4fr) minmax(min-content, 1fr);
 	gap: 1.5rem;
 	align-items: start;
 }
@@ -346,7 +346,10 @@ watch(
 	flex-direction: column;
 	gap: 0.5rem;
 }
-.party-btn-level {
+.party-button {
+	min-width: 8rem;
+}
+.party-button-level {
 	display: block;
 	font-size: 0.8em;
 	color: var(--house--color_muted);
