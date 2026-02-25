@@ -157,7 +157,7 @@ defineProps({
 }
 .move-buttons {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: repeat(auto-fill, minmax(max(45%, 10em), 1fr));
 	gap: 0.35rem;
 }
 .move-buttons .btn {
