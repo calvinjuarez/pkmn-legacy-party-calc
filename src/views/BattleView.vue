@@ -142,7 +142,7 @@ watch(
 						class="btn"
 						:class="{ selected: battleStore.selectedMyIndex === index }"
 						@click="battleStore.setMyPokemon(index)">
-						{{ slotDisplayName(slot) }} Lv.{{ slot.level || '-' }}
+						{{ slotDisplayName(slot) }} <small class="party-btn-level">Lv.{{ slot.level || '-' }}</small>
 					</button>
 				</div>
 			</aside>
@@ -217,7 +217,7 @@ watch(
 					<button v-for="{ index, slot } in theirPartySlots" :key="index" class="btn"
 						:class="{ selected: battleStore.selectedTheirIndex === index }"
 						@click="battleStore.setTheirPokemon(index)">
-						{{ slotDisplayName(slot) }} Lv.{{ slot.level || '-' }}
+						{{ slotDisplayName(slot) }} <small class="party-btn-level">Lv.{{ slot.level || '-' }}</small>
 					</button>
 				</div>
 			</aside>
@@ -345,6 +345,11 @@ watch(
 	display: flex;
 	flex-direction: column;
 	gap: 0.5rem;
+}
+.party-btn-level {
+	display: block;
+	font-size: 0.8em;
+	color: var(--house--color_muted);
 }
 .party-buttons {
 	display: flex;
