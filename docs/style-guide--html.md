@@ -7,7 +7,7 @@ Conventions for markup in this project. See [AGENTS.md](../AGENTS.md) for rules 
 Group classes in the `class` attribute by family. Use double space (or newline, if the list is long) to separate groups. Order groups from local/specific to generic.
 
 ```html
-<button class="party-button party-button-empty  btn btn-main  ml-2 text-center">
+<button class="foo-item foo-item_active  bar bar-primary  util-a util-b">
 ```
 
-Here: `party-button*` (component-specific) → `btn*` (shared component) → utilities.
+Here: `foo-item*` (component-specific) → `bar*` (shared component) → utilities.
