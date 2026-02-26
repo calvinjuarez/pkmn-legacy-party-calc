@@ -50,7 +50,7 @@ defineProps({
 <template>
 	<div class="c-matchup_column">
 		<div class="c-matchup_column--side well">
-			<div class="c-matchup_column--side--content">
+			<div class="c-matchup_column--preamble">
 				<FieldEffectsSide
 					:label="sideLabel || label"
 					:side-effects="sideEffects"
@@ -120,17 +120,16 @@ defineProps({
 </template>
 
 <style scoped>
-.c-matchup_column {
-	display: flex;
-	flex-direction: column;
-	gap: 0.75rem;
-}
-.c-matchup_column--side--content {
-	padding: 0.5rem 1rem;
-}
+.c-matchup_column {}
+.c-matchup_column--preamble,
 .c-matchup_column--main {
 	padding: 1rem 1.25rem;
 }
+.c-matchup_column--preamble {
+	/* keeps content aligned with --main (card) content */
+	border: 1px solid transparent;
+}
+.c-matchup_column--main {}
 .c-matchup_column--main--header {
 	margin-bottom: 0.5rem;
 	font-size: 1.1rem;
@@ -165,11 +164,15 @@ defineProps({
 	padding-right: 0;
 }
 .l-move_slot-empty {
-	padding: 0.25rem 1rem;
+	padding: 0.5rem 1rem;
 	background: var(--house--border_color);
 	border-radius: var(--house--border_radius-md);
-	border: 2px solid var(--house--border_color-interactive);
-	min-height: 2rem;
+	border: 2px solid transparent;
+
+	&:empty::before {
+		/* non-breaking space */
+		content: '\00A0';
+	}
 }
 .c-matchup_column--main--condition_group {
 	margin-bottom: 1rem;
@@ -180,6 +183,7 @@ defineProps({
 	color: var(--house--color-ink_muted);
 	margin-bottom: 0.25rem;
 }
+
 .c-matchup_column--main--condition_group--stat_boosts .c-matchup_column--main--boost_row {
 	display: flex;
 	align-items: center;
