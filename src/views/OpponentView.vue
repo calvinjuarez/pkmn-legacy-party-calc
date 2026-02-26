@@ -137,16 +137,16 @@ function partySummary(party) {
 				v-if="!showTrainerPicker"
 				href="#"
 				class="v-opponent--mode_link"
-				@click.prevent="showTrainerPicker = true">Load from trainer</a>
+				@click.prevent="showTrainerPicker = true">Load Trainer</a>
 			<a
 				v-else
 				href="#"
 				class="v-opponent--mode_link"
-				@click.prevent="showTrainerPicker = false">Set manually</a>
+				@click.prevent="showTrainerPicker = false">Set Manually</a>
 		</div>
 
 		<div v-if="!showTrainerPicker" class="v-opponent--edit_mode">
-			<p class="lead">Edit the opponent's party. Use "Load from trainer" to populate from boss data.</p>
+			<p class="lead">Edit the opponent's party. Use "Load Trainer" to populate from boss data.</p>
 			<PartyBuilder
 				:party="opponentPartyStore.party"
 				:get-slot="(i) => opponentPartyStore.getSlot(i)"

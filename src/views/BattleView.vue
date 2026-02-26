@@ -235,7 +235,7 @@ watch(
 .v-battle--main {
 	display: grid;
 	grid-template-columns: minmax(min-content, 1fr) minmax(400px, 4fr) minmax(min-content, 1fr);
-	gap: 1.5rem;
+	gap: 1rem;
 	align-items: start;
 }
 .v-battle--sidebar {
@@ -268,7 +268,7 @@ watch(
 .l-result_summary {
 	padding: 1.25rem 1.5rem;
 	display: flex;
-	gap: 1.5rem;
+	gap: 1rem;
 	align-items: stretch;
 	min-height: 120px;
 }
@@ -351,7 +351,9 @@ watch(
 	gap: 0.5rem;
 }
 .l-party_button {
-	min-width: 8rem;
+	min-width: 6.5rem;
+	padding-left: 0;
+	padding-right: 0;
 }
 .l-party_button--level {
 	display: block;
@@ -361,7 +363,7 @@ watch(
 .v-battle--matchup_panel {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	gap: 1.5rem;
+	gap: 1rem;
 	align-items: start;
 }
 .l-result_summary .l-result_summary--placeholder {
