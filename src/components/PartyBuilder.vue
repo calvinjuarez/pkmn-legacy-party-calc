@@ -117,7 +117,8 @@ function hpDv(slot) {
 				<div class="c-party_builder--member--name">{{ slotDisplayName(slot) }}</div>
 				<div class="c-party_builder--member--level" v-if="slot.species">Lv.{{ slot.level }}</div>
 				<div class="c-party_builder--member--moves" v-if="slot.species && slot.moves?.filter(Boolean).length">
-					<div v-for="mid in slot.moves.filter(Boolean)" :key="mid" class="c-party_builder--member--move">{{ moveDisplayName(mid) }}
+					<div v-for="mid in slot.moves.filter(Boolean)" :key="mid" class="c-party_builder--member--move">{{
+						moveDisplayName(mid) }}
 					</div>
 				</div>
 			</button>
@@ -126,16 +127,15 @@ function hpDv(slot) {
 		<div v-if="selectedSlot" class="c-party_builder--editor_panel well">
 			<div class="c-party_builder--editor_panel--header">
 				<h2>{{ editorTitle }} {{ effectiveSelectedIndex + 1 }}</h2>
-				<a
+				<button
 					v-if="selectedSlot.species && clearSlot"
-					href="#"
-					class="l-remove_link"
-					@click.prevent="handleRemove"
-				>Remove</a>
+					type="button"
+					class="btn btn-danger"
+					@click="handleRemove">Clear</button>
 			</div>
 
 			<div class="form_group form_group-inline">
-				<label>Species</label>
+				<label class="form_group--label">Species</label>
 				<select
 					:value="selectedSlot.species"
 					@change="updateSlot('species', $event.target.value)">
@@ -147,7 +147,7 @@ function hpDv(slot) {
 			</div>
 
 			<div class="form_group form_group-inline" v-if="selectedSlot.species && showNickname">
-				<label>Nickname</label>
+				<label class="form_group--label">Nickname</label>
 				<input
 					type="text"
 					:value="selectedSlot.nickname ?? ''"
@@ -155,7 +155,7 @@ function hpDv(slot) {
 					@input="updateSlot('nickname', $event.target.value)" />
 			</div>
 			<div class="form_group form_group-inline" v-if="selectedSlot.species">
-				<label>Level</label>
+				<label class="form_group--label">Level</label>
 				<input
 					type="number"
 					min="1"
@@ -164,75 +164,7 @@ function hpDv(slot) {
 					@input="updateSlot('level', $event.target.value)" />
 			</div>
 
-			<div v-if="selectedSlot.species" class="c-party_builder--stats_section">
-				<h3>Stats</h3>
-				<div class="c-party_builder--stat_row" v-for="stat in ['hp','atk','def','spe','spc']" :key="stat">
-					<label>{{ stat.toUpperCase() }}</label>
-					<input
-						v-if="!selectedSlot.useAdvanced"
-						type="number"
-						min="0"
-						:value="selectedSlot.stats?.[stat] ?? ''"
-						:placeholder="String(computedStat(selectedSlot, stat) ?? '')"
-						@input="updateSlot('stat.' + stat, $event.target.value)" />
-					<span v-else class="l-stat_readonly">{{ computedStat(selectedSlot, stat) ?? '-' }}</span>
-				</div>
-				<div class="c-party_builder--toggle_row">
-					<button
-						type="button"
-						class="l-mode_btn"
-						:class="{ 'l-mode_btn-active': !selectedSlot.useAdvanced }"
-						@click="updateSlot('useAdvanced', false)">
-						Stats
-					</button>
-					<button
-						type="button"
-						class="l-mode_btn"
-						:class="{ 'l-mode_btn-active': selectedSlot.useAdvanced }"
-						@click="updateSlot('useAdvanced', true)">
-						Advanced
-					</button>
-				</div>
-			</div>
-
-			<div v-if="selectedSlot.species && selectedSlot.useAdvanced" class="c-party_builder--stats_section">
-				<h3>DVs (0-15)</h3>
-				<div class="c-party_builder--stat_row">
-					<label>Atk</label>
-					<input type="number" min="0" max="15" :value="selectedSlot.dvs?.atk ?? 15"
-						@input="updateSlot('dv.atk', $event.target.value)" />
-				</div>
-				<div class="c-party_builder--stat_row">
-					<label>Def</label>
-					<input type="number" min="0" max="15" :value="selectedSlot.dvs?.def ?? 15"
-						@input="updateSlot('dv.def', $event.target.value)" />
-				</div>
-				<div class="c-party_builder--stat_row">
-					<label>Spe</label>
-					<input type="number" min="0" max="15" :value="selectedSlot.dvs?.spe ?? 15"
-						@input="updateSlot('dv.spe', $event.target.value)" />
-				</div>
-				<div class="c-party_builder--stat_row">
-					<label>Spc</label>
-					<input type="number" min="0" max="15" :value="selectedSlot.dvs?.spc ?? 15"
-						@input="updateSlot('dv.spc', $event.target.value)" />
-				</div>
-				<div class="c-party_builder--stat_row">
-					<label>HP (calc)</label>
-					<span>{{ hpDv(selectedSlot) }}</span>
-				</div>
-			</div>
-
-			<div v-if="selectedSlot.species && selectedSlot.useAdvanced" class="c-party_builder--stats_section">
-				<h3>Stat Experience (0-65535)</h3>
-				<div class="c-party_builder--stat_row" v-for="stat in ['hp','atk','def','spe','spc']" :key="stat">
-					<label>{{ stat.toUpperCase() }}</label>
-					<input type="number" min="0" max="65535" :value="selectedSlot.statExp?.[stat] ?? 65535"
-						@input="updateSlot('statExp.' + stat, $event.target.value)" />
-				</div>
-			</div>
-
-			<div v-if="selectedSlot.species" class="c-party_builder--moves_section">
+			<div v-if="selectedSlot.species" class="c-party_builder--section c-party_builder--section-moves">
 				<h3>Moves</h3>
 				<div class="c-party_builder--move_row" v-for="(_, i) in 4" :key="i">
 					<label>Move {{ i + 1 }}</label>
@@ -246,24 +178,115 @@ function hpDv(slot) {
 					</select>
 				</div>
 			</div>
+
+			<div v-if="selectedSlot.species" class="c-party_builder--section c-party_builder--section-stats">
+				<div class="c-party_builder--section--header">
+					<h3>Stats</h3>
+					<a
+						v-if="!selectedSlot.useAdvanced"
+						href="#"
+						class="c-party_builder--mode_link"
+						@click.prevent="updateSlot('useAdvanced', true)">Calculate from DV &amp; Stat Exp</a>
+					<a
+						v-else
+						href="#"
+						class="c-party_builder--mode_link"
+						@click.prevent="updateSlot('useAdvanced', false)">Enter Stats Directly</a>
+				</div>
+
+				<div class="c-party_builder--section--content" :class="{ 'is-advanced': selectedSlot.useAdvanced }">
+					<div class="
+						c-party_builder--section--content--item
+						c-party_builder--section--content--item-in_game_stats
+					">
+						<h4 v-if="selectedSlot.useAdvanced">In-Game</h4>
+						<div class="c-party_builder--stat_rows">
+							<div class="c-party_builder--stat_row" v-for="stat in ['hp','atk','def','spe','spc']" :key="stat">
+								<label>{{ stat.toUpperCase() }}</label>
+								<input
+									v-if="!selectedSlot.useAdvanced"
+									type="number"
+									min="0"
+									:value="selectedSlot.stats?.[stat] ?? ''"
+									:placeholder="String(computedStat(selectedSlot, stat) ?? '')"
+									@input="updateSlot('stat.' + stat, $event.target.value)" />
+								<input v-else class="l-stat_calculated" :value="computedStat(selectedSlot, stat) ?? '-'"
+									readonly />
+							</div>
+						</div>
+					</div>
+
+					<div v-if="selectedSlot.species && selectedSlot.useAdvanced"
+						class="c-party_builder--section--content--item">
+						<h4>DVs <small>(0-15)</small></h4>
+						<div class="c-party_builder--stat_rows">
+							<div class="c-party_builder--stat_row">
+								<label>HP</label>
+								<input class="l-stat_calculated" :value="hpDv(selectedSlot)" readonly>
+							</div>
+							<div class="c-party_builder--stat_row">
+								<label>ATK</label>
+								<input type="number" min="0" max="15" :value="selectedSlot.dvs?.atk ?? 15"
+									@input="updateSlot('dv.atk', $event.target.value)" />
+							</div>
+							<div class="c-party_builder--stat_row">
+								<label>DEF</label>
+								<input type="number" min="0" max="15" :value="selectedSlot.dvs?.def ?? 15"
+									@input="updateSlot('dv.def', $event.target.value)" />
+							</div>
+							<div class="c-party_builder--stat_row">
+								<label>SPE</label>
+								<input type="number" min="0" max="15" :value="selectedSlot.dvs?.spe ?? 15"
+									@input="updateSlot('dv.spe', $event.target.value)" />
+							</div>
+							<div class="c-party_builder--stat_row">
+								<label>SPC</label>
+								<input type="number" min="0" max="15" :value="selectedSlot.dvs?.spc ?? 15"
+									@input="updateSlot('dv.spc', $event.target.value)" />
+							</div>
+						</div>
+					</div>
+
+					<div v-if="selectedSlot.species && selectedSlot.useAdvanced"
+						class="c-party_builder--section--content--item">
+						<h4>Stat&nbsp;XP <small>(0-65535)</small></h4>
+						<div class="c-party_builder--stat_rows">
+							<div class="c-party_builder--stat_row" v-for="stat in ['hp','atk','def','spe','spc']" :key="stat">
+								<label>{{ stat.toUpperCase() }}</label>
+								<input type="number" min="0" max="65535" :value="selectedSlot.statExp?.[stat] ?? 65535"
+									@input="updateSlot('statExp.' + stat, $event.target.value)" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </template>
 
 <style scoped>
 .c-party_builder {
+	container-type: inline-size;
+	container-name: party_builder;
 	max-width: 900px;
 }
 .c-party_builder--members {
 	display: grid;
-	grid-template-columns: repeat(6, 1fr);
+	grid-template-columns: repeat(2, 1fr);
 	gap: 0.75rem;
 	margin-bottom: 2rem;
+
+	@container party_builder (min-width: 400px) {
+		grid-template-columns: repeat(3, 1fr);
+	}
+	@container party_builder (min-width: 650px) {
+		grid-template-columns: repeat(6, 1fr);
+	}
 }
 .c-party_builder--member {
 	display: flex;
 	flex-direction: column;
-	padding: 1rem;
+	padding: 0.75rem;
 	border: 2px solid var(--house--border_color-interactive);
 	cursor: pointer;
 	text-align: left;
@@ -298,6 +321,11 @@ function hpDv(slot) {
 .c-party_builder--member--move {
 	display: block;
 	line-height: 1.2;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	min-width: 0;
+	width: 100%;
+	max-width: min-content;
 }
 .c-party_builder--editor_panel {
 	padding: 1.5rem;
@@ -308,59 +336,71 @@ function hpDv(slot) {
 	justify-content: space-between;
 	gap: 1rem;
 	margin-bottom: 1rem;
+
+	h2 {
+		margin: 0;
+	}
 }
-.c-party_builder--editor_panel--header h2 {
-	margin: 0;
-}
-.l-remove_link {
+.c-party_builder--mode_link {
 	font-size: 0.9rem;
 	color: var(--house--color-primary);
 	text-decoration: none;
 	flex-shrink: 0;
+
+	&:hover {
+		text-decoration: underline;
+	}
 }
-.l-remove_link:hover {
-	text-decoration: underline;
-}
-.c-party_builder--stats_section,
-.c-party_builder--moves_section {
+.c-party_builder--section {
 	margin-bottom: 1rem;
 }
-.c-party_builder--stat_row label,
-.c-party_builder--move_row label {
-	display: inline-block;
-	width: 80px;
+.c-party_builder--section--header {
+	display: flex;
+	align-items: end;
+	justify-content: space-between;
+	gap: 1rem;
+	margin-bottom: 1rem;
 }
+.c-party_builder--section--content {
+	&.is-advanced {
+		@container party_builder (min-width: 400px) {
+			display: grid;
+			grid-template-columns: max-content max-content 1fr;
+			grid-template-rows: repeat(2, auto);
+			gap: 0.5rem max(2rem, 10%);
+
+			@container (max-width: 599.99px) {
+				grid-template-columns: max-content 1fr;
+
+				.c-party_builder--section--content--item-in_game_stats {
+					grid-column: span 2;
+
+					.c-party_builder--stat_rows {
+						display: flex;
+					}
+					.c-party_builder--stat_rows label {
+						width: auto;
+					}
+				}
+			}
+		}
+	}
+}
+.c-party_builder--section--content--item {}
+
+.c-party_builder--stat_rows {}
 .c-party_builder--stat_row,
 .c-party_builder--move_row {
 	margin-bottom: 0.5rem;
+
+	label {
+		width: 80px;
+		color: var(--house--color-ink_muted);
+	}
 }
-input[type="number"],
-select {
-	padding: 0.25rem 0.5rem;
-}
-.c-party_builder--toggle_row {
-	display: flex;
-	gap: 0.5rem;
-	align-items: center;
-	margin-top: 0.75rem;
-}
-.l-mode_btn {
-	padding: 0.25rem 0.75rem;
-	border: 2px solid var(--house--border_color-interactive);
-	border-radius: var(--house--border_radius-sm);
-	background: white;
-	cursor: pointer;
-}
-.l-mode_btn:hover {
-	border-color: var(--house--border_color-interactive_hover);
-}
-.l-mode_btn-active {
-	border-color: var(--house--color-primary);
-	background: var(--house--color-primary);
-	color: white;
-}
-.l-stat_readonly {
+
+.l-stat_calculated {
 	display: inline-block;
-	min-width: 4em;
+	width: 3.5em;
 }
 </style>
