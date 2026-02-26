@@ -117,14 +117,22 @@ onBeforeUnmount(() => {
 	}
 
 	.c-tray--trigger_wrapper.c-tray--trigger_wrapper-left {
-		left: 1rem;
+		left: 0.5rem;
 		border-radius: var(--house--border_radius-md);
+
+		@media (min-width: 600px) {
+			left: 1rem;
+		}
 	}
 
 	.c-tray--trigger_wrapper.c-tray--trigger_wrapper-right {
-		right: 1rem;
+		right: 0.5rem;
 		left: auto;
 		border-radius: var(--house--border_radius-md);
+
+		@media (min-width: 600px) {
+			right: 1rem;
+		}
 	}
 
 	.c-tray--trigger_wrapper .c-tray--trigger {
