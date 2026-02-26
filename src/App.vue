@@ -1,5 +1,5 @@
 <script setup>
-import { RouterView, RouterLink } from 'vue-router'
+import { RouterLink, RouterView } from 'vue-router';
 </script>
 
 <template>
@@ -24,10 +24,10 @@ import { RouterView, RouterLink } from 'vue-router'
 	display: flex;
 	gap: 1rem;
 	padding: 1rem 2rem;
-	border-bottom: 1px solid var(--house--color-border);
+	border-bottom: 1px solid var(--house--border_color-interactive);
 }
 .nav a {
-	color: var(--house--color-text_primary);
+	color: var(--house--color-ink);
 	text-decoration: none;
 	font-weight: 500;
 }

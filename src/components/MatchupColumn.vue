@@ -141,7 +141,7 @@ defineProps({
 	gap: 0.5rem 1rem;
 	margin-bottom: 1rem;
 	font-size: 0.85rem;
-	color: var(--house--color-muted);
+	color: var(--house--color-ink_muted);
 }
 .l-stat_chip {
 	white-space: nowrap;
@@ -152,7 +152,7 @@ defineProps({
 .c-matchup_column--main--move_section label {
 	display: block;
 	font-size: 0.85rem;
-	color: var(--house--color-muted);
+	color: var(--house--color-ink_muted);
 	margin-bottom: 0.25rem;
 }
 .c-matchup_column--main--move_buttons {
@@ -166,9 +166,9 @@ defineProps({
 }
 .l-move_slot-empty {
 	padding: 0.25rem 1rem;
-	background: var(--house--color-border_subtle);
+	background: var(--house--border_color);
 	border-radius: var(--house--border_radius-md);
-	border: 2px solid var(--house--color-border_medium);
+	border: 2px solid var(--house--border_color-interactive);
 	min-height: 2rem;
 }
 .c-matchup_column--main--condition_group {
@@ -177,14 +177,8 @@ defineProps({
 .c-matchup_column--main--condition_group label {
 	display: block;
 	font-size: 0.85rem;
-	color: var(--house--color-muted);
+	color: var(--house--color-ink_muted);
 	margin-bottom: 0.25rem;
-}
-.c-matchup_column--main--condition_group select {
-	width: 100%;
-	padding: 0.35rem 0.5rem;
-	border: 1px solid var(--house--color-border_input);
-	border-radius: var(--house--border_radius-sm);
 }
 .c-matchup_column--main--condition_group--stat_boosts .c-matchup_column--main--boost_row {
 	display: flex;
@@ -195,9 +189,5 @@ defineProps({
 .c-matchup_column--main--condition_group--stat_boosts .c-matchup_column--main--boost_row span {
 	font-size: 0.9rem;
 	min-width: 2rem;
-}
-.c-matchup_column--main--condition_group--stat_boosts .c-matchup_column--main--boost_row select {
-	width: 4rem;
-	padding: 0.25rem;
 }
 </style>

@@ -152,7 +152,8 @@ watch(
 					<div class="l-result_summary card">
 						<div class="l-result_summary--main">
 							<div v-if="result" class="l-result_summary--panel">
-								<div v-if="result.noDamage" class="l-ko_chance-hero l-ko_chance-none">Status move — no damage</div>
+								<div v-if="result.noDamage" class="l-ko_chance-hero l-ko_chance-none">Status move — no damage
+								</div>
 								<template v-else>
 									<div v-if="koChance?.text" class="l-ko_chance-hero">{{ koChance.text }}</div>
 									<div v-else class="l-ko_chance-hero l-ko_chance-none">Not a KO</div>
@@ -174,9 +175,11 @@ watch(
 							<div class="l-damage_chart--title">Rolls</div>
 							<div class="l-damage_chart--bars">
 								<div v-for="{ damage, count } in damageDistribution" :key="damage" class="l-damage_chart--bar"
-									:class="{ 'l-damage_chart--bar-hover': hoveredDamage === damage }" @mouseenter="hoveredDamage = damage"
+									:class="{ 'l-damage_chart--bar-hover': hoveredDamage === damage }"
+									@mouseenter="hoveredDamage = damage"
 									@mouseleave="hoveredDamage = null">
-									<div class="l-damage_chart--bar_fill" :style="{ height: (count / maxDistCount) * 36 + 'px' }" />
+									<div class="l-damage_chart--bar_fill"
+										:style="{ height: (count / maxDistCount) * 36 + 'px' }" />
 								</div>
 							</div>
 							<div class="l-damage_chart--caption">{{ chartCaption }}</div>
@@ -276,12 +279,12 @@ watch(
 .l-damage_chart {
 	flex-shrink: 0;
 	width: 140px;
-	border-left: 1px solid var(--house--color-border_subtle);
+	border-left: 1px solid var(--house--border_color);
 	padding-left: 1rem;
 }
 .l-damage_chart--title {
 	font-size: 0.7rem;
-	color: var(--house--color-border_hover);
+	color: var(--house--color-ink_hint);
 	margin-bottom: 0.4rem;
 }
 .l-damage_chart--bars {
@@ -302,7 +305,7 @@ watch(
 .l-damage_chart--bar_fill {
 	width: 100%;
 	min-height: 1px;
-	background: var(--house--color-chart_bar);
+	background: var(--house--gray-200);
 	border-radius: 1px 1px 0 0;
 	transition: background 0.15s;
 }
@@ -312,7 +315,7 @@ watch(
 }
 .l-damage_chart--caption {
 	font-size: 0.7rem;
-	color: var(--house--color-muted);
+	color: var(--house--color-ink_muted);
 	margin-top: 0.25rem;
 }
 .l-ko_chance-hero {
@@ -321,17 +324,17 @@ watch(
 	line-height: 1.3;
 }
 .l-ko_chance-none {
-	color: var(--house--color-muted);
+	color: var(--house--color-ink_muted);
 	font-weight: 500;
 }
 .l-result_summary--prompt {
-	color: var(--house--color-text_placeholder);
+	color: var(--house--color-ink_hint);
 	font-size: 0.9rem;
 }
 .v-battle--matchup_placeholder {
 	padding: 3rem 2rem;
 	text-align: center;
-	color: var(--house--color-muted);
+	color: var(--house--color-ink_muted);
 }
 .l-edit_link {
 	font-size: 0.9rem;
@@ -353,7 +356,7 @@ watch(
 .l-party_button--level {
 	display: block;
 	font-size: 0.8em;
-	color: var(--house--color-muted);
+	color: var(--house--color-ink_muted);
 }
 .v-battle--matchup_panel {
 	display: grid;
@@ -362,7 +365,7 @@ watch(
 	align-items: start;
 }
 .l-result_summary .l-result_summary--placeholder {
-	color: var(--house--color-text_placeholder);
+	color: var(--house--color-ink_hint);
 	font-size: 0.9rem;
 }
 .l-crit_checkbox {
@@ -371,10 +374,7 @@ watch(
 	gap: 0.5rem;
 	margin-top: 0.75rem;
 	font-size: 0.9rem;
-	color: var(--house--color-muted);
-	cursor: pointer;
-}
-.l-crit_checkbox input {
+	color: var(--house--color-ink_muted);
 	cursor: pointer;
 }
 </style>

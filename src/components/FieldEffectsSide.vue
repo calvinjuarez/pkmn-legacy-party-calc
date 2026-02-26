@@ -2,7 +2,7 @@
 defineProps({
 	label: { type: String, required: true },
 	sideEffects: { type: Object, default: () => ({}) },
-	onSetSide: { type: Function, default: () => {} },
+	onSetSide: { type: Function, default: () => { } },
 })
 </script>
 
@@ -10,30 +10,27 @@ defineProps({
 	<div class="c-field_effects_side">
 		<div class="c-field_effects_side--label">{{ label }}</div>
 		<div class="c-field_effects_side--checkboxes">
-		<label class="l-checkbox_label">
-			<input
-				type="checkbox"
-				:checked="sideEffects.isReflect"
-				@change="onSetSide({ isReflect: $event.target.checked })"
-			/>
-			Has Reflect
-		</label>
-		<label class="l-checkbox_label">
-			<input
-				type="checkbox"
-				:checked="sideEffects.isLightScreen"
-				@change="onSetSide({ isLightScreen: $event.target.checked })"
-			/>
-			Has Light Screen
-		</label>
-		<label class="l-checkbox_label">
-			<input
-				type="checkbox"
-				:checked="sideEffects.isSeeded"
-				@change="onSetSide({ isSeeded: $event.target.checked })"
-			/>
-			Is Leech Seeded
-		</label>
+			<label class="l-checkbox_label">
+				<input
+					type="checkbox"
+					:checked="sideEffects.isReflect"
+					@change="onSetSide({ isReflect: $event.target.checked })" />
+				Has Reflect
+			</label>
+			<label class="l-checkbox_label">
+				<input
+					type="checkbox"
+					:checked="sideEffects.isLightScreen"
+					@change="onSetSide({ isLightScreen: $event.target.checked })" />
+				Has Light Screen
+			</label>
+			<label class="l-checkbox_label">
+				<input
+					type="checkbox"
+					:checked="sideEffects.isSeeded"
+					@change="onSetSide({ isSeeded: $event.target.checked })" />
+				Is Leech Seeded
+			</label>
 		</div>
 	</div>
 </template>
@@ -47,7 +44,7 @@ defineProps({
 .c-field_effects_side--label {
 	font-size: 0.85rem;
 	font-weight: 600;
-	color: var(--house--color-muted);
+	color: var(--house--color-ink_muted);
 }
 .c-field_effects_side--checkboxes {
 	display: flex;
@@ -59,9 +56,6 @@ defineProps({
 	align-items: center;
 	gap: 0.35rem;
 	font-size: 0.9rem;
-	cursor: pointer;
-}
-.checkbox-label input {
 	cursor: pointer;
 }
 </style>
