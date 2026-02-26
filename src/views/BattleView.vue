@@ -276,12 +276,12 @@ watch(
 .l-damage_chart {
 	flex-shrink: 0;
 	width: 140px;
-	border-left: 1px solid #e9ecef;
+	border-left: 1px solid var(--house--color-border_subtle);
 	padding-left: 1rem;
 }
 .l-damage_chart--title {
 	font-size: 0.7rem;
-	color: #999;
+	color: var(--house--color-border_hover);
 	margin-bottom: 0.4rem;
 }
 .l-damage_chart--bars {
@@ -302,17 +302,17 @@ watch(
 .l-damage_chart--bar_fill {
 	width: 100%;
 	min-height: 1px;
-	background: #d0d8e8;
+	background: var(--house--color-chart_bar);
 	border-radius: 1px 1px 0 0;
 	transition: background 0.15s;
 }
 .l-damage_chart--bar:hover .l-damage_chart--bar_fill,
 .l-damage_chart--bar.l-damage_chart--bar-hover .l-damage_chart--bar_fill {
-	background: #0d6efd;
+	background: var(--house--color-primary);
 }
 .l-damage_chart--caption {
 	font-size: 0.7rem;
-	color: #666;
+	color: var(--house--color-muted);
 	margin-top: 0.25rem;
 }
 .l-ko_chance-hero {
@@ -321,21 +321,21 @@ watch(
 	line-height: 1.3;
 }
 .l-ko_chance-none {
-	color: #666;
+	color: var(--house--color-muted);
 	font-weight: 500;
 }
 .l-result_summary--prompt {
-	color: #888;
+	color: var(--house--color-text_placeholder);
 	font-size: 0.9rem;
 }
 .v-battle--matchup_placeholder {
 	padding: 3rem 2rem;
 	text-align: center;
-	color: #666;
+	color: var(--house--color-muted);
 }
 .l-edit_link {
 	font-size: 0.9rem;
-	color: #0d6efd;
+	color: var(--house--color-primary);
 	text-decoration: none;
 }
 .l-edit_link:hover {
@@ -362,7 +362,7 @@ watch(
 	align-items: start;
 }
 .l-result_summary .l-result_summary--placeholder {
-	color: #888;
+	color: var(--house--color-text_placeholder);
 	font-size: 0.9rem;
 }
 .l-crit_checkbox {

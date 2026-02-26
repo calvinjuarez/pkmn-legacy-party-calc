@@ -8,7 +8,7 @@ const partyStore = usePartyStore()
 <template>
 	<div class="v-party">
 		<h1>Party Builder</h1>
-		<p class="v-party--lead">Build your team of 6 Pokemon. Data is saved automatically.</p>
+		<p class="lead">Build your team of 6 Pokemon. Data is saved automatically.</p>
 
 		<PartyBuilder
 			:party="partyStore.party"
@@ -24,9 +24,5 @@ const partyStore = usePartyStore()
 <style scoped>
 .v-party {
 	max-width: 900px;
-}
-.v-party--lead {
-	color: #666;
-	margin-bottom: 1.5rem;
 }
 </style>

@@ -2,7 +2,33 @@
 
 /* House design tokens – see docs/style-guide--css.md */
 :root {
+	/* Colors – text */
 	--house--color-muted: #555;
+	--house--color-text_placeholder: #888;
+	--house--color-text_primary: #333;
+
+	/* Colors – borders */
+	--house--color-border: #ddd;
+	--house--color-border_hover: #999;
+	--house--color-border_subtle: #e9ecef;
+	--house--color-border_medium: #dee2e6;
+	--house--color-border_input: #ccc;
+
+	/* Colors – backgrounds */
+	--house--color-bg_subtle: #f8f9fa;
+
+	/* Colors – primary */
+	--house--color-primary: #0d6efd;
+	--house--color-primary_bg: #f0f7ff;
+
+	/* Colors – semantic */
+	--house--color-danger: #dc3545;
+	--house--color-chart_bar: #d0d8e8;
+
+	/* Border radius */
+	--house--border_radius-lg: 8px;
+	--house--border_radius-md: 6px;
+	--house--border_radius-sm: 4px;
 
 	/* set `rem` explicitly */
 	font-size: 16px;
@@ -15,40 +41,40 @@ body {
 
 /* Solid white card with gray border */
 .card {
-	border-radius: 8px;
-	border: 1px solid #e9ecef;
+	border-radius: var(--house--border_radius-lg);
+	border: 1px solid var(--house--color-border_subtle);
 	background: #fff;
 }
 /* Solid gray card, borderless */
 .well {
-	border-radius: 8px;
-	background: #f8f9fa;
+	border-radius: var(--house--border_radius-lg);
+	background: var(--house--color-bg_subtle);
 }
 
 .btn {
 	padding: 0.5rem 1rem;
-	border: 2px solid #ddd;
+	border: 2px solid var(--house--color-border);
 	background: #fff;
 	cursor: pointer;
-	border-radius: 6px;
+	border-radius: var(--house--border_radius-md);
 }
 .btn-nowrap {
 	white-space: nowrap;
 }
 .btn:hover {
-	border-color: #999;
+	border-color: var(--house--color-border_hover);
 }
 .btn.selected {
-	border-color: #0d6efd;
-	background: #f0f7ff;
+	border-color: var(--house--color-primary);
+	background: var(--house--color-primary_bg);
 }
 .btn-outline {
 	background: transparent;
-	border: 2px solid #dc3545;
-	color: #dc3545;
+	border: 2px solid var(--house--color-danger);
+	color: var(--house--color-danger);
 }
 .btn-outline:hover {
-	background: #dc3545;
+	background: var(--house--color-danger);
 	color: #fff;
 }
 
@@ -80,7 +106,13 @@ body {
 }
 .form_help {
 	font-size: 0.85rem;
-	color: #666;
+	color: var(--house--color-muted);
 	margin-top: 0.5rem;
 	margin-bottom: 0;
+}
+
+/* Lead paragraph – intro text on views */
+.lead {
+	color: var(--house--color-muted);
+	margin-bottom: 1.5rem;
 }

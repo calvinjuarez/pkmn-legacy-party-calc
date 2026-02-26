@@ -24,15 +24,15 @@ import { RouterView, RouterLink } from 'vue-router'
 	display: flex;
 	gap: 1rem;
 	padding: 1rem 2rem;
-	border-bottom: 1px solid #ddd;
+	border-bottom: 1px solid var(--house--color-border);
 }
 .nav a {
-	color: #333;
+	color: var(--house--color-text_primary);
 	text-decoration: none;
 	font-weight: 500;
 }
 .nav a.router-link-active {
-	color: #0d6efd;
+	color: var(--house--color-primary);
 }
 .main {
 	padding: 2rem;

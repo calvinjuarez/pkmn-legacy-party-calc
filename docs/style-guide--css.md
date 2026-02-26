@@ -44,9 +44,24 @@ Tokens can reference other tokens: `--house--input--border_color: var(--house--c
 
 ### Registry
 
-| Token                  | Value  | Use
-| ---                    | ---    | ---
-| `--house--color-muted` | `#555` | Secondary/muted text (labels, stats, subtitles)
+| Token                         | Value  | Use
+| ---                           | ---    | ---
+| `--house--color-muted`        | `#555` | Secondary/muted text (labels, stats, form help, descriptions)
+| `--house--color-text_placeholder` | `#888` | Placeholder text
+| `--house--color-text_primary` | `#333` | Primary text (nav default)
+| `--house--color-border`       | `#ddd` | Default borders
+| `--house--color-border_hover` | `#999` | Hover-state borders
+| `--house--color-border_subtle`| `#e9ecef` | Subtle borders (cards, dividers)
+| `--house--color-border_medium`| `#dee2e6` | Medium borders (move slots)
+| `--house--color-border_input` | `#ccc` | Form control borders
+| `--house--color-bg_subtle`   | `#f8f9fa` | Subtle backgrounds (well)
+| `--house--color-primary`      | `#0d6efd` | Primary blue (links, selected)
+| `--house--color-primary_bg`  | `#f0f7ff` | Primary tint background
+| `--house--color-danger`       | `#dc3545` | Danger/outline
+| `--house--color-chart_bar`    | `#d0d8e8` | Chart bar fill (neutral)
+| `--house--border_radius-lg`  | `8px`  | Cards, wells
+| `--house--border_radius-md`   | `6px`  | Buttons, move slots
+| `--house--border_radius-sm`  | `4px`  | Form controls, mode buttons
 
 ## Class naming
 

@@ -166,9 +166,9 @@ defineProps({
 }
 .l-move_slot-empty {
 	padding: 0.25rem 1rem;
-	background: #e9ecef;
-	border-radius: 6px;
-	border: 2px solid #dee2e6;
+	background: var(--house--color-border_subtle);
+	border-radius: var(--house--border_radius-md);
+	border: 2px solid var(--house--color-border_medium);
 	min-height: 2rem;
 }
 .c-matchup_column--main--condition_group {
@@ -183,8 +183,8 @@ defineProps({
 .c-matchup_column--main--condition_group select {
 	width: 100%;
 	padding: 0.35rem 0.5rem;
-	border: 1px solid #ccc;
-	border-radius: 4px;
+	border: 1px solid var(--house--color-border_input);
+	border-radius: var(--house--border_radius-sm);
 }
 .c-matchup_column--main--condition_group--stat_boosts .c-matchup_column--main--boost_row {
 	display: flex;

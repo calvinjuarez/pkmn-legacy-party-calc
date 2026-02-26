@@ -264,7 +264,7 @@ function hpDv(slot) {
 	display: flex;
 	flex-direction: column;
 	padding: 1rem;
-	border: 2px solid #ddd;
+	border: 2px solid var(--house--color-border);
 	cursor: pointer;
 	text-align: left;
 
@@ -272,15 +272,15 @@ function hpDv(slot) {
 		justify-content: center;
 
 		.c-party_builder--member--name {
-			color: #999;
+			color: var(--house--color-border_hover);
 		}
 	}
 	&:hover {
-		border-color: #999;
+		border-color: var(--house--color-border_hover);
 	}
 	&.selected {
-		border-color: #0d6efd;
-		background: #f0f7ff;
+		border-color: var(--house--color-primary);
+		background: var(--house--color-primary_bg);
 	}
 }
 .c-party_builder--member--name {
@@ -289,7 +289,7 @@ function hpDv(slot) {
 .c-party_builder--member--level,
 .c-party_builder--member--moves {
 	font-size: 0.85rem;
-	color: #666;
+	color: var(--house--color-muted);
 	margin-top: 0.25rem;
 }
 .c-party_builder--member--moves {
@@ -314,7 +314,7 @@ function hpDv(slot) {
 }
 .l-remove_link {
 	font-size: 0.9rem;
-	color: #0d6efd;
+	color: var(--house--color-primary);
 	text-decoration: none;
 	flex-shrink: 0;
 }
@@ -346,17 +346,17 @@ select {
 }
 .l-mode_btn {
 	padding: 0.25rem 0.75rem;
-	border: 2px solid #ddd;
-	border-radius: 4px;
+	border: 2px solid var(--house--color-border);
+	border-radius: var(--house--border_radius-sm);
 	background: #fff;
 	cursor: pointer;
 }
 .l-mode_btn:hover {
-	border-color: #999;
+	border-color: var(--house--color-border_hover);
 }
 .l-mode_btn-active {
-	border-color: #0d6efd;
-	background: #0d6efd;
+	border-color: var(--house--color-primary);
+	background: var(--house--color-primary);
 	color: #fff;
 }
 .l-stat_readonly {

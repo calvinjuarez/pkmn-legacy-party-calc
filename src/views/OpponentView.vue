@@ -311,7 +311,7 @@ function partySummary(party) {
 }
 .v-opponent--mode_link {
 	font-size: 0.9rem;
-	color: #0d6efd;
+	color: var(--house--color-primary);
 	text-decoration: none;
 }
 .v-opponent--mode_link:hover {
@@ -319,10 +319,6 @@ function partySummary(party) {
 }
 .v-opponent {
 	max-width: 1000px;
-}
-.lead {
-	color: #666;
-	margin-bottom: 1.5rem;
 }
 .v-opponent--super_section {
 	margin-bottom: 2.5rem;
@@ -335,10 +331,9 @@ function partySummary(party) {
 }
 .v-opponent--category h3 {
 	margin-bottom: 0.5rem;
-	color: var(--house--color-muted);
 }
 .v-opponent--category--description {
-	color: #666;
+	color: var(--house--color-muted);
 	font-size: 0.9rem;
 	margin-bottom: 0.75rem;
 }
@@ -352,13 +347,13 @@ function partySummary(party) {
 	flex-direction: column;
 	align-items: stretch;
 	padding: 1rem;
-	border: 2px solid #ddd;
+	border: 2px solid var(--house--color-border);
 	cursor: pointer;
 	text-align: left;
 }
 .v-opponent--trainer:hover {
-	border-color: #0d6efd;
-	background: #f0f7ff;
+	border-color: var(--house--color-primary);
+	background: var(--house--color-primary_bg);
 }
 .v-opponent--trainer--header {
 	display: flex;
@@ -373,7 +368,7 @@ function partySummary(party) {
 }
 .v-opponent--trainer--variant {
 	font-size: 0.85rem;
-	color: #666;
+	color: var(--house--color-muted);
 	flex-shrink: 0;
 	text-align: right;
 	white-space: pre-line;
@@ -381,7 +376,7 @@ function partySummary(party) {
 }
 .v-opponent--trainer--party {
 	font-size: 0.8rem;
-	color: #888;
+	color: var(--house--color-text_placeholder);
 	margin-top: 0.5rem;
 	line-height: 1.3;
 	white-space: pre-line;
