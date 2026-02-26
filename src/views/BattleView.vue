@@ -1,6 +1,7 @@
 <script setup>
 import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import MatchupColumn from '../components/MatchupColumn.vue'
+import SlideTray from '../components/SlideTray.vue'
 import { getMove, getPokemon, getTrainerMonMoves } from '../services/gamedata'
 import { useBattleStore } from '../stores/battle'
 import { useOpponentPartyStore } from '../stores/opponentParty'
@@ -75,6 +76,8 @@ const maxDistCount = computed(() =>
 )
 
 const hoveredDamage = ref(null)
+const myPartyOpen = ref(false)
+const theirPartyOpen = ref(false)
 
 const chartCaption = computed(() => {
 	const dist = damageDistribution.value
@@ -130,22 +133,27 @@ watch(
 		<h1>Battle Calculator</h1>
 
 		<div class="v-battle--main">
-			<aside class="v-battle--sidebar v-battle--sidebar-my_party well">
-				<div class="v-battle--sidebar--header">
-					<h2>Your Party</h2>
-					<router-link to="/party" class="l-edit_link">Edit</router-link>
-				</div>
-				<div class="v-battle--party_buttons">
-					<button
-						v-for="{ index, slot } in myPartySlots"
-						:key="index"
-						class="l-party_button  btn"
-						:class="{ selected: battleStore.selectedMyIndex === index }"
-						@click="battleStore.setMyPokemon(index)">
-						{{ slotDisplayName(slot) }} <small class="l-party_button--level">Lv.{{ slot.level || '-' }}</small>
-					</button>
-				</div>
-			</aside>
+			<SlideTray
+				side="left"
+				title="Your Pokemon"
+				v-model="myPartyOpen">
+				<aside class="v-battle--sidebar  v-battle--sidebar-my_party">
+					<div class="v-battle--sidebar--header">
+						<h2>Your Pokemon</h2>
+						<router-link to="/party" class="l-edit_link">Edit</router-link>
+					</div>
+					<div class="v-battle--party_buttons">
+						<button
+							v-for="{ index, slot } in myPartySlots"
+							:key="index"
+							class="l-party_button  btn"
+							:class="{ selected: battleStore.selectedMyIndex === index }"
+							@click="battleStore.setMyPokemon(index); myPartyOpen = false">
+							{{ slotDisplayName(slot) }} <small class="l-party_button--level">Lv.{{ slot.level || '-' }}</small>
+						</button>
+					</div>
+				</aside>
+			</SlideTray>
 
 			<main class="v-battle--matchup">
 				<div v-if="myPokemon && theirPokemon" class="v-battle--matchup_content">
@@ -188,6 +196,7 @@ watch(
 
 					<div class="v-battle--matchup_panel">
 						<MatchupColumn :label="slotDisplayName(myPokemon) || 'Your Pokémon'" side-label="Your side"
+							:on-open-party="() => myPartyOpen = true"
 							:pokemon="myPokemon"
 							:moves="myMovesPadded" :status="battleStore.attackerStatus" :boosts="battleStore.attackerBoosts"
 							:special-value="attackerSpecial" :side-effects="battleStore.attackerSide"
@@ -197,6 +206,7 @@ watch(
 							:on-set-boost="battleStore.setAttackerBoost" :on-set-special="battleStore.setAttackerSpecial"
 							:on-set-side="battleStore.setAttackerSide" />
 						<MatchupColumn :label="slotDisplayName(theirPokemon) || 'Opponent'" side-label="Opponent"
+							:on-open-party="() => theirPartyOpen = true"
 							:pokemon="theirPokemon"
 							:moves="theirMovesPadded" :status="battleStore.defenderStatus" :boosts="battleStore.defenderBoosts"
 							:special-value="defenderSpecial" :side-effects="battleStore.defenderSide"
@@ -208,22 +218,32 @@ watch(
 				</div>
 				<div v-else class="v-battle--matchup_placeholder well">
 					<p>Select a Pokemon from each side to run damage calculations.</p>
+					<p class="v-battle--matchup_placeholder--hint">Tap below to choose:</p>
+					<div class="v-battle--matchup_placeholder--actions">
+						<button type="button" class="btn" @click="myPartyOpen = true">Your Pokemon</button>
+						<button type="button" class="btn" @click="theirPartyOpen = true">Opponent's Pokemon</button>
+					</div>
 				</div>
 			</main>
 
-			<aside class="v-battle--sidebar v-battle--sidebar-their_party well">
-				<div class="v-battle--sidebar--header">
-					<h2>Opponent</h2>
-					<router-link to="/opponent" class="l-edit_link">Edit</router-link>
-				</div>
-				<div class="v-battle--party_buttons">
-					<button v-for="{ index, slot } in theirPartySlots" :key="index" class="l-party_button  btn"
-						:class="{ selected: battleStore.selectedTheirIndex === index }"
-						@click="battleStore.setTheirPokemon(index)">
-						{{ slotDisplayName(slot) }} <small class="l-party_button--level">Lv.{{ slot.level || '-' }}</small>
-					</button>
-				</div>
-			</aside>
+			<SlideTray
+				side="right"
+				title="Opponent's Pokemon"
+				v-model="theirPartyOpen">
+				<aside class="v-battle--sidebar  v-battle--sidebar-their_party">
+					<div class="v-battle--sidebar--header">
+						<h2>Opponent's Pokemon</h2>
+						<router-link to="/opponent" class="l-edit_link">Edit</router-link>
+					</div>
+					<div class="v-battle--party_buttons">
+						<button v-for="{ index, slot } in theirPartySlots" :key="index" class="l-party_button  btn"
+							:class="{ selected: battleStore.selectedTheirIndex === index }"
+							@click="battleStore.setTheirPokemon(index); theirPartyOpen = false">
+							{{ slotDisplayName(slot) }} <small class="l-party_button--level">Lv.{{ slot.level || '-' }}</small>
+						</button>
+					</div>
+				</aside>
+			</SlideTray>
 		</div>
 	</div>
 </template>
@@ -234,12 +254,36 @@ watch(
 }
 .v-battle--main {
 	display: grid;
-	grid-template-columns: minmax(min-content, 1fr) minmax(400px, 4fr) minmax(min-content, 1fr);
 	gap: 1rem;
 	align-items: start;
+
+	grid-template-columns: minmax(min-content, 1fr) minmax(400px, 4fr) minmax(min-content, 1fr);
+	grid-template-areas:
+		"left main right";
+}
+.v-battle--main > *:nth-child(1) {
+	grid-area: left;
+}
+.v-battle--main > *:nth-child(2) {
+	grid-area: main;
+}
+.v-battle--main > *:nth-child(3) {
+	grid-area: right;
+}
+
+@media (max-width: 899.99px) {
+	.v-battle--main {
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr;
+		grid-template-areas: "main";
+	}
+
+	.v-battle--main > *:nth-child(1),
+	.v-battle--main > *:nth-child(3) {
+		grid-area: main;
+	}
 }
 .v-battle--sidebar {
-	padding: 1rem 1.25rem;
 	position: sticky;
 	top: 1rem;
 }
@@ -335,6 +379,27 @@ watch(
 	padding: 3rem 2rem;
 	text-align: center;
 	color: var(--house--color-ink_muted);
+}
+.v-battle--matchup_placeholder--hint {
+	display: none;
+	margin: 0.5rem 0 0;
+	font-size: 0.9rem;
+	color: var(--house--color-ink_muted);
+}
+.v-battle--matchup_placeholder--actions {
+	display: none;
+	margin-top: 1rem;
+	gap: 0.5rem;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+@media (max-width: 899.99px) {
+	.v-battle--matchup_placeholder--hint {
+		display: block;
+	}
+	.v-battle--matchup_placeholder--actions {
+		display: flex;
+	}
 }
 .l-edit_link {
 	font-size: 0.9rem;
