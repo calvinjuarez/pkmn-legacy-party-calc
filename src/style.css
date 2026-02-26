@@ -134,14 +134,16 @@ small {
 	border-color: var(--house--color-primary);
 	background: var(--house--color-primary_faint);
 }
-.btn-outline {
+.btn-danger {
 	background: transparent;
 	border: 2px solid var(--house--color-danger);
 	color: var(--house--color-danger);
-}
-.btn-outline:hover {
-	background: var(--house--color-danger);
-	color: white;
+
+	&:hover {
+		color: white;
+		background: var(--house--color-danger);
+		border-color: transparent;
+	}
 }
 
 .btn-slot {
@@ -207,32 +209,56 @@ textarea:read-only {
 	border-color: transparent;
 }
 
+label {
+	&:has(input[type="radio"], input[type="checkbox"]) {}
+	&:not(:has(input[type="radio"], input[type="checkbox"])) {
+		font-size: 0.85rem;
+		color: var(--house--color-ink_muted);
+		margin-bottom: 0.25rem;
+	}
+}
+
+/**
+ * @example
+ * <label class="form--radio">
+ * 	<input type="radio" name="radio-group" value="option-1" />
+ * 	Option 1
+ * </label>
+ */
+.form--checkbox,
+.form--radio {
+	cursor: pointer;
+
+	input {
+		vertical-align: middle;
+		margin-bottom: 0.2ex;
+		margin-right: 0.2em;
+		margin-left: 0.2em;
+	}
+}
+
 /* ### Form Groups */
 .form_group {
 	margin-bottom: 1rem;
 }
-.form_group > label {
+.form_group--label {
 	display: block;
-	font-weight: 600;
 	margin-bottom: 0.5rem;
 }
-.form_group-inline > label {
+.form_group-inline .form_group--label {
 	display: inline-block;
 	width: 80px;
 }
+/* #### A Group of Radio Options */
+.form_group-radio {}
 .form_group-radio--option {
-	display: flex;
-	align-items: flex-start;
-	gap: 0.5rem;
-	cursor: pointer;
 	margin-bottom: 0.5rem;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
 }
-.form_group-radio--option:last-child {
-	margin-bottom: 0;
-}
-.form_group-radio--option input {
-	margin-top: 0.25rem;
-}
+
 /* ### Form Help Text */
 .form_help {
 	font-size: 0.85rem;
