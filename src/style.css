@@ -2,7 +2,7 @@
 
 /* House design tokens – see docs/style-guide--css.md */
 :root {
-	--house--color_muted: #555;
+	--house--color-muted: #555;
 
 	/* set `rem` explicitly */
 	font-size: 16px;
@@ -41,4 +41,46 @@ body {
 .btn.selected {
 	border-color: #0d6efd;
 	background: #f0f7ff;
+}
+.btn-outline {
+	background: transparent;
+	border: 2px solid #dc3545;
+	color: #dc3545;
+}
+.btn-outline:hover {
+	background: #dc3545;
+	color: #fff;
+}
+
+/* Form groups – see docs/style-guide--css.md */
+.form_group {
+	margin-bottom: 1rem;
+}
+.form_group > label {
+	display: block;
+	font-weight: 600;
+	margin-bottom: 0.5rem;
+}
+.form_group-inline > label {
+	display: inline-block;
+	width: 80px;
+}
+.form_group-radio--option {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.5rem;
+	cursor: pointer;
+	margin-bottom: 0.5rem;
+}
+.form_group-radio--option:last-child {
+	margin-bottom: 0;
+}
+.form_group-radio--option input {
+	margin-top: 0.25rem;
+}
+.form_help {
+	font-size: 0.85rem;
+	color: #666;
+	margin-top: 0.5rem;
+	margin-bottom: 0;
 }

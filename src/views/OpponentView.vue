@@ -130,24 +130,24 @@ function partySummary(party) {
 </script>
 
 <template>
-	<div class="opponent-view">
-		<div class="page-header">
+	<div class="v-opponent">
+		<div class="v-opponent--page_header">
 			<h1>Opponent</h1>
 			<a
 				v-if="!showTrainerPicker"
 				href="#"
-				class="mode-link"
+				class="v-opponent--mode_link"
 				@click.prevent="showTrainerPicker = true"
 			>Load from trainer</a>
 			<a
 				v-else
 				href="#"
-				class="mode-link"
+				class="v-opponent--mode_link"
 				@click.prevent="showTrainerPicker = false"
 			>Set manually</a>
 		</div>
 
-		<div v-if="!showTrainerPicker" class="edit-mode">
+		<div v-if="!showTrainerPicker" class="v-opponent--edit_mode">
 			<p class="lead">Edit the opponent's party. Use "Load from trainer" to populate from boss data.</p>
 			<PartyBuilder
 				:party="opponentPartyStore.party"
@@ -158,138 +158,138 @@ function partySummary(party) {
 			/>
 		</div>
 
-		<div v-else class="trainer-mode">
+		<div v-else class="v-opponent--trainer_mode">
 			<p class="lead">Choose a trainer to load their party into the opponent slots.</p>
 
-		<section class="super-section">
+		<section class="v-opponent--super_section">
 			<h2>League Battles</h2>
 
-			<div v-if="gymLeaders.length" class="category">
+			<div v-if="gymLeaders.length" class="v-opponent--category">
 				<h3>Gym Leaders</h3>
-				<div class="trainer-grid">
+				<div class="v-opponent--trainers">
 					<button
 						v-for="t in gymLeaders"
 						:key="t.class + t.variantId"
-						class="trainer-card card"
+						class="v-opponent--trainer card"
 						@click="selectTrainer(t)"
 					>
-						<div class="trainer-header">
-							<div class="trainer-name">{{ displayName(t) }}</div>
-							<div class="trainer-variant" v-if="trainerSubtitle(t)">{{ trainerSubtitle(t) }}</div>
+						<div class="v-opponent--trainer--header">
+							<div class="v-opponent--trainer--name">{{ displayName(t) }}</div>
+							<div class="v-opponent--trainer--variant" v-if="trainerSubtitle(t)">{{ trainerSubtitle(t) }}</div>
 						</div>
-						<div class="trainer-party">{{ partySummary(t.party) }}</div>
+						<div class="v-opponent--trainer--party">{{ partySummary(t.party) }}</div>
 					</button>
 				</div>
 			</div>
 
-			<div v-if="eliteFour.length" class="category">
+			<div v-if="eliteFour.length" class="v-opponent--category">
 				<h3>Elite Four</h3>
-				<div class="trainer-grid">
+				<div class="v-opponent--trainers">
 					<button
 						v-for="t in eliteFour"
 						:key="t.class + t.variantId"
-						class="trainer-card card"
+						class="v-opponent--trainer card"
 						@click="selectTrainer(t)"
 					>
-						<div class="trainer-header">
-							<div class="trainer-name">{{ displayName(t) }}</div>
-							<div class="trainer-variant" v-if="trainerSubtitle(t)">{{ trainerSubtitle(t) }}</div>
+						<div class="v-opponent--trainer--header">
+							<div class="v-opponent--trainer--name">{{ displayName(t) }}</div>
+							<div class="v-opponent--trainer--variant" v-if="trainerSubtitle(t)">{{ trainerSubtitle(t) }}</div>
 						</div>
-						<div class="trainer-party">{{ partySummary(t.party) }}</div>
+						<div class="v-opponent--trainer--party">{{ partySummary(t.party) }}</div>
 					</button>
 				</div>
 			</div>
 
-			<div v-if="champion.length" class="category">
+			<div v-if="champion.length" class="v-opponent--category">
 				<h3>Champion</h3>
-				<p class="category-desc">Pick the team variant based on rival's starter.</p>
-				<div class="trainer-grid">
+				<p class="v-opponent--category--description">Pick the team variant based on rival's starter.</p>
+				<div class="v-opponent--trainers">
 					<button
 						v-for="t in champion"
 						:key="t.class + t.variantId"
-						class="trainer-card card"
+						class="v-opponent--trainer card"
 						@click="selectTrainer(t)"
 					>
-						<div class="trainer-header">
-							<div class="trainer-name">{{ displayName(t) }}</div>
-							<div class="trainer-variant" v-if="trainerSubtitle(t)">{{ trainerSubtitle(t) }}</div>
+						<div class="v-opponent--trainer--header">
+							<div class="v-opponent--trainer--name">{{ displayName(t) }}</div>
+							<div class="v-opponent--trainer--variant" v-if="trainerSubtitle(t)">{{ trainerSubtitle(t) }}</div>
 						</div>
-						<div class="trainer-party">{{ partySummary(t.party) }}</div>
+						<div class="v-opponent--trainer--party">{{ partySummary(t.party) }}</div>
 					</button>
 				</div>
 			</div>
 		</section>
 
-		<section v-if="rematches.length" class="super-section">
+		<section v-if="rematches.length" class="v-opponent--super_section">
 			<h2>Rematches</h2>
-			<div class="trainer-grid">
+			<div class="v-opponent--trainers">
 				<button
 					v-for="t in rematches"
 					:key="t.class + t.variantId"
-					class="trainer-card card"
+					class="v-opponent--trainer card"
 					@click="selectTrainer(t)"
 				>
-					<div class="trainer-header">
-						<div class="trainer-name">{{ displayName(t) }}</div>
-						<div class="trainer-variant" v-if="trainerSubtitle(t)">{{ trainerSubtitle(t) }}</div>
+					<div class="v-opponent--trainer--header">
+						<div class="v-opponent--trainer--name">{{ displayName(t) }}</div>
+						<div class="v-opponent--trainer--variant" v-if="trainerSubtitle(t)">{{ trainerSubtitle(t) }}</div>
 					</div>
-					<div class="trainer-party">{{ partySummary(t.party) }}</div>
+					<div class="v-opponent--trainer--party">{{ partySummary(t.party) }}</div>
 				</button>
 			</div>
 		</section>
 
-		<section class="super-section">
+		<section class="v-opponent--super_section">
 			<h2>Other Bosses</h2>
 
-			<div v-if="rivalFights.length" class="category">
+			<div v-if="rivalFights.length" class="v-opponent--category">
 				<h3>Rival</h3>
-				<div class="trainer-grid">
+				<div class="v-opponent--trainers">
 					<button
 						v-for="t in rivalFights"
 						:key="t.class + t.variantId"
-						class="trainer-card card"
+						class="v-opponent--trainer card"
 						@click="selectTrainer(t)"
 					>
-						<div class="trainer-header">
-							<div class="trainer-name">{{ displayName(t) }}</div>
-							<div class="trainer-variant" v-if="trainerSubtitle(t)">{{ trainerSubtitle(t) }}</div>
+						<div class="v-opponent--trainer--header">
+							<div class="v-opponent--trainer--name">{{ displayName(t) }}</div>
+							<div class="v-opponent--trainer--variant" v-if="trainerSubtitle(t)">{{ trainerSubtitle(t) }}</div>
 						</div>
-						<div class="trainer-party">{{ partySummary(t.party) }}</div>
+						<div class="v-opponent--trainer--party">{{ partySummary(t.party) }}</div>
 					</button>
 				</div>
 			</div>
 
-			<div v-if="rocketBosses.length" class="category">
+			<div v-if="rocketBosses.length" class="v-opponent--category">
 				<h3>Rocket</h3>
-				<div class="trainer-grid">
+				<div class="v-opponent--trainers">
 					<button
 						v-for="t in rocketBosses"
 						:key="t.class + t.variantId"
-						class="trainer-card card"
+						class="v-opponent--trainer card"
 						@click="selectTrainer(t)"
 					>
-						<div class="trainer-header">
-							<div class="trainer-name">{{ displayName(t) }}</div>
-							<div class="trainer-variant" v-if="trainerSubtitle(t)">{{ trainerSubtitle(t) }}</div>
+						<div class="v-opponent--trainer--header">
+							<div class="v-opponent--trainer--name">{{ displayName(t) }}</div>
+							<div class="v-opponent--trainer--variant" v-if="trainerSubtitle(t)">{{ trainerSubtitle(t) }}</div>
 						</div>
-						<div class="trainer-party">{{ partySummary(t.party) }}</div>
+						<div class="v-opponent--trainer--party">{{ partySummary(t.party) }}</div>
 					</button>
 				</div>
 			</div>
 
-			<div v-if="devBosses.length" class="category">
+			<div v-if="devBosses.length" class="v-opponent--category">
 				<h3>Developer</h3>
-				<div class="trainer-grid">
+				<div class="v-opponent--trainers">
 					<button
 						v-for="t in devBosses"
 						:key="t.class + t.variantId"
-						class="trainer-card card"
+						class="v-opponent--trainer card"
 						@click="selectTrainer(t)"
 					>
-						<div class="trainer-header">
-							<div class="trainer-name">{{ displayName(t) }}</div>
+						<div class="v-opponent--trainer--header">
+							<div class="v-opponent--trainer--name">{{ displayName(t) }}</div>
 						</div>
-						<div class="trainer-party">{{ partySummary(t.party) }}</div>
+						<div class="v-opponent--trainer--party">{{ partySummary(t.party) }}</div>
 					</button>
 				</div>
 			</div>
@@ -299,55 +299,55 @@ function partySummary(party) {
 </template>
 
 <style scoped>
-.page-header {
+.v-opponent--page_header {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	gap: 1rem;
 	margin-bottom: 1rem;
 }
-.page-header h1 {
+.v-opponent--page_header h1 {
 	margin: 0;
 }
-.mode-link {
+.v-opponent--mode_link {
 	font-size: 0.9rem;
 	color: #0d6efd;
 	text-decoration: none;
 }
-.mode-link:hover {
+.v-opponent--mode_link:hover {
 	text-decoration: underline;
 }
-.opponent-view {
+.v-opponent {
 	max-width: 1000px;
 }
 .lead {
 	color: #666;
 	margin-bottom: 1.5rem;
 }
-.super-section {
+.v-opponent--super_section {
 	margin-bottom: 2.5rem;
 }
-.super-section h2 {
+.v-opponent--super_section h2 {
 	margin-bottom: 0.75rem;
 }
-.category {
+.v-opponent--category {
 	margin-bottom: 1.5rem;
 }
-.category h3 {
+.v-opponent--category h3 {
 	margin-bottom: 0.5rem;
-	color: var(--house--color_muted);
+	color: var(--house--color-muted);
 }
-.category-desc {
+.v-opponent--category--description {
 	color: #666;
 	font-size: 0.9rem;
 	margin-bottom: 0.75rem;
 }
-.trainer-grid {
+.v-opponent--trainers {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
 	gap: 1rem;
 }
-.trainer-card {
+.v-opponent--trainer {
 	display: flex;
 	flex-direction: column;
 	align-items: stretch;
@@ -356,22 +356,22 @@ function partySummary(party) {
 	cursor: pointer;
 	text-align: left;
 }
-.trainer-card:hover {
+.v-opponent--trainer:hover {
 	border-color: #0d6efd;
 	background: #f0f7ff;
 }
-.trainer-header {
+.v-opponent--trainer--header {
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-start;
 	gap: 0.5rem;
 }
-.trainer-name {
+.v-opponent--trainer--name {
 	font-weight: 600;
 	font-size: 1.1rem;
 	min-width: 0;
 }
-.trainer-variant {
+.v-opponent--trainer--variant {
 	font-size: 0.85rem;
 	color: #666;
 	flex-shrink: 0;
@@ -379,7 +379,7 @@ function partySummary(party) {
 	white-space: pre-line;
 	line-height: 1.15;
 }
-.trainer-party {
+.v-opponent--trainer--party {
 	font-size: 0.8rem;
 	color: #888;
 	margin-top: 0.5rem;

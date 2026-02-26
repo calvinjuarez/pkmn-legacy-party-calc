@@ -6,9 +6,9 @@ const partyStore = usePartyStore()
 </script>
 
 <template>
-	<div class="party-view">
+	<div class="v-party">
 		<h1>Party Builder</h1>
-		<p class="lead">Build your team of 6 Pokemon. Data is saved automatically.</p>
+		<p class="v-party--lead">Build your team of 6 Pokemon. Data is saved automatically.</p>
 
 		<PartyBuilder
 			:party="partyStore.party"
@@ -22,10 +22,10 @@ const partyStore = usePartyStore()
 </template>
 
 <style scoped>
-.party-view {
+.v-party {
 	max-width: 900px;
 }
-.lead {
+.v-party--lead {
 	color: #666;
 	margin-bottom: 1.5rem;
 }

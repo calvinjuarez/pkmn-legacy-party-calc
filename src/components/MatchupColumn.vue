@@ -48,27 +48,27 @@ defineProps({
 </script>
 
 <template>
-	<div class="matchup-column">
-		<div class="matchup-card-back well">
-			<div class="matchup-card-back-content">
+	<div class="c-matchup_column">
+		<div class="c-matchup_column--side well">
+			<div class="c-matchup_column--side--content">
 				<FieldEffectsSide
 					:label="sideLabel || label"
 					:side-effects="sideEffects"
 					:on-set-side="onSetSide" />
 			</div>
-			<div class="matchup-card card">
-				<div class="pokemon-header">
+			<div class="c-matchup_column--main card">
+				<div class="c-matchup_column--main--header">
 					<strong>{{ label }}</strong>
 					<template v-if="pokemon"> Lv.{{ pokemon.level }}</template>
 				</div>
-				<div v-if="pokemon?.species" class="pokemon-stats">
-					<span v-for="stat in ['hp','atk','def','spe','spc']" :key="stat" class="stat-chip">
+				<div v-if="pokemon?.species" class="c-matchup_column--main--stats">
+					<span v-for="stat in ['hp','atk','def','spe','spc']" :key="stat" class="l-stat_chip">
 						{{ STAT_LABELS[stat] }} {{ displayStat(pokemon, stat) ?? '-' }}
 					</span>
 				</div>
-				<div class="move-section">
+				<div class="c-matchup_column--main--move_section">
 					<label>Move</label>
-					<div class="move-buttons">
+					<div class="c-matchup_column--main--move_buttons">
 						<template v-for="(m, i) in moves" :key="m?.id ?? i">
 							<button
 								v-if="m"
@@ -77,37 +77,37 @@ defineProps({
 								@click="onSetMove(m.id)">
 								{{ m.displayName }} ({{ m.power }})
 							</button>
-							<div v-else class="move-slot-empty" />
+							<div v-else class="l-move_slot-empty" />
 						</template>
 					</div>
 				</div>
-				<div class="condition-group">
+				<div class="c-matchup_column--main--condition_group">
 					<label>Status</label>
 					<select :value="status" @change="onSetStatus($event.target.value)">
 						<option v-for="opt in STATUS_OPTIONS" :key="opt.value" :value="opt.value">{{ opt.label }}</option>
 					</select>
 				</div>
-				<div class="condition-group stat-boosts">
+				<div class="c-matchup_column--main--condition_group c-matchup_column--main--condition_group--stat_boosts">
 					<label>Stat Boosts</label>
-					<div class="boost-row">
+					<div class="c-matchup_column--main--boost_row">
 						<span>Atk</span>
 						<select :value="boosts.atk" @change="onSetBoost('atk', Number($event.target.value))">
 							<option v-for="b in BOOST_OPTIONS" :key="b" :value="b">{{ b >= 0 ? '+' : '' }}{{ b }}</option>
 						</select>
 					</div>
-					<div class="boost-row">
+					<div class="c-matchup_column--main--boost_row">
 						<span>Def</span>
 						<select :value="boosts.def" @change="onSetBoost('def', Number($event.target.value))">
 							<option v-for="b in BOOST_OPTIONS" :key="b" :value="b">{{ b >= 0 ? '+' : '' }}{{ b }}</option>
 						</select>
 					</div>
-					<div class="boost-row">
+					<div class="c-matchup_column--main--boost_row">
 						<span>Spc</span>
 						<select :value="specialValue" @change="onSetSpecial(Number($event.target.value))">
 							<option v-for="b in BOOST_OPTIONS" :key="b" :value="b">{{ b >= 0 ? '+' : '' }}{{ b }}</option>
 						</select>
 					</div>
-					<div class="boost-row">
+					<div class="c-matchup_column--main--boost_row">
 						<span>Spe</span>
 						<select :value="boosts.spe" @change="onSetBoost('spe', Number($event.target.value))">
 							<option v-for="b in BOOST_OPTIONS" :key="b" :value="b">{{ b >= 0 ? '+' : '' }}{{ b }}</option>
@@ -120,83 +120,83 @@ defineProps({
 </template>
 
 <style scoped>
-.matchup-column {
+.c-matchup_column {
 	display: flex;
 	flex-direction: column;
 	gap: 0.75rem;
 }
-.matchup-card-back-content {
+.c-matchup_column--side--content {
 	padding: 0.5rem 1rem;
 }
-.matchup-card {
+.c-matchup_column--main {
 	padding: 1rem 1.25rem;
 }
-.pokemon-header {
+.c-matchup_column--main--header {
 	margin-bottom: 0.5rem;
 	font-size: 1.1rem;
 }
-.pokemon-stats {
+.c-matchup_column--main--stats {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 0.5rem 1rem;
 	margin-bottom: 1rem;
 	font-size: 0.85rem;
-	color: var(--house--color_muted);
+	color: var(--house--color-muted);
 }
-.stat-chip {
+.l-stat_chip {
 	white-space: nowrap;
 }
-.move-section {
+.c-matchup_column--main--move_section {
 	margin-bottom: 1rem;
 }
-.move-section label {
+.c-matchup_column--main--move_section label {
 	display: block;
 	font-size: 0.85rem;
-	color: var(--house--color_muted);
+	color: var(--house--color-muted);
 	margin-bottom: 0.25rem;
 }
-.move-buttons {
+.c-matchup_column--main--move_buttons {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(max(45%, 10em), 1fr));
 	gap: 0.35rem;
 }
-.move-buttons .btn {
+.c-matchup_column--main--move_buttons .btn {
 	padding-left: 0;
 	padding-right: 0;
 }
-.move-slot-empty {
+.l-move_slot-empty {
 	padding: 0.25rem 1rem;
 	background: #e9ecef;
 	border-radius: 6px;
 	border: 2px solid #dee2e6;
 	min-height: 2rem;
 }
-.condition-group {
+.c-matchup_column--main--condition_group {
 	margin-bottom: 1rem;
 }
-.condition-group label {
+.c-matchup_column--main--condition_group label {
 	display: block;
 	font-size: 0.85rem;
-	color: var(--house--color_muted);
+	color: var(--house--color-muted);
 	margin-bottom: 0.25rem;
 }
-.condition-group select {
+.c-matchup_column--main--condition_group select {
 	width: 100%;
 	padding: 0.35rem 0.5rem;
 	border: 1px solid #ccc;
 	border-radius: 4px;
 }
-.stat-boosts .boost-row {
+.c-matchup_column--main--condition_group--stat_boosts .c-matchup_column--main--boost_row {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	margin-bottom: 0.35rem;
 }
-.stat-boosts .boost-row span {
+.c-matchup_column--main--condition_group--stat_boosts .c-matchup_column--main--boost_row span {
 	font-size: 0.9rem;
 	min-width: 2rem;
 }
-.stat-boosts .boost-row select {
+.c-matchup_column--main--condition_group--stat_boosts .c-matchup_column--main--boost_row select {
 	width: 4rem;
 	padding: 0.25rem;
 }

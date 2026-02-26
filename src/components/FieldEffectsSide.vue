@@ -7,10 +7,10 @@ defineProps({
 </script>
 
 <template>
-	<div class="field-effects-side">
-		<div class="field-effects-label">{{ label }}</div>
-		<div class="field-effects-checkboxes">
-		<label class="checkbox-label">
+	<div class="c-field_effects_side">
+		<div class="c-field_effects_side--label">{{ label }}</div>
+		<div class="c-field_effects_side--checkboxes">
+		<label class="l-checkbox_label">
 			<input
 				type="checkbox"
 				:checked="sideEffects.isReflect"
@@ -18,7 +18,7 @@ defineProps({
 			/>
 			Has Reflect
 		</label>
-		<label class="checkbox-label">
+		<label class="l-checkbox_label">
 			<input
 				type="checkbox"
 				:checked="sideEffects.isLightScreen"
@@ -26,7 +26,7 @@ defineProps({
 			/>
 			Has Light Screen
 		</label>
-		<label class="checkbox-label">
+		<label class="l-checkbox_label">
 			<input
 				type="checkbox"
 				:checked="sideEffects.isSeeded"
@@ -39,22 +39,22 @@ defineProps({
 </template>
 
 <style scoped>
-.field-effects-side {
+.c-field_effects_side {
 	display: flex;
 	flex-direction: column;
 	gap: 0.5rem;
 }
-.field-effects-label {
+.c-field_effects_side--label {
 	font-size: 0.85rem;
 	font-weight: 600;
-	color: var(--house--color_muted);
+	color: var(--house--color-muted);
 }
-.field-effects-checkboxes {
+.c-field_effects_side--checkboxes {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 0.75rem 1rem;
 }
-.checkbox-label {
+.l-checkbox_label {
 	display: flex;
 	align-items: center;
 	gap: 0.35rem;

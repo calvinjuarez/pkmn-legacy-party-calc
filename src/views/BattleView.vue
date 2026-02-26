@@ -126,64 +126,64 @@ watch(
 </script>
 
 <template>
-	<div class="battle-view">
+	<div class="v-battle">
 		<h1>Battle Calculator</h1>
 
-		<div class="battle-main">
-			<aside class="sidebar sidebar-my-party well">
-				<div class="sidebar-header">
+		<div class="v-battle--main">
+			<aside class="v-battle--sidebar v-battle--sidebar-my_party well">
+				<div class="v-battle--sidebar--header">
 					<h2>Your Party</h2>
-					<router-link to="/party" class="edit-link">Edit</router-link>
+					<router-link to="/party" class="l-edit_link">Edit</router-link>
 				</div>
-				<div class="party-buttons">
+				<div class="v-battle--party_buttons">
 					<button
 						v-for="{ index, slot } in myPartySlots"
 						:key="index"
-						class="party-button  btn"
+						class="l-party_button  btn"
 						:class="{ selected: battleStore.selectedMyIndex === index }"
 						@click="battleStore.setMyPokemon(index)">
-						{{ slotDisplayName(slot) }} <small class="party-button-level">Lv.{{ slot.level || '-' }}</small>
+						{{ slotDisplayName(slot) }} <small class="l-party_button--level">Lv.{{ slot.level || '-' }}</small>
 					</button>
 				</div>
 			</aside>
 
-			<main class="matchup-view">
-				<div v-if="myPokemon && theirPokemon" class="matchup-content">
-					<div class="result-summary card">
-						<div class="result-main">
-							<div v-if="result" class="result-panel">
-								<div v-if="result.noDamage" class="ko-chance-hero ko-chance-none">Status move — no damage</div>
+			<main class="v-battle--matchup">
+				<div v-if="myPokemon && theirPokemon" class="v-battle--matchup_content">
+					<div class="l-result_summary card">
+						<div class="l-result_summary--main">
+							<div v-if="result" class="l-result_summary--panel">
+								<div v-if="result.noDamage" class="l-ko_chance-hero l-ko_chance-none">Status move — no damage</div>
 								<template v-else>
-									<div v-if="koChance?.text" class="ko-chance-hero">{{ koChance.text }}</div>
-									<div v-else class="ko-chance-hero ko-chance-none">Not a KO</div>
+									<div v-if="koChance?.text" class="l-ko_chance-hero">{{ koChance.text }}</div>
+									<div v-else class="l-ko_chance-hero l-ko_chance-none">Not a KO</div>
 								</template>
 							</div>
-							<div v-else-if="battleStore.selectedMove" class="result-placeholder">
+							<div v-else-if="battleStore.selectedMove" class="l-result_summary--placeholder">
 								Calculating...
 							</div>
-							<div v-else class="result-prompt">
+							<div v-else class="l-result_summary--prompt">
 								Select a move
 							</div>
-							<label v-if="battleStore.selectedMove && !result?.noDamage" class="crit-checkbox">
+							<label v-if="battleStore.selectedMove && !result?.noDamage" class="l-crit_checkbox">
 								<input type="checkbox" :checked="battleStore.isCrit"
 									@change="battleStore.setIsCrit($event.target.checked)" />
 								Critical Hit
 							</label>
 						</div>
-						<div v-if="damageDistribution.length > 0" class="damage-chart">
-							<div class="chart-title">Rolls</div>
-							<div class="chart-bars">
-								<div v-for="{ damage, count } in damageDistribution" :key="damage" class="chart-bar-wrap"
-									:class="{ hover: hoveredDamage === damage }" @mouseenter="hoveredDamage = damage"
+						<div v-if="damageDistribution.length > 0" class="l-damage_chart">
+							<div class="l-damage_chart--title">Rolls</div>
+							<div class="l-damage_chart--bars">
+								<div v-for="{ damage, count } in damageDistribution" :key="damage" class="l-damage_chart--bar"
+									:class="{ 'l-damage_chart--bar-hover': hoveredDamage === damage }" @mouseenter="hoveredDamage = damage"
 									@mouseleave="hoveredDamage = null">
-									<div class="chart-bar" :style="{ height: (count / maxDistCount) * 36 + 'px' }" />
+									<div class="l-damage_chart--bar_fill" :style="{ height: (count / maxDistCount) * 36 + 'px' }" />
 								</div>
 							</div>
-							<div class="chart-caption">{{ chartCaption }}</div>
+							<div class="l-damage_chart--caption">{{ chartCaption }}</div>
 						</div>
 					</div>
 
-					<div class="matchup-panel">
+					<div class="v-battle--matchup_panel">
 						<MatchupColumn :label="slotDisplayName(myPokemon) || 'Your Pokémon'" side-label="Your side"
 							:pokemon="myPokemon"
 							:moves="myMovesPadded" :status="battleStore.attackerStatus" :boosts="battleStore.attackerBoosts"
@@ -203,21 +203,21 @@ watch(
 							:on-set-side="battleStore.setDefenderSide" />
 					</div>
 				</div>
-				<div v-else class="matchup-placeholder well">
+				<div v-else class="v-battle--matchup_placeholder well">
 					<p>Select a Pokemon from each side to run damage calculations.</p>
 				</div>
 			</main>
 
-			<aside class="sidebar sidebar-their-party well">
-				<div class="sidebar-header">
+			<aside class="v-battle--sidebar v-battle--sidebar-their_party well">
+				<div class="v-battle--sidebar--header">
 					<h2>Opponent</h2>
-					<router-link to="/opponent" class="edit-link">Edit</router-link>
+					<router-link to="/opponent" class="l-edit_link">Edit</router-link>
 				</div>
-				<div class="party-buttons">
-					<button v-for="{ index, slot } in theirPartySlots" :key="index" class="party-button  btn"
+				<div class="v-battle--party_buttons">
+					<button v-for="{ index, slot } in theirPartySlots" :key="index" class="l-party_button  btn"
 						:class="{ selected: battleStore.selectedTheirIndex === index }"
 						@click="battleStore.setTheirPokemon(index)">
-						{{ slotDisplayName(slot) }} <small class="party-button-level">Lv.{{ slot.level || '-' }}</small>
+						{{ slotDisplayName(slot) }} <small class="l-party_button--level">Lv.{{ slot.level || '-' }}</small>
 					</button>
 				</div>
 			</aside>
@@ -226,71 +226,71 @@ watch(
 </template>
 
 <style scoped>
-.battle-view {
+.v-battle {
 	max-width: 1400px;
 }
-.battle-main {
+.v-battle--main {
 	display: grid;
 	grid-template-columns: minmax(min-content, 1fr) minmax(400px, 4fr) minmax(min-content, 1fr);
 	gap: 1.5rem;
 	align-items: start;
 }
-.sidebar {
+.v-battle--sidebar {
 	padding: 1rem 1.25rem;
 	position: sticky;
 	top: 1rem;
 }
-.sidebar-header {
+.v-battle--sidebar--header {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	gap: 0.75rem;
 	margin-bottom: 0.75rem;
 }
-.sidebar-header h2 {
+.v-battle--sidebar--header h2 {
 	margin: 0;
 	font-size: 1rem;
 }
-.matchup-view {
+.v-battle--matchup {
 	min-width: 0;
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
 }
-.matchup-content {
+.v-battle--matchup_content {
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
 }
-.result-summary {
+.l-result_summary {
 	padding: 1.25rem 1.5rem;
 	display: flex;
 	gap: 1.5rem;
 	align-items: stretch;
 	min-height: 120px;
 }
-.result-main {
+.l-result_summary--main {
 	flex: 1;
 	min-width: 0;
 }
-.damage-chart {
+.l-damage_chart {
 	flex-shrink: 0;
 	width: 140px;
 	border-left: 1px solid #e9ecef;
 	padding-left: 1rem;
 }
-.chart-title {
+.l-damage_chart--title {
 	font-size: 0.7rem;
 	color: #999;
 	margin-bottom: 0.4rem;
 }
-.chart-bars {
+.l-damage_chart--bars {
 	display: flex;
 	align-items: flex-end;
 	gap: 1px;
 	height: 36px;
 }
-.chart-bar-wrap {
+.l-damage_chart--bar {
 	flex: 1;
 	display: flex;
 	flex-direction: column;
@@ -299,119 +299,82 @@ watch(
 	min-width: 2px;
 	cursor: default;
 }
-.chart-bar {
+.l-damage_chart--bar_fill {
 	width: 100%;
 	min-height: 1px;
 	background: #d0d8e8;
 	border-radius: 1px 1px 0 0;
 	transition: background 0.15s;
 }
-.chart-bar-wrap:hover .chart-bar,
-.chart-bar-wrap.hover .chart-bar {
+.l-damage_chart--bar:hover .l-damage_chart--bar_fill,
+.l-damage_chart--bar.l-damage_chart--bar-hover .l-damage_chart--bar_fill {
 	background: #0d6efd;
 }
-.chart-caption {
+.l-damage_chart--caption {
 	font-size: 0.7rem;
 	color: #666;
 	margin-top: 0.25rem;
 }
-.ko-chance-hero {
+.l-ko_chance-hero {
 	font-size: 1.35rem;
 	font-weight: 600;
 	line-height: 1.3;
 }
-.ko-chance-none {
+.l-ko_chance-none {
 	color: #666;
 	font-weight: 500;
 }
-.result-prompt {
+.l-result_summary--prompt {
 	color: #888;
 	font-size: 0.9rem;
 }
-.matchup-placeholder {
+.v-battle--matchup_placeholder {
 	padding: 3rem 2rem;
 	text-align: center;
 	color: #666;
 }
-.edit-link {
+.l-edit_link {
 	font-size: 0.9rem;
 	color: #0d6efd;
 	text-decoration: none;
 }
-.edit-link:hover {
+.l-edit_link:hover {
 	text-decoration: underline;
 }
-.party-buttons {
+.v-battle--party_buttons {
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
 	gap: 0.5rem;
 }
-.party-button {
+.l-party_button {
 	min-width: 8rem;
 }
-.party-button-level {
+.l-party_button--level {
 	display: block;
 	font-size: 0.8em;
-	color: var(--house--color_muted);
+	color: var(--house--color-muted);
 }
-.move-buttons {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 0.35rem;
-}
-.move-buttons .btn {
-	padding-left: 0;
-	padding-right: 0;
-}
-.matchup-panel {
+.v-battle--matchup_panel {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: 1.5rem;
 	align-items: start;
 }
-.moves-list {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 0.35rem;
-}
-.move-chip {
-	display: inline-block;
-	padding: 0.25rem 0.5rem;
-	font-size: 0.85rem;
-	background: #e9ecef;
-	border-radius: 4px;
-}
-.move-section {
-	margin-bottom: 1rem;
-}
-.move-section label {
-	display: block;
-	font-size: 0.85rem;
-	color: var(--house--color_muted);
-	margin-bottom: 0.25rem;
-}
-.crit-toggle {
-	display: flex;
-	align-items: center;
-	gap: 0.5rem;
-	margin-top: 0.75rem;
-	cursor: pointer;
-}
-.result-summary .result-placeholder {
+.l-result_summary .l-result_summary--placeholder {
 	color: #888;
 	font-size: 0.9rem;
 }
-.crit-checkbox {
+.l-crit_checkbox {
 	display: flex;
 	align-items: center;
 	gap: 0.5rem;
 	margin-top: 0.75rem;
 	font-size: 0.9rem;
-	color: var(--house--color_muted);
+	color: var(--house--color-muted);
 	cursor: pointer;
 }
-.crit-checkbox input {
+.l-crit_checkbox input {
 	cursor: pointer;
 }
 </style>
