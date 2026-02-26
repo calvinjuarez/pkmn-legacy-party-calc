@@ -134,6 +134,17 @@ small {
 	border-color: var(--house--color-primary);
 	background: var(--house--color-primary_faint);
 }
+.btn-primary {
+	background: transparent;
+	border: 2px solid var(--house--color-primary);
+	color: var(--house--color-primary);
+
+	&:hover {
+		color: white;
+		background: var(--house--color-primary);
+		border-color: transparent;
+	}
+}
 .btn-danger {
 	background: transparent;
 	border: 2px solid var(--house--color-danger);
@@ -144,6 +155,10 @@ small {
 		background: var(--house--color-danger);
 		border-color: transparent;
 	}
+}
+.btn-sm {
+	padding: 0.2rem 0.4rem;
+	font-size: 0.8rem;
 }
 
 .btn-slot {

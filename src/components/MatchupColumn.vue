@@ -32,6 +32,7 @@ const BOOST_OPTIONS = [-6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6]
 defineProps({
 	label: { type: String, required: true },
 	sideLabel: { type: String, default: '' },
+	onOpenParty: { type: Function, default: undefined },
 	pokemon: { type: Object, default: null },
 	moves: { type: Array, default: () => [] },
 	status: { type: String, default: '' },
@@ -60,6 +61,15 @@ defineProps({
 				<div class="c-matchup_column--main--header">
 					<strong>{{ label }}</strong>
 					<template v-if="pokemon"> Lv.{{ pokemon.level }}</template>
+					<button
+						v-if="onOpenParty"
+						type="button"
+						class="c-matchup_column--swap_btn  btn btn-primary"
+						aria-label="Change Pokemon"
+						title="Tap to change Pokemon"
+						@click="onOpenParty">
+						↔
+					</button>
 				</div>
 				<dl v-if="pokemon?.species" class="c-matchup_column--stats">
 					<div v-for="stat in ['hp','atk','def','spe','spc']" :key="stat" class="c-matchup_column--stat">
@@ -137,8 +147,29 @@ defineProps({
 }
 .c-matchup_column--main {}
 .c-matchup_column--main--header {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	flex-wrap: wrap;
 	margin-bottom: 0.5rem;
 	font-size: 1.1rem;
+}
+.c-matchup_column--swap_btn {
+	display: none;
+	margin-left: auto;
+	box-sizing: border-box;
+	width: 2rem;
+	height: 2rem;
+	padding: 0;
+	flex-shrink: 0;
+	align-items: center;
+	justify-content: center;
+	border-radius: 1rem;
+}
+@media (max-width: 899.99px) {
+	.c-matchup_column--swap_btn {
+		display: inline-flex;
+	}
 }
 
 .c-matchup_column--stats {
