@@ -100,3 +100,4 @@ Here: `l-foo_item` is the block; `l-foo_item--sublabel` is the sublabel child; `
 
 - **Selector-driven** – Components define styles via semantic selectors (`.foo_label`, `label`, etc.). The selector owns the decision “this element is muted”; the token supplies the value.
 - **No utility classes for tokens** – We don’t add `.text-muted` to markup. Composition happens in the CSS, not in `class=""` attributes.
+- **Design decisions** – See [design-system.md](design-system.md) for typography and other design principles.
