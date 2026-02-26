@@ -23,8 +23,12 @@ import { RouterLink, RouterView } from 'vue-router';
 .nav {
 	display: flex;
 	gap: 1rem;
-	padding: 1rem 2rem;
+	padding: 0.75rem 1rem;
 	border-bottom: 1px solid var(--house--border_color-interactive);
+
+	@media (min-width: 600px) {
+		padding: 1rem 2rem;
+	}
 }
 .nav a {
 	color: var(--house--color-ink);
@@ -35,6 +39,10 @@ import { RouterLink, RouterView } from 'vue-router';
 	color: var(--house--color-primary);
 }
 .main {
-	padding: 2rem;
+	padding: 1rem;
+
+	@media (min-width: 600px) {
+		padding: 1.75rem;
+	}
 }
 </style>

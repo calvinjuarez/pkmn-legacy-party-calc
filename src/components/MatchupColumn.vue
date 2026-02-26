@@ -59,8 +59,13 @@ defineProps({
 			</div>
 			<div class="c-matchup_column--main card">
 				<div class="c-matchup_column--main--header">
-					<strong>{{ label }}</strong>
-					<template v-if="pokemon"> Lv.{{ pokemon.level }}</template>
+					<span class="c-matchup_column--header_label">
+						<strong>{{ label }}</strong>&nbsp;
+						<small v-if="pokemon">
+							<span
+								class="hidden-vw_600_down">Lv.</span>{{ pokemon.level }}
+						</small>
+					</span>
 					<button
 						v-if="onOpenParty"
 						type="button"
@@ -150,9 +155,15 @@ defineProps({
 	display: flex;
 	align-items: center;
 	gap: 0.5rem;
-	flex-wrap: wrap;
+	flex-wrap: nowrap;
 	margin-bottom: 0.5rem;
 	font-size: 1.1rem;
+}
+.c-matchup_column--header_label {
+	min-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 .c-matchup_column--swap_btn {
 	display: none;
@@ -169,6 +180,19 @@ defineProps({
 @media (max-width: 899.99px) {
 	.c-matchup_column--swap_btn {
 		display: inline-flex;
+	}
+}
+@media (max-width: 399.99px) {
+	.c-matchup_column--main--header {
+		position: relative;
+		padding-right: 1rem;
+	}
+	.c-matchup_column--swap_btn {
+		position: absolute;
+		right: -1rem;
+		top: 50%;
+		transform: translateY(-50%);
+		margin-left: 0;
 	}
 }
 

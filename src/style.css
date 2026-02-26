@@ -80,10 +80,17 @@
  */
 
 :root {
-	/* set `rem` explicitly */
-	font-size: 16px;
+	/* set `rem` explicitly – 12px for narrow (phones portrait), 16px from 400px up */
+	font-size: 12px;
 	color: var(--house--color-ink);
 	background: white;
+
+	@media (min-width: 400px) {
+		font-size: 14px;
+	}
+	@media (min-width: 450px) {
+		font-size: 16px;
+	}
 }
 
 
@@ -106,6 +113,29 @@ small {
 	border-radius: var(--house--border_radius-lg);
 	border: 1px solid var(--house--border_color);
 	background: white;
+}
+.card-vw_400_up {
+	/* no card styling below 400px */
+	@media (min-width: 400px) {
+		border-radius: var(--house--border_radius-lg);
+		border: 1px solid var(--house--border_color);
+		background: white;
+	}
+}
+
+.hidden-vw_400_down {
+	display: none;
+
+	@media (min-width: 400px) {
+		display: revert;
+	}
+}
+.hidden-vw_600_down {
+	display: none;
+
+	@media (min-width: 600px) {
+		display: revert;
+	}
 }
 
 .well {

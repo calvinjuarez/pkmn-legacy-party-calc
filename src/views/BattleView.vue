@@ -157,7 +157,7 @@ watch(
 
 			<main class="v-battle--matchup">
 				<div v-if="myPokemon && theirPokemon" class="v-battle--matchup_content">
-					<div class="l-result_summary card">
+					<div class="l-result_summary  card-vw_400_up">
 						<div class="l-result_summary--main">
 							<div v-if="result" class="l-result_summary--panel">
 								<div v-if="result.noDamage" class="l-ko_chance-hero l-ko_chance-none">Status move — no damage
@@ -196,20 +196,20 @@ watch(
 
 					<div class="v-battle--matchup_panel">
 						<MatchupColumn :label="slotDisplayName(myPokemon) || 'Your Pokémon'" side-label="Your side"
-							:on-open-party="() => myPartyOpen = true"
-							:pokemon="myPokemon"
-							:moves="myMovesPadded" :status="battleStore.attackerStatus" :boosts="battleStore.attackerBoosts"
-							:special-value="attackerSpecial" :side-effects="battleStore.attackerSide"
+							:on-open-party="() => myPartyOpen = true" :pokemon="myPokemon" :moves="myMovesPadded"
+							:status="battleStore.attackerStatus" :boosts="battleStore.attackerBoosts"
+							:special-value="attackerSpecial"
+							:side-effects="battleStore.attackerSide"
 							:is-move-selected="(id) => battleStore.selectedMove === id && !battleStore.moveFromOpponent"
 							:on-set-move="(id) => battleStore.setMove(id, false)"
 							:on-set-status="battleStore.setAttackerStatus"
 							:on-set-boost="battleStore.setAttackerBoost" :on-set-special="battleStore.setAttackerSpecial"
 							:on-set-side="battleStore.setAttackerSide" />
 						<MatchupColumn :label="slotDisplayName(theirPokemon) || 'Opponent'" side-label="Opponent"
-							:on-open-party="() => theirPartyOpen = true"
-							:pokemon="theirPokemon"
-							:moves="theirMovesPadded" :status="battleStore.defenderStatus" :boosts="battleStore.defenderBoosts"
-							:special-value="defenderSpecial" :side-effects="battleStore.defenderSide"
+							:on-open-party="() => theirPartyOpen = true" :pokemon="theirPokemon" :moves="theirMovesPadded"
+							:status="battleStore.defenderStatus" :boosts="battleStore.defenderBoosts"
+							:special-value="defenderSpecial"
+							:side-effects="battleStore.defenderSide"
 							:is-move-selected="(id) => battleStore.selectedMove === id && battleStore.moveFromOpponent"
 							:on-set-move="(id) => battleStore.setMove(id, true)" :on-set-status="battleStore.setDefenderStatus"
 							:on-set-boost="battleStore.setDefenderBoost" :on-set-special="battleStore.setDefenderSpecial"
@@ -226,10 +226,7 @@ watch(
 				</div>
 			</main>
 
-			<SlideTray
-				side="right"
-				title="Opponent's Pokemon"
-				v-model="theirPartyOpen">
+			<SlideTray side="right" title="Opponent's Pokemon" v-model="theirPartyOpen">
 				<aside class="v-battle--sidebar  v-battle--sidebar-their_party">
 					<div class="v-battle--sidebar--header">
 						<h2>Opponent's Pokemon</h2>
@@ -310,11 +307,16 @@ watch(
 	gap: 1rem;
 }
 .l-result_summary {
-	padding: 1.25rem 1.5rem;
+	padding: 1rem 0;
 	display: flex;
 	gap: 1rem;
 	align-items: stretch;
-	min-height: 120px;
+	min-height: 7.5rem;
+}
+@media (min-width: 400px) {
+	.l-result_summary {
+		padding: 1.25rem 1.5rem;
+	}
 }
 .l-result_summary--main {
 	flex: 1;
