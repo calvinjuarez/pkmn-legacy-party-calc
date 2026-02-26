@@ -36,32 +36,22 @@ We use CSS custom properties (variables) for shared design values. Define them i
 
 **Global** (no domain, implicit “any”):
 
-- `--house--color-muted`
+- `--house--gray-500` (definition)
+- `--house--color-ink`, `--house--color-ink_muted`, `--house--color-ink_hint`, `--house--color-ink_faint` (ink family). See [design-tokens.md](design-tokens.md) for full registry.
 
 ### Composition
 
-Tokens can reference other tokens: `--house--input--border_color: var(--house--color-muted);`
+Tokens can reference other tokens. Define colors first; applications reuse them: `--house--border_color-interactive: var(--house--gray-200);`
 
-### Registry
+### Layers
 
-| Token                         | Value  | Use
-| ---                           | ---    | ---
-| `--house--color-muted`        | `#555` | Secondary/muted text (labels, stats, form help, descriptions)
-| `--house--color-text_placeholder` | `#888` | Placeholder text
-| `--house--color-text_primary` | `#333` | Primary text (nav default)
-| `--house--color-border`       | `#ddd` | Default borders
-| `--house--color-border_hover` | `#999` | Hover-state borders
-| `--house--color-border_subtle`| `#e9ecef` | Subtle borders (cards, dividers)
-| `--house--color-border_medium`| `#dee2e6` | Medium borders (move slots)
-| `--house--color-border_input` | `#ccc` | Form control borders
-| `--house--color-bg_subtle`   | `#f8f9fa` | Subtle backgrounds (well)
-| `--house--color-primary`      | `#0d6efd` | Primary blue (links, selected)
-| `--house--color-primary_bg`  | `#f0f7ff` | Primary tint background
-| `--house--color-danger`       | `#dc3545` | Danger/outline
-| `--house--color-chart_bar`    | `#d0d8e8` | Chart bar fill (neutral)
-| `--house--border_radius-lg`  | `8px`  | Cards, wells
-| `--house--border_radius-md`   | `6px`  | Buttons, move slots
-| `--house--border_radius-sm`  | `4px`  | Form controls, mode buttons
+- **Definitions** – Raw color values (e.g. `--house--gray-500: #666`). Define once.
+- **Semantic families** – Aliases for common use (e.g. `--house--color-ink: var(--house--gray-600)`).
+- **Applications** – Where a color is used (e.g. `--house--border_color`). Reference definitions or families.
+
+### Token reference
+
+Full registry: [design-tokens.md](design-tokens.md)
 
 ## Class naming
 
