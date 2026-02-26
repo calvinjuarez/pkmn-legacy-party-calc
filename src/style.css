@@ -1,60 +1,126 @@
 @import 'bootstrap/dist/css/bootstrap-reboot.css';
 
-/* House design tokens – see docs/style-guide--css.md */
+
+/*
+ * DESIGN TOKENS
+ * ============
+ * see docs/design-system--tokens.md
+ */
 :root {
-	/* Colors – text */
-	--house--color-muted: #555;
-	--house--color-text_placeholder: #888;
-	--house--color-text_primary: #333;
+	/* ## DEFINITIONS */
 
-	/* Colors – borders */
-	--house--color-border: #ddd;
-	--house--color-border_hover: #999;
-	--house--color-border_subtle: #e9ecef;
-	--house--color-border_medium: #dee2e6;
-	--house--color-border_input: #ccc;
+	/* ### Colors */
+	/* NOTE: native `black` and `white` are allowed as de-facto design tokens */
+	/* #### Grays */
+	--house--gray-100: #f2f2f2;
+	--house--gray-200: #e0e0e0;
+	--house--gray-300: #c9c9c9;
+	--house--gray-400: #999;
+	--house--gray-500: #666;
+	--house--gray-600: #333;
+	/* #### Blues */
+	--house--blue-100: #f0f7ff;
+	--house--blue-200: #c7dcff;
+	--house--blue-300: #93c5fd;
+	--house--blue-400: #60a5fa;
+	--house--blue-500: #0d6efd;
+	--house--blue-600: #0a5dd9;
+	/* #### Reds */
+	--house--red-100: #fef2f2;
+	--house--red-200: #fecaca;
+	--house--red-300: #fca5a5;
+	--house--red-400: #f87171;
+	--house--red-500: #dc3545;
+	--house--red-600: #b91c1c;
+	/* #### Semantic families – 4 faintness levels each */
+	/* ##### Ink (gray) */
+	--house--color-ink: var(--house--gray-600);
+	--house--color-ink_dark: black;
+	--house--color-ink_muted: var(--house--gray-500);
+	--house--color-ink_hint: var(--house--gray-400);
+	--house--color-ink_faint: var(--house--gray-100);
+	/* ##### Primary (blue) */
+	--house--color-primary: var(--house--blue-500);
+	--house--color-primary_dark: var(--house--blue-600);
+	--house--color-primary_muted: var(--house--blue-400);
+	--house--color-primary_hint: var(--house--blue-200);
+	--house--color-primary_faint: var(--house--blue-100);
+	/* ##### Danger (red) */
+	--house--color-danger: var(--house--red-500);
+	--house--color-danger_dark: var(--house--red-600);
+	--house--color-danger_muted: var(--house--red-400);
+	--house--color-danger_hint: var(--house--red-200);
+	--house--color-danger_faint: var(--house--red-100);
 
-	/* Colors – backgrounds */
-	--house--color-bg_subtle: #f8f9fa;
+	/* ## APPLICATIONS */
 
-	/* Colors – primary */
-	--house--color-primary: #0d6efd;
-	--house--color-primary_bg: #f0f7ff;
-
-	/* Colors – semantic */
-	--house--color-danger: #dc3545;
-	--house--color-chart_bar: #d0d8e8;
-
-	/* Border radius */
+	/* ### Base */
 	--house--border_radius-lg: 8px;
 	--house--border_radius-md: 6px;
 	--house--border_radius-sm: 4px;
+	--house--border_color: var(--house--gray-100);
+	--house--border_color-interactive: var(--house--gray-200);
+	--house--border_color-interactive_hover: var(--house--gray-400);
 
+	/* ### Inputs */
+	--house--input--padding_x: 0.5rem;
+	--house--input--padding_y: 0.25rem;
+	--house--input--padding: var(--house--input--padding_y) var(--house--input--padding_x);
+	--house--input--border_radius: var(--house--border_radius-sm);
+	--house--input--border_color: var(--house--border_color-interactive);
+
+	--house--input-focus--border_color: var(--house--color-primary_muted);
+
+}
+
+
+/*
+ * HOUSE STYLES
+ * ============
+ */
+
+:root {
 	/* set `rem` explicitly */
 	font-size: 16px;
+	color: var(--house--color-ink);
+	background: white;
 }
+
 
 html {}
 body {
 	margin: 0;
 }
 
-/* Solid white card with gray border */
-.card {
-	border-radius: var(--house--border_radius-lg);
-	border: 1px solid var(--house--color-border_subtle);
-	background: #fff;
-}
-/* Solid gray card, borderless */
-.well {
-	border-radius: var(--house--border_radius-lg);
-	background: var(--house--color-bg_subtle);
+small {
+	font-size: 0.85em;
 }
 
-.btn {
+
+.lead {
+	color: var(--house--color-ink_muted);
+	margin-bottom: 1.5rem;
+}
+
+.card {
+	border-radius: var(--house--border_radius-lg);
+	border: 1px solid var(--house--border_color);
+	background: white;
+}
+
+.well {
+	border-radius: var(--house--border_radius-lg);
+	background: var(--house--color-ink_faint);
+}
+
+
+/* ## BUTTONS */
+
+.btn,
+.btn-slot {
 	padding: 0.5rem 1rem;
-	border: 2px solid var(--house--color-border);
-	background: #fff;
+	border: 2px solid var(--house--border_color-interactive);
+	background: white;
 	cursor: pointer;
 	border-radius: var(--house--border_radius-md);
 }
@@ -62,11 +128,11 @@ body {
 	white-space: nowrap;
 }
 .btn:hover {
-	border-color: var(--house--color-border_hover);
+	border-color: var(--house--border_color-interactive_hover);
 }
 .btn.selected {
 	border-color: var(--house--color-primary);
-	background: var(--house--color-primary_bg);
+	background: var(--house--color-primary_faint);
 }
 .btn-outline {
 	background: transparent;
@@ -75,10 +141,73 @@ body {
 }
 .btn-outline:hover {
 	background: var(--house--color-danger);
-	color: #fff;
+	color: white;
 }
 
-/* Form groups – see docs/style-guide--css.md */
+.btn-slot {
+	cursor: default;
+	background-color: var(--house--gray-200);
+	border-color: transparent;
+
+	&:empty::before {
+		/* non-breaking space */
+		content: '\00A0';
+	}
+}
+
+
+/* ## FORMS */
+
+input:not([type="hidden"], [type="radio"], [type="checkbox"]),
+select,
+textarea {
+	display: inline flow-root;
+	padding: var(--house--input--padding);
+	background: white;
+	border: 2px solid var(--house--input--border_color);
+	border-radius: var(--house--input--border_radius);
+
+	&:focus {
+		outline: 2px solid var(--house--input-focus--border_color);
+		outline-offset: 1px;
+	}
+}
+/* reset select to allow custom appearance */
+select {
+	--_caret_size: 0.75em;
+	--_caret_space: calc((2 * var(--house--input--padding_x)) + var(--_caret_size));
+
+	appearance: none;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 4 L6 8 L10 4' stroke='currentColor' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-size: var(--_caret_size) var(--_caret_size);
+
+	&:dir(ltr) {
+		padding-right: var(--_caret_space);
+		padding-left: var(--house--input--padding_x);
+		background-position: right var(--house--input--padding_x) center;
+	}
+	&:dir(rtl) {
+		padding-left: var(--_caret_space);
+		padding-right: var(--house--input--padding_x);
+		background-position: left var(--house--input--padding_x) center;
+	}
+}
+
+select,
+input[type="checkbox"],
+input[type="radio"] {
+	cursor: pointer;
+}
+
+input:read-only,
+textarea:read-only {
+	/* NOTE: <select> is _always_ treated as read-only, so we don't want to include it in this rule */
+	background: none;
+	border-color: transparent;
+}
+
+/* ### Form Groups */
 .form_group {
 	margin-bottom: 1rem;
 }
@@ -104,15 +233,10 @@ body {
 .form_group-radio--option input {
 	margin-top: 0.25rem;
 }
+/* ### Form Help Text */
 .form_help {
 	font-size: 0.85rem;
-	color: var(--house--color-muted);
+	color: var(--house--color-ink_muted);
 	margin-top: 0.5rem;
 	margin-bottom: 0;
-}
-
-/* Lead paragraph – intro text on views */
-.lead {
-	color: var(--house--color-muted);
-	margin-bottom: 1.5rem;
 }
