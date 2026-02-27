@@ -149,6 +149,15 @@ small {
 
 /* ## BUTTONS */
 
+/* iOS Safari reset: removes default blue text and tap highlight on interactive elements */
+button,
+input,
+select,
+textarea {
+	-webkit-tap-highlight-color: transparent;
+	color: inherit;
+}
+
 .btn,
 .btn-slot {
 	padding: 0.5rem 1rem;
