@@ -203,10 +203,17 @@ defineProps({
 	justify-content: space-between;
 	margin-bottom: 0.75rem;
 	font-size: 0.85em;
-	color: var(--house--color-ink_muted);
 }
 .c-matchup_column--stat {
 	white-space: nowrap;
+}
+.c-matchup_column--stat dt {
+	font-weight: normal;
+	color: var(--house--color-ink_muted);
+}
+.c-matchup_column--stat dd {
+	font-weight: bold;
+	color: var(--house--color-ink);
 }
 
 .c-matchup_column--main--move_section {
