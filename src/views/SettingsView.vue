@@ -1,9 +1,11 @@
 <script setup>
+import { useRouter } from 'vue-router'
 import { useBattleStore } from '../stores/battle'
 import { useOpponentPartyStore } from '../stores/opponentParty'
 import { usePartyStore } from '../stores/party'
 import { useSettingsStore } from '../stores/settings'
 
+const router = useRouter()
 const settings = useSettingsStore()
 const partyStore = usePartyStore()
 const opponentPartyStore = useOpponentPartyStore()
@@ -17,6 +19,14 @@ function resetMyParty() {
 function resetFoeParty() {
 	opponentPartyStore.clearAll()
 	battleStore.resetOpponentSelection()
+}
+
+function loadExampleParty() {
+	if (partyStore.loadExampleParty) {
+		partyStore.loadExampleParty()
+		battleStore.resetMySelection()
+		router.push('/party')
+	}
 }
 </script>
 
@@ -36,6 +46,12 @@ function resetFoeParty() {
 					@change="settings.setStatInputMode('advanced')" />
 				Calculated &mdash; enter DVs & Stat XP to calculate stats
 			</label>
+		</div>
+		<div class="form_group v-settings--reset" v-if="partyStore.loadExampleParty">
+			<label class="form_group--label">Sample data</label>
+			<div class="v-settings--reset_buttons">
+				<button type="button" class="btn" @click="loadExampleParty">Load Example Party</button>
+			</div>
 		</div>
 		<div class="form_group v-settings--reset">
 			<label class="form_group--label">Reset</label>
