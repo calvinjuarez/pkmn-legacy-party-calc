@@ -29,6 +29,12 @@ const routes = [
 		component: () => import('./views/SettingsView.vue'),
 		meta: { title: 'Settings' },
 	},
+	{
+		path: '/:pathMatch(.*)*',
+		name: 'not-found',
+		component: () => import('./views/NotFoundView.vue'),
+		meta: { title: 'Not Found' },
+	},
 ]
 
 const router = createRouter({
