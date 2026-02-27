@@ -31,12 +31,12 @@ import { RouterLink, RouterView } from 'vue-router';
 	}
 }
 .nav a {
-	color: var(--house--color-ink);
+	color: var(--house--color--ink);
 	text-decoration: none;
 	font-weight: 500;
 }
 .nav a.router-link-active {
-	color: var(--house--color-primary);
+	color: var(--house--color--primary);
 }
 .main {
 	max-width: var(--house--page--max_width);

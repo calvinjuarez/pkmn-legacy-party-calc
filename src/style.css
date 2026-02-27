@@ -34,23 +34,23 @@
 	--house--red-600: #b91c1c;
 	/* #### Semantic families – 4 faintness levels each */
 	/* ##### Ink (gray) */
-	--house--color-ink: var(--house--gray-600);
-	--house--color-ink_dark: black;
-	--house--color-ink_muted: var(--house--gray-500);
-	--house--color-ink_hint: var(--house--gray-400);
-	--house--color-ink_faint: var(--house--gray-100);
+	--house--color--ink: var(--house--gray-600);
+	--house--color--ink-dark: black;
+	--house--color--ink-muted: var(--house--gray-500);
+	--house--color--ink-hint: var(--house--gray-400);
+	--house--color--ink-faint: var(--house--gray-100);
 	/* ##### Primary (blue) */
-	--house--color-primary: var(--house--blue-500);
-	--house--color-primary_dark: var(--house--blue-600);
-	--house--color-primary_muted: var(--house--blue-400);
-	--house--color-primary_hint: var(--house--blue-200);
-	--house--color-primary_faint: var(--house--blue-100);
+	--house--color--primary: var(--house--blue-500);
+	--house--color--primary-dark: var(--house--blue-600);
+	--house--color--primary-muted: var(--house--blue-400);
+	--house--color--primary-hint: var(--house--blue-200);
+	--house--color--primary-faint: var(--house--blue-100);
 	/* ##### Danger (red) */
-	--house--color-danger: var(--house--red-500);
-	--house--color-danger_dark: var(--house--red-600);
-	--house--color-danger_muted: var(--house--red-400);
-	--house--color-danger_hint: var(--house--red-200);
-	--house--color-danger_faint: var(--house--red-100);
+	--house--color--danger: var(--house--red-500);
+	--house--color--danger-dark: var(--house--red-600);
+	--house--color--danger-muted: var(--house--red-400);
+	--house--color--danger-hint: var(--house--red-200);
+	--house--color--danger-faint: var(--house--red-100);
 
 	/* ## APPLICATIONS */
 
@@ -69,7 +69,7 @@
 	--house--input--border_radius: var(--house--border_radius-sm);
 	--house--input--border_color: var(--house--border_color-interactive);
 
-	--house--input-focus--border_color: var(--house--color-primary_muted);
+	--house--input-focus--border_color: var(--house--color--primary-muted);
 
 	/* ### Page layout */
 	--house--page--max_width: 1400px;
@@ -85,7 +85,7 @@
 :root {
 	/* set `rem` explicitly – 12px for narrow (phones portrait), 16px from 400px up */
 	font-size: 12px;
-	color: var(--house--color-ink);
+	color: var(--house--color--ink);
 	background: white;
 
 	@media (min-width: 400px) {
@@ -108,7 +108,7 @@ small {
 
 
 .lead {
-	color: var(--house--color-ink_muted);
+	color: var(--house--color--ink-muted);
 	margin-bottom: 1.5rem;
 }
 
@@ -143,7 +143,7 @@ small {
 
 .well {
 	border-radius: var(--house--border_radius-lg);
-	background: var(--house--color-ink_faint);
+	background: var(--house--color--ink-faint);
 }
 
 
@@ -165,28 +165,28 @@ small {
 	border-color: var(--house--border_color-interactive_hover);
 }
 .btn.selected {
-	border-color: var(--house--color-primary);
-	background: var(--house--color-primary_faint);
+	border-color: var(--house--color--primary);
+	background: var(--house--color--primary-faint);
 }
 .btn-primary {
 	background: transparent;
-	border: 2px solid var(--house--color-primary);
-	color: var(--house--color-primary);
+	border: 2px solid var(--house--color--primary);
+	color: var(--house--color--primary);
 
 	&:hover {
 		color: white;
-		background: var(--house--color-primary);
+		background: var(--house--color--primary);
 		border-color: transparent;
 	}
 }
 .btn-danger {
 	background: transparent;
-	border: 2px solid var(--house--color-danger);
-	color: var(--house--color-danger);
+	border: 2px solid var(--house--color--danger);
+	color: var(--house--color--danger);
 
 	&:hover {
 		color: white;
-		background: var(--house--color-danger);
+		background: var(--house--color--danger);
 		border-color: transparent;
 	}
 }
@@ -262,7 +262,7 @@ label {
 	&:has(input[type="radio"], input[type="checkbox"]) {}
 	&:not(:has(input[type="radio"], input[type="checkbox"])) {
 		font-size: 0.85rem;
-		color: var(--house--color-ink_muted);
+		color: var(--house--color--ink-muted);
 		margin-bottom: 0.25rem;
 	}
 }
@@ -314,7 +314,7 @@ label {
 /* ### Form Help Text */
 .form_help {
 	font-size: 0.85rem;
-	color: var(--house--color-ink_muted);
+	color: var(--house--color--ink-muted);
 	margin-top: 0.5rem;
 	margin-bottom: 0;
 }

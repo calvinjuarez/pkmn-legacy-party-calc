@@ -328,7 +328,7 @@ function resetFoeParty() {
 }
 .v-opponent--mode_link {
 	font-size: 0.9rem;
-	color: var(--house--color-primary);
+	color: var(--house--color--primary);
 	text-decoration: none;
 }
 .v-opponent--mode_link:hover {
@@ -350,7 +350,7 @@ function resetFoeParty() {
 	margin-bottom: 0.5rem;
 }
 .v-opponent--category--description {
-	color: var(--house--color-ink_muted);
+	color: var(--house--color--ink-muted);
 	font-size: 0.9rem;
 	margin-bottom: 0.75rem;
 }
@@ -369,8 +369,8 @@ function resetFoeParty() {
 	text-align: left;
 }
 .v-opponent--trainer:hover {
-	border-color: var(--house--color-primary);
-	background: var(--house--color-primary_faint);
+	border-color: var(--house--color--primary);
+	background: var(--house--color--primary-faint);
 }
 .v-opponent--trainer--header {
 	display: flex;
@@ -385,7 +385,7 @@ function resetFoeParty() {
 }
 .v-opponent--trainer--variant {
 	font-size: 0.85rem;
-	color: var(--house--color-ink_muted);
+	color: var(--house--color--ink-muted);
 	flex-shrink: 0;
 	text-align: right;
 	white-space: pre-line;
@@ -393,7 +393,7 @@ function resetFoeParty() {
 }
 .v-opponent--trainer--party {
 	font-size: 0.8rem;
-	color: var(--house--color-ink_hint);
+	color: var(--house--color--ink-hint);
 	margin-top: 0.5rem;
 	line-height: 1.3;
 	white-space: pre-line;

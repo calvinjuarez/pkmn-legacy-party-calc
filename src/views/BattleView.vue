@@ -331,7 +331,7 @@ watch(
 }
 .l-damage_chart--title {
 	font-size: 0.7rem;
-	color: var(--house--color-ink_hint);
+	color: var(--house--color--ink-hint);
 	margin-bottom: 0.4rem;
 }
 .l-damage_chart--bars {
@@ -358,11 +358,11 @@ watch(
 }
 .l-damage_chart--bar:hover .l-damage_chart--bar_fill,
 .l-damage_chart--bar.l-damage_chart--bar-hover .l-damage_chart--bar_fill {
-	background: var(--house--color-primary);
+	background: var(--house--color--primary);
 }
 .l-damage_chart--caption {
 	font-size: 0.7rem;
-	color: var(--house--color-ink_muted);
+	color: var(--house--color--ink-muted);
 	margin-top: 0.25rem;
 }
 .l-ko_chance-hero {
@@ -371,23 +371,23 @@ watch(
 	line-height: 1.3;
 }
 .l-ko_chance-none {
-	color: var(--house--color-ink_muted);
+	color: var(--house--color--ink-muted);
 	font-weight: 500;
 }
 .l-result_summary--prompt {
-	color: var(--house--color-ink_hint);
+	color: var(--house--color--ink-hint);
 	font-size: 0.9rem;
 }
 .v-battle--matchup_placeholder {
 	padding: 3rem 2rem;
 	text-align: center;
-	color: var(--house--color-ink_muted);
+	color: var(--house--color--ink-muted);
 }
 .v-battle--matchup_placeholder--hint {
 	display: none;
 	margin: 0.5rem 0 0;
 	font-size: 0.9rem;
-	color: var(--house--color-ink_muted);
+	color: var(--house--color--ink-muted);
 }
 .v-battle--matchup_placeholder--actions {
 	display: none;
@@ -406,7 +406,7 @@ watch(
 }
 .l-edit_link {
 	font-size: 0.9rem;
-	color: var(--house--color-primary);
+	color: var(--house--color--primary);
 	text-decoration: none;
 }
 .l-edit_link:hover {
@@ -426,7 +426,7 @@ watch(
 .l-party_button--level {
 	display: block;
 	font-size: 0.8em;
-	color: var(--house--color-ink_muted);
+	color: var(--house--color--ink-muted);
 }
 .v-battle--matchup_panel {
 	display: grid;
@@ -435,7 +435,7 @@ watch(
 	align-items: start;
 }
 .l-result_summary .l-result_summary--placeholder {
-	color: var(--house--color-ink_hint);
+	color: var(--house--color--ink-hint);
 	font-size: 0.9rem;
 }
 .l-crit_checkbox {
@@ -444,7 +444,7 @@ watch(
 	gap: 0.5rem;
 	margin-top: 0.75rem;
 	font-size: 0.9rem;
-	color: var(--house--color-ink_muted);
+	color: var(--house--color--ink-muted);
 	cursor: pointer;
 }
 </style>

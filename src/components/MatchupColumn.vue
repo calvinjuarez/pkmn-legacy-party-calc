@@ -209,11 +209,11 @@ defineProps({
 }
 .c-matchup_column--stat dt {
 	font-weight: normal;
-	color: var(--house--color-ink_muted);
+	color: var(--house--color--ink-muted);
 }
 .c-matchup_column--stat dd {
 	font-weight: bold;
-	color: var(--house--color-ink);
+	color: var(--house--color--ink);
 }
 
 .c-matchup_column--main--move_section {
@@ -222,7 +222,7 @@ defineProps({
 .c-matchup_column--main--move_section label {
 	display: block;
 	font-size: 0.85rem;
-	color: var(--house--color-ink_muted);
+	color: var(--house--color--ink-muted);
 	margin-bottom: 0.25rem;
 }
 .c-matchup_column--main--move_buttons {
@@ -253,7 +253,7 @@ defineProps({
 .c-matchup_column--main--condition_group label {
 	display: block;
 	font-size: 0.85rem;
-	color: var(--house--color-ink_muted);
+	color: var(--house--color--ink-muted);
 	margin-bottom: 0.25rem;
 }
 .c-matchup_column--main--condition_group-boosts {

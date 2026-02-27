@@ -295,15 +295,15 @@ function hpDv(slot) {
 		justify-content: center;
 
 		.c-party_builder--member--name {
-			color: var(--house--color-ink_hint);
+			color: var(--house--color--ink-hint);
 		}
 	}
 	&:hover {
 		border-color: var(--house--border_color-interactive_hover);
 	}
 	&.selected {
-		border-color: var(--house--color-primary);
-		background: var(--house--color-primary_faint);
+		border-color: var(--house--color--primary);
+		background: var(--house--color--primary-faint);
 	}
 }
 .c-party_builder--member--name {
@@ -312,7 +312,7 @@ function hpDv(slot) {
 .c-party_builder--member--level,
 .c-party_builder--member--moves {
 	font-size: 0.85rem;
-	color: var(--house--color-ink_muted);
+	color: var(--house--color--ink-muted);
 	margin-top: 0.25rem;
 }
 .c-party_builder--member--moves {
@@ -343,7 +343,7 @@ function hpDv(slot) {
 }
 .c-party_builder--mode_link {
 	font-size: 0.9rem;
-	color: var(--house--color-primary);
+	color: var(--house--color--primary);
 	text-decoration: none;
 	flex-shrink: 0;
 
@@ -395,7 +395,7 @@ function hpDv(slot) {
 
 	label {
 		width: 80px;
-		color: var(--house--color-ink_muted);
+		color: var(--house--color--ink-muted);
 	}
 }
 

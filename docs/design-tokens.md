@@ -43,15 +43,13 @@ Use `white` and `black` directly. No custom property needed.
 
 ## Semantic families (4 faintness levels + dark)
 
-Each family has: base, dark, muted, hint, faint.
+Each family has: base, dark, muted, hint, faint. Token pattern: `--house--color--{family}`, `--house--color--{family}-dark`, `--house--color--{family}-muted`, `--house--color--{family}-hint`, `--house--color--{family}-faint`.
 
 | Family   | Base    | Dark    | Muted   | Hint    | Faint   |
 | ---      | ---     | ---     | ---     | ---     | ---     |
-| Ink      | `gray-600` | `black` | `gray-500` | `gray-400` | `gray-100` |
-| Primary  | `blue-500` | `blue-600` | `blue-400` | `blue-200` | `blue-100` |
-| Danger   | `red-500`  | `red-600`  | `red-400`  | `red-200`  | `red-100`  |
-
-Token pattern: `--house--color-{family}`, `--house--color-{family}_dark`, `--house--color-{family}_muted`, `--house--color-{family}_hint`, `--house--color-{family}_faint`.
+| Ink      | `--house--color--ink` | `--house--color--ink-dark` | `--house--color--ink-muted` | `--house--color--ink-hint` | `--house--color--ink-faint` |
+| Primary  | `--house--color--primary` | `--house--color--primary-dark` | `--house--color--primary-muted` | `--house--color--primary-hint` | `--house--color--primary-faint` |
+| Danger   | `--house--color--danger` | `--house--color--danger-dark` | `--house--color--danger-muted` | `--house--color--danger-hint` | `--house--color--danger-faint` |
 
 ## Applications
 
@@ -80,4 +78,4 @@ Token pattern: `--house--color-{family}`, `--house--color-{family}_dark`, `--hou
 | `--house--input--padding`          | composite  | Shorthand: `padding_y padding_x`
 | `--house--input--border_radius`    | `border_radius-sm` | Form control corners
 | `--house--input--border_color`     | `border_color-interactive` | Default form border
-| `--house--input-focus--border_color` | `color-primary_muted` | Focus ring / outline
+| `--house--input-focus--border_color` | `color--primary-muted` | Focus ring / outline

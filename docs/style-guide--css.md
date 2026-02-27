@@ -15,8 +15,8 @@ We use CSS custom properties (variables) for shared design values. Define them i
 | Delimiter | Role
 | ---       | ---
 | `--`      | Separates segments (domain boundaries, hierarchy)
-| `_`       | Joins words within a segment (e.g. `border_radius`, `top_right`)
-| `-`       | Attaches variant to preceding segment (e.g. `input-email`, `border_radius-top_right`)
+| `_`       | Joins words within a segment (e.g. `border_radius`, `padding_x`, `interactive_hover`)
+| `-`       | Attaches variant to preceding segment (e.g. `gray-500`, `input-focus`, `border_radius-lg`)
 
 **Token structure:**
 
@@ -24,20 +24,21 @@ We use CSS custom properties (variables) for shared design values. Define them i
 --house--[domain--]{property}[-{variant}]
 ```
 
-- **Domain** (optional) – Scope for element-specific tokens. Omitted for global/palette tokens.
-- **Property** – The thing being defined.
-- **Variant** (optional) – Attached with `-` to domain or property.
+- **Domain** (optional) – Scope for element-specific tokens. Omitted for definitions, semantic families, and global applications.
+- **Property** – The thing being defined. Use `_` to join compound words.
+- **Variant** (optional) – Attached with `-` to domain or property. The variant itself may use `_` for compound sub-variants (e.g. `interactive_hover`).
 
 **Domain-scoped:**
 
+- `--house--color--ink`, `--house--color--ink-muted` (color domain; `--` separates domain from family, `-` attaches faintness variant)
 - `--house--input--border_color`
-- `--house--input-email--border_color` (domain variant)
-- `--house--input-email--border_radius-top_right` (domain variant + property variant)
+- `--house--input-focus--border_color` (domain variant: input in focus state)
+- `--house--page--max_width`
 
-**Global** (no domain, implicit “any”):
+**Global** (no domain):
 
-- `--house--gray-500` (definition)
-- `--house--color-ink`, `--house--color-ink_muted`, `--house--color-ink_hint`, `--house--color-ink_faint` (ink family). See [design-tokens.md](design-tokens.md) for full registry.
+- `--house--gray-500` (definition: palette-shade)
+- `--house--border_radius-lg`, `--house--border_color-interactive`, `--house--border_color-interactive_hover` (applications). See [design-tokens.md](design-tokens.md) for full registry.
 
 ### Composition
 
@@ -46,7 +47,7 @@ Tokens can reference other tokens. Define colors first; applications reuse them:
 ### Layers
 
 - **Definitions** – Raw color values (e.g. `--house--gray-500: #666`). Define once.
-- **Semantic families** – Aliases for common use (e.g. `--house--color-ink: var(--house--gray-600)`).
+- **Semantic families** – Aliases for common use (e.g. `--house--color--ink: var(--house--gray-600)`).
 - **Applications** – Where a color is used (e.g. `--house--border_color`). Reference definitions or families.
 
 ### Token reference
