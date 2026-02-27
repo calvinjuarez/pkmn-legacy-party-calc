@@ -247,7 +247,7 @@ watch(
 
 <style scoped>
 .v-battle {
-	max-width: 1400px;
+	max-width: var(--house--page--max_width);
 }
 .v-battle--main {
 	display: grid;

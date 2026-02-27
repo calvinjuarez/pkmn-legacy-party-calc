@@ -268,7 +268,7 @@ function hpDv(slot) {
 .c-party_builder {
 	container-type: inline-size;
 	container-name: party_builder;
-	max-width: 900px;
+	max-width: var(--house--page--max_width);
 }
 .c-party_builder--members {
 	display: grid;

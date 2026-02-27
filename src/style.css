@@ -71,6 +71,9 @@
 
 	--house--input-focus--border_color: var(--house--color-primary_muted);
 
+	/* ### Page layout */
+	--house--page--max_width: 1400px;
+
 }
 
 

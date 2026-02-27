@@ -39,6 +39,8 @@ import { RouterLink, RouterView } from 'vue-router';
 	color: var(--house--color-primary);
 }
 .main {
+	max-width: var(--house--page--max_width);
+	margin: 0 auto;
 	padding: 1rem;
 
 	@media (min-width: 600px) {
