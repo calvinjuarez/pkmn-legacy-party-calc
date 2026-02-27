@@ -1,6 +1,6 @@
 <script setup>
 import { computed, ref } from 'vue'
-import { useRouter } from 'vue-router'
+import { RouterLink, useRouter } from 'vue-router'
 import PartyBuilder from '../components/PartyBuilder.vue'
 import { getPokemon, getTrainerCategories, getTrainerDisplayName } from '../services/gamedata'
 import {
@@ -127,22 +127,29 @@ function selectTrainer(trainer) {
 function partySummary(party) {
 	return (party ?? []).map(p => `${getPokemon(p.species)?.displayName ?? p.species}\u00A0${p.level}`).join('\n')
 }
+
+function resetFoeParty() {
+	opponentPartyStore.clearAll()
+	battleStore.resetOpponentSelection()
+}
 </script>
 
 <template>
 	<div class="v-opponent">
 		<div class="v-opponent--page_header">
-			<h1>Opponent</h1>
-			<a
-				v-if="!showTrainerPicker"
-				href="#"
-				class="v-opponent--mode_link"
-				@click.prevent="showTrainerPicker = true">Load Trainer</a>
-			<a
-				v-else
-				href="#"
-				class="v-opponent--mode_link"
-				@click.prevent="showTrainerPicker = false">Set Manually</a>
+			<h1>Foe's Party Builder</h1>
+			<div class="v-opponent--header_actions">
+				<a
+					v-if="!showTrainerPicker"
+					href="#"
+					class="v-opponent--mode_link"
+					@click.prevent="showTrainerPicker = true">Load Trainer</a>
+				<a
+					v-else
+					href="#"
+					class="v-opponent--mode_link"
+					@click.prevent="showTrainerPicker = false">Set Manually</a>
+			</div>
 		</div>
 
 		<div v-if="!showTrainerPicker" class="v-opponent--edit_mode">
@@ -290,16 +297,31 @@ function partySummary(party) {
 				</div>
 			</section>
 		</div>
+
+		<div class="v-opponent--footer">
+			<button type="button" class="btn btn-danger" @click="resetFoeParty">Reset</button>
+			<RouterLink to="/battle" class="btn btn-primary">Next</RouterLink>
+		</div>
 	</div>
 </template>
 
 <style scoped>
+.v-opponent--footer {
+	display: flex;
+	gap: 0.5rem;
+	margin-top: 1.5rem;
+}
 .v-opponent--page_header {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	gap: 1rem;
 	margin-bottom: 1rem;
+}
+.v-opponent--header_actions {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
 }
 .v-opponent--page_header h1 {
 	margin: 0;
@@ -313,7 +335,7 @@ function partySummary(party) {
 	text-decoration: underline;
 }
 .v-opponent {
-	max-width: 1000px;
+	max-width: var(--house--page--max_width);
 }
 .v-opponent--super_section {
 	margin-bottom: 2.5rem;

@@ -69,6 +69,10 @@ export function createPartyStore(id, storageKey, { getDefaultUseAdvanced }) {
 			}
 		}
 
+		function clearAll() {
+			party.value = createDefaultParty()
+		}
+
 		function getSlot(index) {
 			return party.value[index] ?? null
 		}
@@ -99,6 +103,7 @@ export function createPartyStore(id, storageKey, { getDefaultUseAdvanced }) {
 			party,
 			setSlot,
 			clearSlot,
+			clearAll,
 			getSlot,
 			loadFromTrainer,
 		}

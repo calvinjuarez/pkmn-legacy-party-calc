@@ -2,7 +2,6 @@ import { defineStore } from 'pinia'
 import { ref, watch } from 'vue'
 
 const STORAGE_KEY = 'pokemon-calc-settings'
-const PARTY_KEY = 'pokemon-calc-party'
 
 function loadFromStorage() {
 	try {
@@ -32,11 +31,14 @@ export const useSettingsStore = defineStore('settings', () => {
 		return statInputMode.value === 'advanced'
 	}
 
-	/** Clear all localStorage except party. Reloads the page. */
-	function clearStorageExceptParty() {
-		const keep = localStorage.getItem(PARTY_KEY)
+	/** Reset app-wide settings to defaults (stat input mode, etc.). */
+	function resetSettings() {
+		statInputMode.value = 'stats'
+	}
+
+	/** Clear all localStorage. Reloads the page. */
+	function clearAllStorage() {
 		localStorage.clear()
-		if (keep != null) localStorage.setItem(PARTY_KEY, keep)
 		window.location.reload()
 	}
 
@@ -52,6 +54,7 @@ export const useSettingsStore = defineStore('settings', () => {
 		statInputMode,
 		setStatInputMode,
 		getDefaultUseAdvanced,
-		clearStorageExceptParty,
+		resetSettings,
+		clearAllStorage,
 	}
 })

@@ -85,6 +85,15 @@ export const useBattleStore = defineStore('battle', () => {
 		resetConditions()
 	}
 
+	function resetMySelection() {
+		selectedMyIndex.value = null
+		myMoveMemory.value = {}
+		selectedMove.value = null
+		moveFromOpponent.value = false
+		calcResult.value = null
+		resetConditions()
+	}
+
 	function resetOpponentSelection() {
 		selectedTheirIndex.value = null
 		theirMoveMemory.value = {}
@@ -306,6 +315,7 @@ export const useBattleStore = defineStore('battle', () => {
 		isCrit,
 		setMyPokemon,
 		setTheirPokemon,
+		resetMySelection,
 		resetOpponentSelection,
 		setMove,
 		setAttackerSide,
