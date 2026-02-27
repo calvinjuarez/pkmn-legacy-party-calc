@@ -131,6 +131,7 @@ watch(
 <template>
 	<div class="v-battle">
 		<h1>Battle Calculator</h1>
+		<p class="lead">Pick your Pokemon and the foe's, choose a move, and see damage results.</p>
 
 		<div class="v-battle--main">
 			<SlideTray

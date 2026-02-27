@@ -156,6 +156,7 @@ small {
 	background: white;
 	cursor: pointer;
 	border-radius: var(--house--border_radius-md);
+	text-decoration: none;
 }
 .btn-nowrap {
 	white-space: nowrap;
@@ -305,6 +306,9 @@ label {
 	&:last-child {
 		margin-bottom: 0;
 	}
+}
+.form_group-radio-stacked .form_group-radio--option {
+	display: block;
 }
 
 /* ### Form Help Text */
