@@ -230,7 +230,7 @@ watch(
 				<aside class="v-battle--sidebar  v-battle--sidebar-their_party">
 					<div class="v-battle--sidebar--header">
 						<h2>Opponent's Pokemon</h2>
-						<router-link to="/opponent" class="l-edit_link">Edit</router-link>
+						<router-link to="/foe" class="l-edit_link">Edit</router-link>
 					</div>
 					<div class="v-battle--party_buttons">
 						<button v-for="{ index, slot } in theirPartySlots" :key="index" class="l-party_button  btn"

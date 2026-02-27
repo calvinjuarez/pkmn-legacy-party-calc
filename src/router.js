@@ -9,13 +9,13 @@ const routes = [
 		path: '/party',
 		name: 'party',
 		component: () => import('./views/PartyView.vue'),
-		meta: { title: 'Party Builder' },
+		meta: { title: 'My Party Builder' },
 	},
 	{
-		path: '/opponent',
-		name: 'opponent',
+		path: '/foe',
+		name: 'foe',
 		component: () => import('./views/OpponentView.vue'),
-		meta: { title: 'Opponent' },
+		meta: { title: "Foe's Party Builder" },
 	},
 	{
 		path: '/battle',

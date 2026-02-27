@@ -5,8 +5,8 @@ import { RouterLink, RouterView } from 'vue-router';
 <template>
 	<div class="app">
 		<nav class="nav">
-			<RouterLink to="/party">Party</RouterLink>
-			<RouterLink to="/opponent">Opponent</RouterLink>
+			<RouterLink to="/party">My Party</RouterLink>
+			<RouterLink to="/foe">Foe's Party</RouterLink>
 			<RouterLink to="/battle">Battle</RouterLink>
 			<RouterLink to="/settings">Settings</RouterLink>
 		</nav>
