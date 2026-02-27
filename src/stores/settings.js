@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import { ref, watch } from 'vue'
 
-const STORAGE_KEY = 'pokemon-calc-settings'
+const STORAGE_KEY = 'pkmn-legacy-party-calc-settings'
 
 function loadFromStorage() {
 	try {

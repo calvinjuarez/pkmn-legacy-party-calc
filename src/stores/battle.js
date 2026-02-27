@@ -5,8 +5,8 @@ import { usePartyStore } from './party'
 import { useOpponentPartyStore } from './opponentParty'
 
 const EMPTY_BOOSTS = { atk: 0, def: 0, spa: 0, spd: 0, spe: 0 }
-const SELECTION_MY_KEY = 'pokemon-calc-selection-my'
-const SELECTION_THEIR_KEY = 'pokemon-calc-selection-their'
+const SELECTION_MY_KEY = 'pkmn-legacy-party-calc-selection-my'
+const SELECTION_THEIR_KEY = 'pkmn-legacy-party-calc-selection-their'
 
 function loadSelectionFromStorage() {
 	function parseIndex(key, max) {
