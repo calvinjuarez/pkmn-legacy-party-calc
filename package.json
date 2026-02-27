@@ -6,7 +6,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
-		"build": "vite build && cp dist/index.html dist/404.html",
+		"build": "vite build && node scripts/patch-manifest.js && cp dist/index.html dist/404.html",
 		"preview": "vite preview",
 		"test": "vitest",
 		"test:run": "vitest run",
