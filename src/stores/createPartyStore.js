@@ -4,12 +4,12 @@
  *
  * @param {string} id - Pinia store id
  * @param {string} storageKey - localStorage key
- * @param {{ getDefaultUseAdvanced: () => boolean }} options
+ * @param {{ getDefaultUseAdvanced: () => boolean, exampleParty?: Array }} options
  */
 import { defineStore } from 'pinia'
 import { ref, watch } from 'vue'
 
-export function createPartyStore(id, storageKey, { getDefaultUseAdvanced }) {
+export function createPartyStore(id, storageKey, { getDefaultUseAdvanced, exampleParty }) {
 	return defineStore(id, () => {
 		function defaultSlot() {
 			return {
@@ -99,7 +99,20 @@ export function createPartyStore(id, storageKey, { getDefaultUseAdvanced }) {
 			}
 		}
 
-		return {
+		/** Populate party from example data (full slot structure). Only available when exampleParty provided. */
+		function loadExampleParty() {
+			if (!exampleParty?.length) return
+			for (let i = 0; i < 6; i++) {
+				const slot = exampleParty[i]
+				if (slot) {
+					setSlot(i, { ...defaultSlot(), ...slot })
+				} else {
+					clearSlot(i)
+				}
+			}
+		}
+
+		const store = {
 			party,
 			setSlot,
 			clearSlot,
@@ -107,5 +120,9 @@ export function createPartyStore(id, storageKey, { getDefaultUseAdvanced }) {
 			getSlot,
 			loadFromTrainer,
 		}
+		if (exampleParty?.length) {
+			store.loadExampleParty = loadExampleParty
+		}
+		return store
 	})
 }
