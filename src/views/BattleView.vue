@@ -339,6 +339,7 @@ watch(
 	align-items: flex-end;
 	gap: 1px;
 	height: 36px;
+	user-select: none;
 }
 .l-damage_chart--bar {
 	flex: 1;
