@@ -21,7 +21,13 @@ Ensure the `yellow-legacy-v1.0.9` submodule is initialized:
 git submodule update --init
 ```
 
-## Data Extraction
+## Development
+
+```bash
+npm run dev
+```
+
+### Extracting game data
 
 Game data is extracted from the Yellow Legacy ASM source. Run after cloning or when the submodule is updated:
 
@@ -31,17 +37,23 @@ npm run extract-data
 
 This generates `src/data/*.json` from the ROM hack's assembly files.
 
-## Development
+### Testing the PWA offline behavior
+
+The app is a PWA with a service worker that precaches assets for offline use. The service worker is only generated in production builds, so use preview rather than the dev server.
 
 ```bash
-npm run dev
+npm run build && npm run preview
 ```
+
+Open the preview URL in Chrome, load the app once so the service worker installs and precaches, then in DevTools enable "Offline" (or turn off your network connections) and refresh. The app should load from cache.
 
 ## Build
 
 ```bash
 npm run build
 ```
+
+The build is self-contained (no post-build scripts). Avoid adding extra steps to the build script; use Vite plugins instead.
 
 ## Deployment
 
