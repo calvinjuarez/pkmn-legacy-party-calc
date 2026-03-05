@@ -17,7 +17,8 @@ export default defineConfig(({ mode }) => {
 				workbox: {
 					globPatterns: ['**/*.{js,css,html,ico,png,svg,webmanifest}'],
 					maximumFileSizeToCacheInBytes: 6 * 1024 * 1024,
-					navigateFallback: null,
+					navigateFallback: base.endsWith('/') ? `${base}index.html` : `${base}/index.html`,
+					navigateFallbackAllowlist: [/./],
 					navigateFallbackDenylist: [],
 				},
 				registerType: 'autoUpdate',
