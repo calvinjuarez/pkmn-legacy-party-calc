@@ -8,10 +8,10 @@ Yellow Legacy modifies type matchups from vanilla Gen 1. This doc describes the 
 
 ## Changes from Vanilla Gen 1
 
-| Attacker | Defender | Vanilla | Yellow Legacy |
-|----------|----------|---------|---------------|
-| Ghost | Psychic | 0× (bug) | 2× |
-| Bug | Poison | 2× | 1× |
+| Attacker | Defender | Vanilla     | Yellow Legacy
+| ---      | ---      | ---         | ---
+| Ghost    | Psychic  | 0× (bug)    | 2×
+| Bug      | Poison   | 2×          | 1×
 
 ### Ghost vs Psychic
 
@@ -31,5 +31,6 @@ The calculator extracts type matchups to `src/data/types.json` via `scripts/pars
 
 ## See also
 
+- [Type chart toy model](toy-models/gen1-2-type-chart-implementation.js) – JS translation of how the original games stored and computed type effectiveness
 - [ADR-001: Use @smogon/calc Gen 1 Engine with Overrides](../adr/001-use-smogon-calc-with-overrides.md)
 - [ADR-015: Patch vs Fork vs PR](../adr/015-patch-vs-fork-vs-pr.md)
