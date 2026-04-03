@@ -4,7 +4,7 @@
 
 - [adr/](adr/) – Architecture Decision Records
 - [game-mechanics/](game-mechanics/) – Original game mechanics, how they differ in the hacks, and calculator support
-- [enhancements/](enhancements/) – Proposed enhancements (move typeahead, etc.)
+- [enhancements/](enhancements/) – Proposed enhancements (e.g. [move typeahead](enhancements/001-move-typeahead.md), [sprite colorization](enhancements/003-sprite-colorization.md))
 
 ## Docs
 
