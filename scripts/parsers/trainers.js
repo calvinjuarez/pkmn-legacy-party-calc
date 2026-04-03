@@ -1,42 +1,23 @@
 /**
  * Pure parser: extracts trainer data (parties, names, special moves) from ASM files.
  * Returns raw data with no game knowledge. No categories, rematches, locations, or display names.
- * Use prepare-data.js to enrich this output for a specific game version.
  */
 
-import fs from 'fs'
-import path from 'path'
-import { parseLiList, readAsm, readAsmLines } from '../lib/parse-asm.js'
-
-const DATA_DIR = path.join(process.cwd(), 'src/data')
-
-function loadJson(name) {
-	try {
-		return JSON.parse(fs.readFileSync(path.join(DATA_DIR, name), 'utf-8'))
-	} catch {
-		return {}
-	}
-}
+import { parseLiList } from '../lib/parse-asm.js'
 
 /**
- * Get default moves for a Pokemon at level, emulating Gen 1 game logic:
- * 1. Start with level1Moves from base stats (wMonHMoves)
- * 2. Add learnset moves to empty slots (WriteMonMoves)
- * 3. Special overrides are applied by the caller
+ * @param {string} speciesId
+ * @param {number} level
+ * @param {{ pokemon: Array<{ id: string, level1Moves?: string[] }>, learnsets: Record<string, Array<{ level: number, move: string }>> }} deps
  */
-function getMovesAtLevel(speciesId, level) {
-	const learnsets = loadJson('learnsets.json')
-	const pokemonData = loadJson('pokemon.json')
+export function getMovesAtLevel(speciesId, level, { pokemon, learnsets }) {
 	const learnset = learnsets[speciesId] ?? []
-	const species = Array.isArray(pokemonData) ? pokemonData.find(p => p.id === speciesId) : null
+	const species = Array.isArray(pokemon) ? pokemon.find(p => p.id === speciesId) : null
 	const level1Moves = species?.level1Moves ?? []
 
-	// Start with level1 moves; empty slots are null (like NO_MOVE)
 	const moves = level1Moves.slice(0, 4).map(m => m || null)
 	while (moves.length < 4) moves.push(null)
 
-	// Add learnset moves (like WriteMonMoves): fill empty slots first,
-	// then shift moves left (drop oldest) and add at the end when full.
 	const atLevel = learnset.filter(l => l.level <= level).sort((a, b) => a.level - b.level)
 	for (const { move } of atLevel) {
 		if (moves.includes(move)) continue
@@ -52,7 +33,6 @@ function getMovesAtLevel(speciesId, level) {
 	return moves.slice(0, 4)
 }
 
-// Block names that don't follow standard CamelCase -> UPPER_SNAKE conversion
 const BLOCK_NAME_TO_CONSTANT = {
 	Psychic: 'PSYCHIC_TR',
 }
@@ -80,16 +60,19 @@ function parseTrainerConstants(lines) {
 	return result
 }
 
-export function extractRawTrainers() {
-	// 1. Parse trainer constants (uses trainer_const macro, not plain const)
+/**
+ * @param {{ readAsm: (p: string) => string, readAsmLines: (p: string) => string[] }} readers
+ * @param {{ pokemon: unknown[], learnsets: Record<string, unknown> }} deps In-memory data matching pokemon.json / learnsets.json shape
+ */
+export function extractTrainers(readers, { pokemon, learnsets }) {
+	const { readAsm, readAsmLines } = readers
+
 	const trainerConstLines = readAsmLines('constants/trainer_constants.asm')
 	const trainerConstants = parseTrainerConstants(trainerConstLines)
 
-	// 2. Parse trainer names
 	const namesLines = readAsmLines('data/trainers/names.asm')
 	const names = parseLiList(namesLines)
 
-	// 3. Parse special moves: db TRAINER_CLASS, TRAINER_ID, then db slot, move_slot, move_id
 	const specialMovesContent = readAsm('data/trainers/special_moves.asm')
 	const specialMoves = {}
 
@@ -98,7 +81,6 @@ export function extractRawTrainers() {
 	let currentMoves = {}
 
 	for (const line of specialLines) {
-		// Must start with letter/underscore (constant name), not a digit (move lines use db slot, moveSlot, moveId)
 		const trainerMatch = line.match(/db\s+([A-Za-z_]\w*)\s*,\s*(\d+)\s*;?/)
 		if (trainerMatch) {
 			if (currentTrainer) {
@@ -122,10 +104,11 @@ export function extractRawTrainers() {
 		}
 	}
 
-	// 4. Parse parties.asm - mechanical extraction, no comment parsing
 	const partiesContent = readAsm('data/trainers/parties.asm')
 	const trainers = []
 	const classBlocks = partiesContent.split(/(\w+Data):/).slice(1)
+
+	const moveDeps = { pokemon, learnsets }
 
 	for (let i = 0; i < classBlocks.length; i += 2) {
 		const className = classBlocks[i]?.replace('Data', '') ?? ''
@@ -135,7 +118,6 @@ export function extractRawTrainers() {
 		const trainerClassId = trainerConstants[constName]
 		const rawRomName = (trainerClassId != null ? names[trainerClassId - 1] : null) ?? className
 
-		// Parse party entries: db level, species... or db $FF, level, species, level, species...
 		const entries = []
 		const lines = blockContent.split('\n')
 
@@ -144,29 +126,27 @@ export function extractRawTrainers() {
 			if (trimmed.startsWith('assert')) continue
 			if (trimmed.startsWith(';')) continue
 
-			// Format 1: db 11, RATTATA, EKANS, 0
 			const uniformMatch = trimmed.match(/db\s+(\d+)\s*,\s*([\w\s,]+)/)
 			if (uniformMatch) {
-				const level = parseInt(uniformMatch[1], 10)
+				const lvl = parseInt(uniformMatch[1], 10)
 				const rest = uniformMatch[2].split(',').map(s => s.trim()).filter(Boolean)
 				const species = rest.filter(s => !/^\d+$/.test(s) && s !== '0')
 				if (species.length > 0) {
-					const party = Array(species.length).fill(level).map((l, idx) => ({ level: l, species: species[idx] }))
+					const party = Array(species.length).fill(lvl).map((l, idx) => ({ level: l, species: species[idx] }))
 					entries.push({ party })
 				}
 				continue
 			}
 
-			// Format 2: db $FF, 10, GEODUDE, 12, ONIX, 0
 			const varMatch = trimmed.match(/db\s+\$FF\s*,\s*([\w\s,]+)/)
 			if (varMatch) {
 				const parts = varMatch[1].split(',').map(s => s.trim()).filter(s => s !== '0')
 				const party = []
 				for (let j = 0; j < parts.length; j += 2) {
-					const level = parseInt(parts[j], 10)
+					const lvl = parseInt(parts[j], 10)
 					const species = parts[j + 1]
-					if (species && !isNaN(level)) {
-						party.push({ level, species })
+					if (species && !isNaN(lvl)) {
+						party.push({ level: lvl, species })
 					}
 				}
 				if (party.length > 0) {
@@ -177,7 +157,6 @@ export function extractRawTrainers() {
 
 		for (let entryId = 0; entryId < entries.length; entryId++) {
 			const entry = entries[entryId]
-			// special_moves.asm uses 1-based trainer ID (BROCK 1 = first Brock)
 			const trainerId = entryId + 1
 			const variantKey = `${trainerClassId ?? className}_${trainerId}`
 			const customMoves =
@@ -188,8 +167,7 @@ export function extractRawTrainers() {
 			const partyWithMoves = entry.party.map((p, slotIdx) => {
 				const slot = slotIdx + 1
 				const overrides = customMoves?.[String(slot)]
-				// Start with default moves at level, then apply overrides to specific slots
-				const defaultMoves = getMovesAtLevel(p.species, p.level ?? 50)
+				const defaultMoves = getMovesAtLevel(p.species, p.level ?? 50, moveDeps)
 				const moves = [...defaultMoves]
 				if (overrides) {
 					for (const [moveSlot, moveId] of Object.entries(overrides).sort(
