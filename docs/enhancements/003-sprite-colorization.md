@@ -14,11 +14,11 @@ The party/battle UI is text-only today. Showing species art improves scanability
 
 ## Scope
 
-| Target | Role in this enhancement
-| ---    | ---
+| Target                                | Role in this enhancement
+| ---                                   | ---
 | **Yellow Legacy** (current submodule) | Primary: grayscale fronts (and optionally backs/icons), palettes from `data/sgb/sgb_palettes.asm` and `data/pokemon/palettes.asm`, dex-scoped joins.
-| **Crystal Legacy** (future) | Possibly the same **idea** (pret-style PNG sources + palette tables); paths and palette layout would differ—revisit when that hack is a first-class target.
-| **Emerald Legacy** (future) | Gen III sources are typically **already full-color**; the “indexed grayscale + per-line GBC palette” pipeline is **not required** for faithful display.
+| **Crystal Legacy** (future)           | Possibly the same **idea** (pret-style PNG sources + palette tables); paths and palette layout would differ—revisit when that hack is a first-class target.
+| **Emerald Legacy** (future)           | Gen III sources are typically **already full-color**; the “indexed grayscale + per-line GBC palette” pipeline is **not required** for faithful display.
 
 ## Facts from the Yellow Legacy tree
 
@@ -66,11 +66,11 @@ The party/battle UI is text-only today. Showing species art improves scanability
 
 ## Rendering options (open)
 
-| Approach | Notes
-| ---      | ---
+| Approach   | Notes
+| ---        | ---
 | **Canvas** | `ImageData` loop: read gray, map index, write RGBA—easy to debug.
-| **SVG** | `feComponentTransfer` can approximate per-channel LUTs; fiddly if inputs are not cleanly quantized.
-| **WebGL** | Fragment shader with `uniform vec4 u_colors[4]`; preprocess flood-fill on CPU if you need a mask.
+| **SVG**    | `feComponentTransfer` can approximate per-channel LUTs; fiddly if inputs are not cleanly quantized.
+| **WebGL**  | Fragment shader with `uniform vec4 u_colors[4]`; preprocess flood-fill on CPU if you need a mask.
 
 Choose later; the enhancement doc only needs the **data** contract above.
 
