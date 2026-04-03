@@ -4,6 +4,11 @@
 
 Accepted
 
+## See also
+
+- [ADR-017](017-transform-layer-terminology.md) — **Transform** as the formal name for the post-parse layer (historically “Decorate” here).
+- [docs/extractor-pipeline.md](../extractor-pipeline.md) — Current extractor behavior and vocabulary.
+
 ## Context
 
 The trainer parser originally derived `isRematch` and `location` from ASM comments. Comments are documentation, not data—they may be inconsistent across ROM versions or forks. We also mixed game knowledge (categories, rematches) and display logic (display names) into the parser, making it version-specific and harder to reuse.
