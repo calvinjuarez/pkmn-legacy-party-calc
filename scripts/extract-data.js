@@ -3,32 +3,34 @@
  * Extracts game data from the Yellow Legacy ROM hack ASM source files.
  * Run: npm run extract-data
  *
- * Two phases: (1) Extract — mechanical ASM parsing via parsers. (2) Decorate —
- * enriches raw trainer data with game-specific metadata (categories, rematches, locations).
+ * Parse → transform → persist: mechanical parsers return data; transform enriches trainers;
+ * this script writes src/data/*.json (committed).
  */
 
 import fs from 'fs'
 import path from 'path'
-import { extractRawTrainers } from './parsers/trainers.js'
+import { createAsmReaders } from './lib/parse-asm.js'
+import { toDisplayName } from './lib/rom-display-names.js'
+import { extractPokemon } from './parsers/pokemon.js'
+import { extractMoves } from './parsers/moves.js'
+import { extractLearnsets } from './parsers/learnsets.js'
+import { extractTypes } from './parsers/types.js'
+import { extractTrainers } from './parsers/trainers.js'
 
-// Extract: run parsers (they write their own files on import)
-import './parsers/pokemon.js'
-import './parsers/moves.js'
-import './parsers/learnsets.js'
-import './parsers/types.js'
+const DEFAULT_CONFIG = {
+	legacyRoot: path.join(process.cwd(), 'yellow-legacy-v1.0.9'),
+	outputDir: path.join(process.cwd(), 'src/data'),
+}
 
-const OUTPUT_PATH = path.join(process.cwd(), 'src/data/trainers.json')
-
-// Decorate: game knowledge for trainer metadata
 const BOSS_CATEGORIES = {
-	Brock: 'gymLeaders',
-	Misty: 'gymLeaders',
-	LtSurge: 'gymLeaders',
-	Erika: 'gymLeaders',
-	Koga: 'gymLeaders',
-	Blaine: 'gymLeaders',
-	Sabrina: 'gymLeaders',
-	Giovanni: 'gymLeaders',
+	Brock: 'gymLeader',
+	Misty: 'gymLeader',
+	LtSurge: 'gymLeader',
+	Erika: 'gymLeader',
+	Koga: 'gymLeader',
+	Blaine: 'gymLeader',
+	Sabrina: 'gymLeader',
+	Giovanni: 'gymLeader',
 	Bruno: 'eliteFour',
 	Lorelei: 'eliteFour',
 	Agatha: 'eliteFour',
@@ -72,40 +74,63 @@ const TRAINER_LOCATIONS = {
 	Rocket: { 41: 'Mt. Moon', 42: 'Rocket Hideout', 43: 'Pokémon Tower', 44: 'Silph Co.' },
 }
 
-// Decorate: enrich raw trainers with metadata, write trainers.json
-function decorateAndWriteTrainers() {
-	const raw = extractRawTrainers()
+function writeJson(outputPath, data) {
+	fs.mkdirSync(path.dirname(outputPath), { recursive: true })
+	fs.writeFileSync(outputPath, JSON.stringify(data, null, '\t'))
+}
 
-	const trainers = raw.map(t => {
+/**
+ * Enrich parsed trainer records (mechanical ASM output) with metadata and displayName for JSON.
+ */
+function transformTrainerMetadata(raw) {
+	return raw.map(t => {
 		const category = BOSS_CATEGORIES[t.class] ?? 'other'
 		const isBoss = category !== 'other'
 		const isRematch = REMATCH_VARIANTS[t.class] === t.variantId
 		const location = TRAINER_LOCATIONS[t.class]?.[t.variantId]
 
-		const trainer = {
-			class: t.class,
-			classId: t.classId,
-			romName: t.romName,
-			variantId: t.variantId,
-			party: t.party,
+		return {
+			...t,
+			displayName: toDisplayName(t.romName),
 			category,
 			isBoss,
 			isRematch,
+			...(location ? { location } : {}),
 		}
-		if (location) trainer.location = location
-		return trainer
 	})
+}
 
-	const gymLeaders = trainers.filter(t => t.category === 'gymLeaders')
+function runExtract(config = DEFAULT_CONFIG) {
+	const { legacyRoot, outputDir } = config
+	const readers = createAsmReaders(legacyRoot)
+
+	const pokemon = extractPokemon(readers, { legacyRoot })
+	writeJson(path.join(outputDir, 'pokemon.json'), pokemon)
+
+	const learnsets = extractLearnsets(readers)
+	writeJson(path.join(outputDir, 'learnsets.json'), learnsets)
+
+	const moves = extractMoves(readers)
+	writeJson(path.join(outputDir, 'moves.json'), moves)
+
+	const types = extractTypes(readers)
+	writeJson(path.join(outputDir, 'types.json'), types)
+
+	console.log(`Wrote ${pokemon.length} Pokemon, ${moves.length} moves, ${Object.keys(learnsets).length} learnset species to ${outputDir}`)
+
+	const parsedTrainers = extractTrainers(readers, { pokemon, learnsets })
+	const trainers = transformTrainerMetadata(parsedTrainers)
+
+	const gymLeader = trainers.filter(t => t.category === 'gymLeader')
 	const eliteFour = trainers.filter(t => t.category === 'eliteFour')
 	const champion = trainers.filter(t => t.category === 'champion')
 	const rival = trainers.filter(t => t.category === 'rival')
 	const other = trainers.filter(t => t.category === 'other')
 
-	const output = {
+	const trainersOutput = {
 		trainers,
 		categories: {
-			gymLeaders,
+			gymLeader,
 			eliteFour,
 			champion,
 			rival,
@@ -113,10 +138,10 @@ function decorateAndWriteTrainers() {
 		},
 	}
 
-	fs.mkdirSync(path.dirname(OUTPUT_PATH), { recursive: true })
-	fs.writeFileSync(OUTPUT_PATH, JSON.stringify(output, null, '\t'))
-	console.log(`Wrote ${trainers.length} trainer variants to ${OUTPUT_PATH}`)
+	const trainersPath = path.join(outputDir, 'trainers.json')
+	writeJson(trainersPath, trainersOutput)
+	console.log(`Wrote ${trainers.length} trainer variants to ${trainersPath}`)
 }
 
-decorateAndWriteTrainers()
+runExtract()
 console.log('Data extraction complete.')
