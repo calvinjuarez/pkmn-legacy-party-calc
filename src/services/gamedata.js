@@ -9,7 +9,7 @@ import movesData from '../data/moves.json'
 import pokemonData from '../data/pokemon.json'
 import trainersData from '../data/trainers.json'
 import typesData from '../data/types.json'
-import { DISPLAY_OVERRIDES, toDisplayName } from './gamedata.const.js'
+import { DISPLAY_OVERRIDES } from './gamedata.const.js'
 
 const GEN = 1
 
@@ -83,13 +83,13 @@ export function getTrainerById(classId, variantId) {
 
 export function getTrainerDisplayName(trainer) {
 	const key = trainer.romName?.toUpperCase() ?? trainer.class
-	return DISPLAY_OVERRIDES.trainers[key] ?? toDisplayName(trainer.romName ?? trainer.class)
+	return DISPLAY_OVERRIDES.trainers[key] ?? trainer.displayName ?? trainer.romName
 }
 
 export function getBossTrainers() {
 	const cats = trainersData.categories ?? {}
 	return [
-		...(cats.gymLeaders ?? []),
+		...(cats.gymLeader ?? []),
 		...(cats.eliteFour ?? []),
 		...(cats.champion ?? []),
 	]

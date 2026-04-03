@@ -36,8 +36,8 @@ function detectEeveelution(party) {
 }
 
 // Giovanni variant 2 = Viridian Gym fight; variants 0-1 are Rocket boss
-const gymLeaders = computed(() => {
-	const all = categories.gymLeaders ?? []
+const gymLeader = computed(() => {
+	const all = categories.gymLeader ?? []
 	return sortByOrder(
 		all.filter(t => !t.isRematch && !(t.class === 'Giovanni' && t.variantId !== 2)),
 		GYM_ORDER,
@@ -55,7 +55,7 @@ const champion = computed(() =>
 
 const rematches = computed(() => {
 	const gym = sortByOrder(
-		(categories.gymLeaders ?? []).filter(t => t.isRematch),
+		(categories.gymLeader ?? []).filter(t => t.isRematch),
 		GYM_ORDER,
 	)
 	const e4 = sortByOrder(
@@ -69,7 +69,7 @@ const rematches = computed(() => {
 const rivalFights = computed(() => categories.rival ?? [])
 
 const rocketBosses = computed(() => {
-	const giovanniRocket = (categories.gymLeaders ?? []).filter(
+	const giovanniRocket = (categories.gymLeader ?? []).filter(
 		t => t.class === 'Giovanni' && t.variantId !== 2 && !t.isRematch
 	)
 	const jessieJames = (categories.other ?? []).filter(
@@ -168,11 +168,11 @@ function resetFoeParty() {
 			<section class="v-opponent--super_section">
 				<h2>League Battles</h2>
 
-				<div v-if="gymLeaders.length" class="v-opponent--category">
+				<div v-if="gymLeader.length" class="v-opponent--category">
 					<h3>Gym Leaders</h3>
 					<div class="v-opponent--trainers">
 						<button
-							v-for="t in gymLeaders"
+							v-for="t in gymLeader"
 							:key="t.class + t.variantId"
 							class="v-opponent--trainer card"
 							@click="selectTrainer(t)">

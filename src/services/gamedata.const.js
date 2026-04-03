@@ -1,7 +1,6 @@
 /**
- * Human-facing display constants for the app.
- * Used by views and gamedata.js. Does not contain game-structural data
- * (that lives in the prepare step and trainers.json).
+ * App-only display and UI constants.
+ * Mechanical trainer display names live in trainers.json (see npm run extract-data).
  */
 
 /** Editorial overrides for trainer display names. Key: romName (uppercase). */
@@ -30,26 +29,3 @@ export const E4_ORDER = ['Lorelei', 'Bruno', 'Agatha', 'Lance']
 
 /** Species IDs used for eeveelution detection (rival starter). */
 export const EEVEELUTIONS = new Set(['EEVEE', 'JOLTEON', 'FLAREON', 'VAPOREON'])
-
-/** ROM decode overrides for trainer names that don't title-case well. Key: uppercase. */
-const ROM_NAME_OVERRIDES = {
-	'JR.TRAINER♂': 'Jr. Trainer ♂',
-	'JR.TRAINER♀': 'Jr. Trainer ♀',
-	'LT.SURGE': 'Lt. Surge',
-	'PROF.OAK': 'Prof. Oak',
-	'COOLTRAINER♂': 'Cooltrainer ♂',
-	'COOLTRAINER♀': 'Cooltrainer ♀',
-	'OFF.JENNY': 'Officer Jenny',
-}
-
-function toTitleCase(str) {
-	const cleaned = (str ?? '').replace(/@+$/, '').trim()
-	if (!cleaned) return ''
-	return cleaned.toLowerCase().replace(/(?:^|\s|[-._])\w/g, c => c.toUpperCase())
-}
-
-/** Mechanically normalize a ROM string for display (no editorial overrides). */
-export function toDisplayName(rawStr) {
-	const key = (rawStr ?? '').replace(/@+$/, '').trim().toUpperCase()
-	return ROM_NAME_OVERRIDES[key] ?? toTitleCase(rawStr)
-}
